@@ -3,7 +3,7 @@
 //  BetterClassEvalUITests
 //
 //  Created by Rico Wang on 11/21/18.
-//  Copyright © 2018 Rico Wang. All rights reserved.
+//  Copyright © 2018 Group_5. All rights reserved.
 //
 
 import XCTest
