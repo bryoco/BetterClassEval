@@ -13,7 +13,6 @@
 		634BA711AE49C7B73C5913A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634BAB497B39C1FB40050735 /* Assets.xcassets */; };
 		634BA784F8C401B651ECA610 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAB94C9EE0027E13BDD4 /* ViewController.swift */; };
 		634BA7B2D325939BE7F2BBE8 /* BetterClassEvalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E1606169EFF12036E0 /* BetterClassEvalTests.swift */; };
-		634BABA0CD2F92973F7E63F4 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA9D7C8703E5ABCB516FA /* HTMLParser.swift */; };
 		634BACDD99A4D6B2AD31D2D6 /* BetterClassEvalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAE36DEDFEDE1826E4DA /* BetterClassEvalUITests.swift */; };
 		634BADE735A9867D02CB11B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA57864404E1225586934 /* LaunchScreen.storyboard */; };
 		634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634BA20EF42280E142F28DE0 /* BetterClassEval.xcdatamodeld */; };
@@ -46,7 +45,6 @@
 		634BA159DCA4B02F1121D778 /* BetterClassEval.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterClassEval.xcdatamodel; sourceTree = "<group>"; };
 		634BA2E1606169EFF12036E0 /* BetterClassEvalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterClassEvalTests.swift; sourceTree = "<group>"; };
 		634BA6714B07203554E1E74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		634BA9D7C8703E5ABCB516FA /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		634BAA5F826BDC5BAA36AE04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		634BAAB94C9EE0027E13BDD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		634BAAE36DEDFEDE1826E4DA /* BetterClassEvalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterClassEvalUITests.swift; sourceTree = "<group>"; };
@@ -118,13 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				634BAA5F826BDC5BAA36AE04 /* Info.plist */,
-				634BAB497B39C1FB40050735 /* Assets.xcassets */,
-				634BA57864404E1225586934 /* LaunchScreen.storyboard */,
 				634BA6714B07203554E1E74C /* AppDelegate.swift */,
-				634BA20EF42280E142F28DE0 /* BetterClassEval.xcdatamodeld */,
-				634BA35D0626F31CF365D616 /* Main.storyboard */,
 				634BAAB94C9EE0027E13BDD4 /* ViewController.swift */,
-				634BA9D7C8703E5ABCB516FA /* HTMLParser.swift */,
+				634BAB497B39C1FB40050735 /* Assets.xcassets */,
+				634BA20EF42280E142F28DE0 /* BetterClassEval.xcdatamodeld */,
+				634BA57864404E1225586934 /* LaunchScreen.storyboard */,
+				634BA35D0626F31CF365D616 /* Main.storyboard */,
 			);
 			path = BetterClassEval;
 			sourceTree = "<group>";
@@ -168,7 +165,6 @@
 				D3D6EC99183748018FAA9AE9 /* Pods-BetterClassEvalUITests.debug.xcconfig */,
 				6E3AB111C339BEF4A5C34685 /* Pods-BetterClassEvalUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -393,7 +389,6 @@
 				634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */,
 				634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */,
 				634BA784F8C401B651ECA610 /* ViewController.swift in Sources */,
-				634BABA0CD2F92973F7E63F4 /* HTMLParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,8 +556,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -652,6 +646,7 @@
 				634BA9F1A6449F36A5916F85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		634BA45404450F3705E2809A /* Build configuration list for PBXNativeTarget "BetterClassEvalUITests" */ = {
 			isa = XCConfigurationList;
@@ -660,6 +655,7 @@
 				634BA16E9E99FB7715D7F7B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		634BAB3CE720CFD3EB4F4DB7 /* Build configuration list for PBXProject "BetterClassEval" */ = {
 			isa = XCConfigurationList;
@@ -677,6 +673,7 @@
 				634BA85ECFA11B37827CB045 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
