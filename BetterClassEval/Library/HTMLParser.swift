@@ -9,7 +9,7 @@
 import Foundation
 import SwiftSoup
 
-// MARK: - Utitlity extension for formatting
+// MARK: - Utility extension for formatting
 extension String {
     func condenseWhitespace() -> String {
         let components = self.components(separatedBy: .whitespacesAndNewlines)
@@ -23,12 +23,15 @@ extension String {
 /// - Parameters:
 ///   - url: An "toc" URL
 ///   - completion: An array of dictionaries of all classes
-///                 -> ["link": href, "dept": dept, "number_code": number_code, "section": section]
+///
+/// - Usage:
+///     call:       getStats("http://localhost:80/example.html", completion: { result in print(result) })
+///     format:     ["link": href, "dept": dept, "number_code": number_code, "section": section]
 func getAllClasses(_ url: String, completion: @escaping ((Any) -> Void)) {
     
-    var raw_data: Data? = nil
-    var txt_data: String = ""
-    let url_stub: String = "https://www.washington.edu/cec/"
+    var rawData: Data? = nil
+    var txtData: String = ""
+    let urlStub: String = "https://www.washington.edu/cec/"
     var result: [Any] = []
     
     URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
@@ -38,18 +41,18 @@ func getAllClasses(_ url: String, completion: @escaping ((Any) -> Void)) {
             return
         }
         
-        raw_data = data
-        txt_data = String(data: raw_data!, encoding: .utf8)!
+        rawData = data
+        txtData = String(data: rawData!, encoding: .utf8)!
         
         do {
             
-            let doc: Document = try SwiftSoup.parse(txt_data)
+            let doc: Document = try SwiftSoup.parse(txtData)
             
             // removes first 9 and last 3 embedded links
             let hrefs = Array(try doc.select("a").array().dropFirst(9).dropLast(3))
             
             for e: Element in hrefs {
-                let href: String = try url_stub + e.attr("href")
+                let href: String = try urlStub + e.attr("href")
                 let code = Array(String(href.split(separator: "/")[4].split(separator: ".")[0]))
                 
                 // Gets the metadata of class codes
@@ -85,32 +88,33 @@ func getAllClasses(_ url: String, completion: @escaping ((Any) -> Void)) {
         } catch {
             print("error")
         }}.resume()
-    
 }
-
 
 /// Parses and returns the statistics of a class from a given "class" webpage
 /// e.g. https://www.washington.edu/cec/m/MARINT370A1061.html
 ///
 /// - Parameters:
 ///   - url: A class URL
-///   - completion: A dictionary of statistics of a classes ->
+///   - completion: A dictionary of statistics of a classes
+///
+/// - Usage:
+///     call:       getStats("http://localhost:80/example.html", completion: { result in print(result) })
 ///     format:     ["Surveryed": surveyed, "Enrolled": enrolled, "Name": name, "Quarter": quarter, "Statistics": parsed_scores]
 ///     example:    ["Quarter": "WI18",
 ///                  "Statistics": ["Instructor\'s contribution:": ["46%", "35%", "18%", "2%", "0%", "0%", "4.38"],
-///                  "The course as a whole:": ["47%", "37%", "14%", "2%", "0%", "0%", "4.43"],
-///                  "Instructor\'s effectiveness:": ["54%", "25%", "18%", "2%", "2%", "0%", "4.57"],
-///                  "Instuctor\'s interest:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
-///                  "Amount learned:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
-///                  "Grading techniques:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
-///                  "The course content:": ["44%", "44%", "12%", "0%", "0%", "0%", "4.36"]],
+///                                 "The course as a whole:": ["47%", "37%", "14%", "2%", "0%", "0%", "4.43"],
+///                                 "Instructor\'s effectiveness:": ["54%", "25%", "18%", "2%", "2%", "0%", "4.57"],
+///                                 "Instuctor\'s interest:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+///                                 "Amount learned:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+///                                 "Grading techniques:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+///                                 "The course content:": ["44%", "44%", "12%", "0%", "0%", "0%", "4.36"]],
 ///                  "Surveryed": "\"58\"",
 ///                  "Enrolled": "\"147\"",
 ///                  "Name": "Joel Ross"]
 func getStats(_ url: String, completion: @escaping ((Any) -> Void)) {
     
-    var raw_data: Data? = nil
-    var txt_data: String = ""
+    var rawData: Data? = nil
+    var txtData: String = ""
     
     URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
         
@@ -119,14 +123,12 @@ func getStats(_ url: String, completion: @escaping ((Any) -> Void)) {
             return
         }
         
-        raw_data = data
-        txt_data = String(data: raw_data!, encoding: .utf8)!
+        rawData = data
+        txtData = String(data: rawData!, encoding: .utf8)!
         
         do {
             
-            let doc: Document = try SwiftSoup.parse(txt_data)
-            
-            //
+            let doc: Document = try SwiftSoup.parse(txtData)
             
             // h2 tag, gets lecturer's name and quarter of the class
             let h2: String = try doc.select("h2").text()
