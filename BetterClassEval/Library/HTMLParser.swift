@@ -17,20 +17,19 @@ extension String {
     }
 }
 
+// TODO: rewrite in Alamofire
 /// Parses and returns all classes from a given "toc" webpage
 /// e.g. https://www.washington.edu/cec/X-toc.html
 ///
 /// - Parameters:
 ///   - url: An "toc" URL
-///   - completion: An array of dictionaries of all classes
+///   - completion: An array of dictionaries of all classes in the provided webpage
 ///
 /// - Usage:
-///     call:       getStats("http://localhost:80/example.html", completion: { result in print(result) })
-///     format:     ["link": href, "dept": dept, "number_code": number_code, "section": section]
+///   - call:       getStats("http://localhost:80/example.html", completion: { result in print(result) })
+///   - format:     ["link": href, "dept": dept, "number_code": number_code, "section": section]
 func getAllClasses(_ url: String, completion: @escaping ((Any) -> Void)) {
     
-    var rawData: Data? = nil
-    var txtData: String = ""
     let urlStub: String = "https://www.washington.edu/cec/"
     var result: [Any] = []
     
@@ -41,12 +40,9 @@ func getAllClasses(_ url: String, completion: @escaping ((Any) -> Void)) {
             return
         }
         
-        rawData = data
-        txtData = String(data: rawData!, encoding: .utf8)!
-        
         do {
             
-            let doc: Document = try SwiftSoup.parse(txtData)
+            let doc: Document = try SwiftSoup.parse(String(data: data, encoding: .utf8)!)
             
             // removes first 9 and last 3 embedded links
             let hrefs = Array(try doc.select("a").array().dropFirst(9).dropLast(3))
@@ -86,10 +82,11 @@ func getAllClasses(_ url: String, completion: @escaping ((Any) -> Void)) {
         } catch Exception.Error(let type, let message) {
             print("type: \(type), message: \(message)")
         } catch {
-            print("error")
+            print("Unspecified error")
         }}.resume()
 }
 
+// TODO: rewrite in Alamofire
 /// Parses and returns the statistics of a class from a given "class" webpage
 /// e.g. https://www.washington.edu/cec/m/MARINT370A1061.html
 ///
@@ -98,9 +95,9 @@ func getAllClasses(_ url: String, completion: @escaping ((Any) -> Void)) {
 ///   - completion: A dictionary of statistics of a classes
 ///
 /// - Usage:
-///     call:       getStats("http://localhost:80/example.html", completion: { result in print(result) })
-///     format:     ["Surveryed": surveyed, "Enrolled": enrolled, "Name": name, "Quarter": quarter, "Statistics": parsed_scores]
-///     example:    ["Quarter": "WI18",
+///   - call:       getStats("http://localhost:80/example.html", completion: { result in print(result) })
+///   - format:     ["Surveryed": surveyed, "Enrolled": enrolled, "Name": name, "Quarter": quarter, "Statistics": parsed_scores]
+///   - example:    ["Quarter": "WI18",
 ///                  "Statistics": ["Instructor\'s contribution:": ["46%", "35%", "18%", "2%", "0%", "0%", "4.38"],
 ///                                 "The course as a whole:": ["47%", "37%", "14%", "2%", "0%", "0%", "4.43"],
 ///                                 "Instructor\'s effectiveness:": ["54%", "25%", "18%", "2%", "2%", "0%", "4.57"],
@@ -113,9 +110,6 @@ func getAllClasses(_ url: String, completion: @escaping ((Any) -> Void)) {
 ///                  "Name": "Joel Ross"]
 func getStats(_ url: String, completion: @escaping ((Any) -> Void)) {
     
-    var rawData: Data? = nil
-    var txtData: String = ""
-    
     URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
         
         guard let data = data else {
@@ -123,12 +117,9 @@ func getStats(_ url: String, completion: @escaping ((Any) -> Void)) {
             return
         }
         
-        rawData = data
-        txtData = String(data: rawData!, encoding: .utf8)!
-        
         do {
             
-            let doc: Document = try SwiftSoup.parse(txtData)
+            let doc: Document = try SwiftSoup.parse(String(data: data, encoding: .utf8)!)
             
             // h2 tag, gets lecturer's name and quarter of the class
             let h2: String = try doc.select("h2").text()
@@ -148,6 +139,7 @@ func getStats(_ url: String, completion: @escaping ((Any) -> Void)) {
             
             for i in stride(from: 0, to: meta_scores.count - 1, by: NUMBER_OF_ELEMENTS) {
                 var stats: [String] = []
+                // only getting data from certain number of tags
                 for j in i+1...i+7 { stats.append(try meta_scores[j].text()) }
                 parsed_scores.updateValue(stats, forKey: try meta_scores[i].text())
             }
@@ -164,6 +156,6 @@ func getStats(_ url: String, completion: @escaping ((Any) -> Void)) {
         } catch Exception.Error(let type, let message) {
             print("type: \(type), message: \(message)")
         } catch {
-            print("error")
+            print("Unspecified error")
         }}.resume()
 }
