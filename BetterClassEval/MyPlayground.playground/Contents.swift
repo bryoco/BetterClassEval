@@ -20,19 +20,20 @@ extension String {
 }
 
 /// Parses and returns all classes from a given "toc" webpage
-/// i.e. https://www.washington.edu/cec/X-toc.html
+/// e.g. https://www.washington.edu/cec/X-toc.html
 ///
-/// - Parameter url: An URL
-/// - Returns: An array of dictionaries of all classes
-///            -> ["link": href, "dept": dept, "number_code": number_code, "section": section]
-func getAllClass(_ url: String) -> [Any] {
+/// - Parameters:
+///   - url: An "toc" URL
+///   - completion: An array of dictionaries of all classes
+///                 -> ["link": href, "dept": dept, "number_code": number_code, "section": section]
+func getAllClass(_ url: String, completion: @escaping ((Any) -> Void)) {
     
     var raw_data: Data? = nil
     var txt_data: String = ""
     let url_stub: String = "https://www.washington.edu/cec/"
     var result: [Any] = []
     
-    let get_all_class = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
+    URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
         
         guard let data = data else {
             print("got error \(error.debugDescription)")
@@ -77,10 +78,9 @@ func getAllClass(_ url: String) -> [Any] {
                 
                 let data: [String: String] = ["link": href, "dept": dept, "number_code": number_code, "section": section]
                 result.append(data)
-                
             }
             
-            
+            completion(result)
             
         } catch Exception.Error(let type, let message) {
             print("type: \(type), message: \(message)")
@@ -88,22 +88,36 @@ func getAllClass(_ url: String) -> [Any] {
             print("error")
         }
         
-    }
+    }.resume()
     
-    get_all_class.resume()
-    
-    return result
 }
 
-// ///////////
-// Gets stats of a class
-// ///////////
-func getStats(_ url: String) {
+
+/// Parses and returns the statistics of a class from a given "class" webpage
+/// e.g. https://www.washington.edu/cec/m/MARINT370A1061.html
+///
+/// - Parameters:
+///   - url: A class URL
+///   - completion: A dictionary of statistics of a classes ->
+///     format:     ["Surveryed": surveyed, "Enrolled": enrolled, "Name": name, "Quarter": quarter, "Statistics": parsed_scores]
+///     example:    ["Quarter": "WI18",
+///                  "Statistics": ["Instructor\'s contribution:": ["46%", "35%", "18%", "2%", "0%", "0%", "4.38"],
+///                  "The course as a whole:": ["47%", "37%", "14%", "2%", "0%", "0%", "4.43"],
+///                  "Instructor\'s effectiveness:": ["54%", "25%", "18%", "2%", "2%", "0%", "4.57"],
+///                  "Instuctor\'s interest:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+///                  "Amount learned:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+///                  "Grading techniques:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+///                  "The course content:": ["44%", "44%", "12%", "0%", "0%", "0%", "4.36"]],
+///                  "Surveryed": "\"58\"",
+///                  "Enrolled": "\"147\"",
+///                  "Name": "Joel Ross"]
+
+func getStats(_ url: String, completion: @escaping ((Any) -> Void)) {
     
     var raw_data: Data? = nil
     var txt_data: String = ""
     
-    let get_stats = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
+    URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
         
         guard let data = data else {
             print("got error \(error.debugDescription)")
@@ -148,17 +162,17 @@ func getStats(_ url: String) {
                                          "Quarter": quarter,
                                          "Statistics": parsed_scores]
             
-            print(result)
+            completion(result)
             
         } catch Exception.Error(let type, let message) {
             print("type: \(type), message: \(message)")
         } catch {
             print("error")
         }
-    }
-    
-    get_stats.resume()
+        
+    }.resume()
 }
 
 
-print(getAllClass("http://localhost:8123/a-toc.html"))
+//print(getAllClass("http://localhost:8123/a-toc.html", completion: { result in print(result) }))
+getStats("http://localhost:8122/data.html", completion: { result in print(result) })
