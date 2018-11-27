@@ -19,13 +19,11 @@ extension String {
     }
 }
 
-/// Parses and returns all classes from a given "toc" webpage
+/// Gets all classes from a given "toc" webpage
 /// i.e. https://www.washington.edu/cec/X-toc.html
 ///
-/// - Parameter url: An URL
-/// - Returns: An array of dictionaries of all classes
-///            -> ["link": href, "dept": dept, "number_code": number_code, "section": section]
-func getAllClass(_ url: String) -> [Any] {
+/// - Parameter url: <#url description#>
+func getAllClass(_ url: String) {
     
     var raw_data: Data? = nil
     var txt_data: String = ""
@@ -48,6 +46,8 @@ func getAllClass(_ url: String) -> [Any] {
             
             // removes first 9 and last 3 embedded links
             let hrefs = Array(try doc.select("a").array().dropFirst(9).dropLast(3))
+            
+            print("start")
             
             for e: Element in hrefs {
                 let href: String = try url_stub + e.attr("href")
@@ -80,8 +80,6 @@ func getAllClass(_ url: String) -> [Any] {
                 
             }
             
-            
-            
         } catch Exception.Error(let type, let message) {
             print("type: \(type), message: \(message)")
         } catch {
@@ -91,8 +89,7 @@ func getAllClass(_ url: String) -> [Any] {
     }
     
     get_all_class.resume()
-    
-    return result
+//    return result
 }
 
 // ///////////
@@ -159,6 +156,3 @@ func getStats(_ url: String) {
     
     get_stats.resume()
 }
-
-
-print(getAllClass("http://localhost:8123/a-toc.html"))
