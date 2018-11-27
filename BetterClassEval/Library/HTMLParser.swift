@@ -8,10 +8,8 @@
 
 import Foundation
 import SwiftSoup
-import JavaScriptCore
-import WebKit
-import UIKit
 
+// MARK: - Utitlity extension for formatting
 extension String {
     func condenseWhitespace() -> String {
         let components = self.components(separatedBy: .whitespacesAndNewlines)

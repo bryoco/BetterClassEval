@@ -111,7 +111,6 @@ func getAllClass(_ url: String, completion: @escaping ((Any) -> Void)) {
 ///                  "Surveryed": "\"58\"",
 ///                  "Enrolled": "\"147\"",
 ///                  "Name": "Joel Ross"]
-
 func getStats(_ url: String, completion: @escaping ((Any) -> Void)) {
     
     var raw_data: Data? = nil
