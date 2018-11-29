@@ -9,6 +9,7 @@ target 'BetterClassEval' do
   # Pods for BetterClassEval
   pod 'SwiftSoup'
   pod 'Alamofire', '~> 4.7'
+  pod 'SwiftyJSON'
 
   target 'BetterClassEvalTests' do
     inherit! :search_paths

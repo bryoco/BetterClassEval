@@ -16,8 +16,10 @@
 		634BACDD99A4D6B2AD31D2D6 /* BetterClassEvalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAE36DEDFEDE1826E4DA /* BetterClassEvalUITests.swift */; };
 		634BADE735A9867D02CB11B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA57864404E1225586934 /* LaunchScreen.storyboard */; };
 		634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634BA20EF42280E142F28DE0 /* BetterClassEval.xcdatamodeld */; };
-		A4C995DB21AD0D18009AD8B9 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C995DA21AD0D18009AD8B9 /* Authentication.swift */; };
-		A4D247B221ACB5A400D33C27 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D247B121ACB5A400D33C27 /* HTMLParser.swift */; };
+		A456C83D21AF3C7400104445 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83B21AF3C7400104445 /* HTMLParser.swift */; };
+		A456C83E21AF3C7400104445 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83B21AF3C7400104445 /* HTMLParser.swift */; };
+		A456C83F21AF3C7400104445 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83C21AF3C7400104445 /* Authentication.swift */; };
+		A456C84021AF3C7400104445 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83C21AF3C7400104445 /* Authentication.swift */; };
 		D051E4954A344C1ACE717311 /* Pods_BetterClassEval.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF78EC357E60DC2F4C24B24 /* Pods_BetterClassEval.framework */; };
 		DA72B5D87C315845FDBE7EF7 /* Pods_BetterClassEvalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57C2147573C91EB0E8784528 /* Pods_BetterClassEvalTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,8 +62,8 @@
 		8501C80F8006DE99D2573B59 /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
 		9DF78EC357E60DC2F4C24B24 /* Pods_BetterClassEval.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEval.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05BB990F2A7BEC5D4B44F7E /* Pods-BetterClassEval.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.debug.xcconfig"; sourceTree = "<group>"; };
-		A4C995DA21AD0D18009AD8B9 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
-		A4D247B121ACB5A400D33C27 /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+		A456C83B21AF3C7400104445 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+		A456C83C21AF3C7400104445 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		A5622AAF279AF4C5299EC7B9 /* Pods-BetterClassEvalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3D6EC99183748018FAA9AE9 /* Pods-BetterClassEvalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBB7AB063182B4C3A4BD2EA9 /* Pods_BetterClassEvalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,8 +165,8 @@
 		A4D247B021ACB58C00D33C27 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				A4D247B121ACB5A400D33C27 /* HTMLParser.swift */,
-				A4C995DA21AD0D18009AD8B9 /* Authentication.swift */,
+				A456C83C21AF3C7400104445 /* Authentication.swift */,
+				A456C83B21AF3C7400104445 /* HTMLParser.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -374,6 +376,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -381,6 +384,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -395,6 +399,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				634BA7B2D325939BE7F2BBE8 /* BetterClassEvalTests.swift in Sources */,
+				A456C83E21AF3C7400104445 /* HTMLParser.swift in Sources */,
+				A456C84021AF3C7400104445 /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,9 +409,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */,
-				A4D247B221ACB5A400D33C27 /* HTMLParser.swift in Sources */,
+				A456C83D21AF3C7400104445 /* HTMLParser.swift in Sources */,
 				634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */,
-				A4C995DB21AD0D18009AD8B9 /* Authentication.swift in Sources */,
+				A456C83F21AF3C7400104445 /* Authentication.swift in Sources */,
 				634BA784F8C401B651ECA610 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
