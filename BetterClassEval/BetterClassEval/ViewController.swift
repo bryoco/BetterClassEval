@@ -10,22 +10,25 @@ import UIKit
 import WebKit
 
 class ViewController: UIViewController, WKUIDelegate {
-    
+
     var webView = WKWebView()
-    
+
     override func loadView() {
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let user = Authentication(username: "", password: "")
-        
-        user.getFirstKiss(completion: { result in
-            user.getWeblogin(cookies: result, completion: {
-                user.getCoursePage("https://www.washington.edu/cec/f/FHL333A4651.html", completion: {
-                    user.printFields()
-        })})})
+        let url: String = "https://www.washington.edu/cec/d/DANCE100A1116.html"
+
+        user.firstKiss(completion: { result in
+            user.weblogin(cookies: result, completion: {
+                user.getCoursePage(url, completion: {
+                    user.webloginRedirect(url, completion: {
+                        user.getCoursePageWithCookie(url, completion: {
+                            print("done")
+                        })})})})})
     }
-    
+
 }
