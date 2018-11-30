@@ -10,31 +10,10 @@ import Foundation
 import SwiftSoup
 import Alamofire
 
-//extension String: ParameterEncoding {
-//
-//    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
-//        var request = try urlRequest.asURLRequest()
-//        request.httpBody = data(using: .utf8, allowLossyConversion: false)
-//        return request
-//    }
-//
-//    var isValidURL: Bool {
-//        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-//        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.endIndex.encodedOffset)) {
-//            // it is a link, if the match covers the whole string
-//            return match.range.length == self.endIndex.encodedOffset
-//        } else {
-//            return false
-//        }
-//    }
-//
-//}
-
-/// Entire login process
-//user.getFirstKiss(completion: { result in
-//    user.getWeblogin(cookies: result, completion: {
-//        user.getCoursePage(url, completion: { result in
-//            user.getRedirectURL(completion: {
+//user.firstKiss(completion: { result in
+//    user.weblogin(cookies: result, completion: {
+//        user.getCoursePage(url, completion: {
+//            user.webloginRedirect(url, completion: {
 //                user.getCoursePageWithCookie(url, completion: {
 //                    NSLog("done")
 //                })})})})})
@@ -48,9 +27,11 @@ public class Authentication {
     var pubcookie_g_req: String
     var pubcookie_l: String
     var redirect_url: String
-    var uwauth: String
 
     public init(username: String, password: String) {
+
+        setenv("CFNETWORK_DIAGNOSTICS", "3", 1);
+
         self.username = username
         self.password = password
 
@@ -58,7 +39,21 @@ public class Authentication {
         self.pubcookie_l = ""
         self.pubcookie_g_req = ""
         self.redirect_url = ""
-        self.uwauth = ""
+
+        let _: Alamofire.SessionManager = {
+            let serverTrustPolicies: [String: ServerTrustPolicy] = [
+                "www.washington.edu": .disableEvaluation,
+                "weblogin.washington.edu": .disableEvaluation
+            ]
+
+            let configuration = URLSessionConfiguration.default
+            configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+
+            return Alamofire.SessionManager(
+                    configuration: configuration,
+                    serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+            )
+        }()
     }
 
     public func ifCookiesValid() -> Bool {
@@ -73,8 +68,6 @@ public class Authentication {
         NSLog(self.pubcookie_g)
         NSLog(self.pubcookie_l)
         NSLog(self.pubcookie_g_req)
-        NSLog(self.uwauth)
-
     }
 
     /// Invokes a GET request to weblogin service to retrieve first kiss cookies and is used for logging in
@@ -83,12 +76,13 @@ public class Authentication {
     /// - Parameters:
     ///   - completion: Returns a dictionary of first kiss cookies
     ///
-    public func firstKiss(completion: @escaping (([String : String]) -> Void)) {
-        var cookies: [String : String] = [:]
+    public func firstKiss(completion: @escaping (([String: String]) -> Void)) {
+        var cookies: [String: String] = [:]
 
         // Requesting first kiss cookies
         let requestFirstKiss = Alamofire.request("https://weblogin.washington.edu/", method: .put)
         requestFirstKiss.validate()
+
         requestFirstKiss.response { response in
 
             guard response.data != nil else {
@@ -114,7 +108,7 @@ public class Authentication {
                 completion(cookies)
 
             } catch Exception.Error(let type, let message) {
-                NSLog("type: \(type), message: \(message)")
+                NSLog("!!!firstKiss failed!!! type: \(type), message: \(message)")
             } catch {
                 NSLog("Unspecified error")
             }
@@ -127,7 +121,7 @@ public class Authentication {
     /// - Parameters:
     ///   - cookies: First kiss cookies, typically from getFirstKiss()
     ///   - completion: returns nothing
-    public func weblogin(cookies: [String : String], completion: @escaping () -> Void) {
+    public func weblogin(cookies: [String: String], completion: @escaping () -> Void) {
 
         let requestLogin = Alamofire.request("https://weblogin.washington.edu/", method: .post, parameters: cookies)
         requestLogin.validate()
@@ -151,7 +145,7 @@ public class Authentication {
     ///   - completion: returns nothing
     public func getCoursePage(_ url: String, completion: @escaping (() -> Void)) {
 
-        var cookies: [String : String] = [:]
+        var cookies: [String: String] = [:]
 
         // https://www.washington.edu/cec/f/FHL333A4651.html
         guard url.isValidURL else {
@@ -160,6 +154,7 @@ public class Authentication {
         }
 
         let requestCoursePage = Alamofire.request(url)
+
         requestCoursePage.validate()
         requestCoursePage.response { response in
 
@@ -188,7 +183,7 @@ public class Authentication {
                 completion()
 
             } catch Exception.Error(let type, let message) {
-                NSLog("type: \(type), message: \(message)")
+                NSLog("!!!getCoursePage failed!!! type: \(type), message: \(message)")
             } catch {
                 NSLog("Unspecified error")
             }
@@ -200,11 +195,11 @@ public class Authentication {
     ///
     /// - Parameter
     ///   - completion: returns nothing
-    public func webloginRedirect(_ url: String , completion: @escaping (() -> Void)) {
+    public func webloginRedirect(_ url: String, completion: @escaping (() -> Void)) {
 
-        var cookies: [String : String] = [:]
+        var cookies: [String: String] = [:]
 
-        let params: [String : String] =
+        let params: [String: String] =
                 ["Cookie": self.pubcookie_l,
                  "Referer": url]
 
@@ -239,7 +234,7 @@ public class Authentication {
                 completion()
 
             } catch Exception.Error(let type, let message) {
-                NSLog("type: \(type), message: \(message)")
+                NSLog("!!!webloginRedirect failed!!! type: \(type), message: \(message)")
             } catch {
                 NSLog("Unspecified error")
             }
@@ -253,8 +248,8 @@ public class Authentication {
     ///   - completion: returns nothing
     public func getCoursePageWithCookie(_ url: String, completion: @escaping (() -> Void)) {
 
-        let params: [String : String] =
-                ["Referer":"https://weblogin.washington.edu/"]
+        let params: [String: String] =
+                ["Referer": "https://weblogin.washington.edu/"]
 
         guard url.isValidURL else {
             NSLog("Bad URL")
@@ -264,7 +259,7 @@ public class Authentication {
         let requestCoursePage =
                 Alamofire.request(url, method: .get,
                         parameters: params,
-                        headers: ["Cookie":self.pubcookie_g])
+                        headers: ["Cookie": self.pubcookie_g])
         requestCoursePage.validate()
         requestCoursePage.response { response in
 
@@ -284,20 +279,20 @@ public class Authentication {
 
 
             } catch Exception.Error(let type, let message) {
-                NSLog("type: \(type), message: \(message)")
+                NSLog("!!!getCoursePageWithCookie failed!!! type: \(type), message: \(message)")
             } catch {
                 NSLog("Unspecified error")
             }
         }
     }
-    
-    public func getStats(_ url: String) -> [String : Any] {
-        
+
+    public func getStats(_ url: String) -> [String: Any] {
+
         guard let _ = URL(string: url) else {
             NSLog("Bad URL")
             return [:]
         }
-        
+
         return ["Quarter": "WI18",
                 "Statistics": ["Instructor\'s contribution:": ["46%", "35%", "18%", "2%", "0%", "0%", "4.38"],
                                "The course as a whole:": ["47%", "37%", "14%", "2%", "0%", "0%", "4.43"],
