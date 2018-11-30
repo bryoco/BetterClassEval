@@ -17,9 +17,18 @@ extension String: ParameterEncoding {
         request.httpBody = data(using: .utf8, allowLossyConversion: false)
         return request
     }
+
+    var isValidURL: Bool {
+        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.endIndex.encodedOffset)) {
+            // it is a link, if the match covers the whole string
+            return match.range.length == self.endIndex.encodedOffset
+        } else {
+            return false
+        }
+    }
     
 }
-
 
 /// Entire login process
 //user.getFirstKiss(completion: { result in
@@ -56,6 +65,7 @@ public class Authentication {
         return NSDate().timeIntervalSince1970 - timeCreation < 28800 // 8 hours in seconds
     }
     
+    /// TODO: remove this
     public func printFields() {
         print(self.username)
         print(self.password)
@@ -139,11 +149,16 @@ public class Authentication {
     /// - Parameters:
     ///   - url: url
     ///   - completion: returns nothing
-    public func getCoursePage(_ url: URLConvertible, completion: @escaping (() -> Void)) {
+    public func getCoursePage(_ url: String, completion: @escaping (() -> Void)) {
         
         var cookies: [String : String] = [:]
         
         // https://www.washington.edu/cec/f/FHL333A4651.html
+        guard url.isValidURL else {
+            NSLog("Bad URL")
+            return
+        }
+        
         let requestCoursePage = Alamofire.request(url)
         requestCoursePage.validate()
         requestCoursePage.response { response in
@@ -161,7 +176,6 @@ public class Authentication {
                 
                 // Getting first cookies
                 let elements = try doc.select("[type=hidden]")
-                
                 for e in elements {
                     cookies.updateValue(try e.val(), forKey: try e.attr("name"))
                 }
@@ -194,9 +208,12 @@ public class Authentication {
             ["Cookie": self.pubcookie_l,
              "Referer": url]
         
-        let requestLogin = Alamofire.request("https://weblogin.washington.edu", method: .post, parameters: params, encoding: self.pubcookie_g_req, headers: [:])
+        let requestLogin = Alamofire.request("https://weblogin.washington.edu",
+                                             method: .post,
+                                             parameters: params,
+                                             encoding: self.pubcookie_g_req,
+                                             headers: [:])
         requestLogin.validate()
-        
         requestLogin.response { response in
             
             guard response.data != nil else {
@@ -234,12 +251,20 @@ public class Authentication {
     /// - Parameters:
     ///   - url: Course URL
     ///   - completion: returns nothing
-    public func getCoursePageWithCookie(_ url: URLConvertible, completion: @escaping (() -> Void)) {
+    public func getCoursePageWithCookie(_ url: String, completion: @escaping (() -> Void)) {
         
         let params: [String : String] =
             ["Referer":"https://weblogin.washington.edu/"]
         
-        let requestCoursePage = Alamofire.request("https://www.washington.edu/cec/f/FHL333A4651.html", method: .get, parameters: params, headers: ["Cookie":self.pubcookie_g])
+        guard url.isValidURL else {
+            NSLog("Bad URL")
+            return
+        }
+        
+        let requestCoursePage =
+            Alamofire.request(url, method: .get,
+                              parameters: params,
+                              headers: ["Cookie":self.pubcookie_g])
         requestCoursePage.validate()
         requestCoursePage.response { response in
             
