@@ -23,7 +23,8 @@ class ViewController: UIViewController, WKUIDelegate {
         
         user.getFirstKiss(completion: { result in
             user.getWeblogin(cookies: result, completion: {
-                user.getCoursePage("https://www.washington.edu/cec/f/FHL333A4651.html", completion: { result in user.printFields()
+                user.getCoursePage("https://www.washington.edu/cec/f/FHL333A4651.html", completion: {
+                    user.printFields()
         })})})
     }
     
