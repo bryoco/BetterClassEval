@@ -10,25 +10,25 @@ import Foundation
 import SwiftSoup
 import Alamofire
 
-extension String: ParameterEncoding {
-
-    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
-        var request = try urlRequest.asURLRequest()
-        request.httpBody = data(using: .utf8, allowLossyConversion: false)
-        return request
-    }
-
-    var isValidURL: Bool {
-        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.endIndex.encodedOffset)) {
-            // it is a link, if the match covers the whole string
-            return match.range.length == self.endIndex.encodedOffset
-        } else {
-            return false
-        }
-    }
-
-}
+//extension String: ParameterEncoding {
+//
+//    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+//        var request = try urlRequest.asURLRequest()
+//        request.httpBody = data(using: .utf8, allowLossyConversion: false)
+//        return request
+//    }
+//
+//    var isValidURL: Bool {
+//        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+//        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.endIndex.encodedOffset)) {
+//            // it is a link, if the match covers the whole string
+//            return match.range.length == self.endIndex.encodedOffset
+//        } else {
+//            return false
+//        }
+//    }
+//
+//}
 
 /// Entire login process
 //user.getFirstKiss(completion: { result in
@@ -36,7 +36,7 @@ extension String: ParameterEncoding {
 //        user.getCoursePage(url, completion: { result in
 //            user.getRedirectURL(completion: {
 //                user.getCoursePageWithCookie(url, completion: {
-//                    print("done")
+//                    NSLog("done")
 //                })})})})})
 public class Authentication {
 
@@ -67,13 +67,13 @@ public class Authentication {
 
     /// TODO: remove this
     public func printFields() {
-        print(self.username)
-        print(self.password)
-        print(String(self.timeCreation))
-        print(self.pubcookie_g)
-        print(self.pubcookie_l)
-        print(self.pubcookie_g_req)
-        print(self.uwauth)
+        NSLog(self.username)
+        NSLog(self.password)
+        NSLog(String(self.timeCreation))
+        NSLog(self.pubcookie_g)
+        NSLog(self.pubcookie_l)
+        NSLog(self.pubcookie_g_req)
+        NSLog(self.uwauth)
 
     }
 
@@ -92,7 +92,7 @@ public class Authentication {
         requestFirstKiss.response { response in
 
             guard response.data != nil else {
-                print("got nothing \(response.error.debugDescription)")
+                NSLog("got nothing \(response.error.debugDescription)")
                 return
             }
 
@@ -114,9 +114,9 @@ public class Authentication {
                 completion(cookies)
 
             } catch Exception.Error(let type, let message) {
-                print("type: \(type), message: \(message)")
+                NSLog("type: \(type), message: \(message)")
             } catch {
-                print("Unspecified error")
+                NSLog("Unspecified error")
             }
         }
     }
@@ -134,7 +134,7 @@ public class Authentication {
         requestLogin.responseJSON { response in
 
             guard response.data != nil else {
-                print("got nothing \(response.error.debugDescription)")
+                NSLog("got nothing \(response.error.debugDescription)")
                 return
             }
 
@@ -164,7 +164,7 @@ public class Authentication {
         requestCoursePage.response { response in
 
             guard response.data != nil else {
-                print("got nothing \(response.error.debugDescription)")
+                NSLog("got nothing \(response.error.debugDescription)")
                 return
             }
 
@@ -188,9 +188,9 @@ public class Authentication {
                 completion()
 
             } catch Exception.Error(let type, let message) {
-                print("type: \(type), message: \(message)")
+                NSLog("type: \(type), message: \(message)")
             } catch {
-                print("Unspecified error")
+                NSLog("Unspecified error")
             }
         }
     }
@@ -269,7 +269,7 @@ public class Authentication {
         requestCoursePage.response { response in
 
             guard response.data != nil else {
-                print("got nothing \(response.error.debugDescription)")
+                NSLog("got nothing \(response.error.debugDescription)")
                 return
             }
 
@@ -280,13 +280,13 @@ public class Authentication {
                 let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
 
                 // TODO
-                print(try doc.text())
+                NSLog(try doc.text())
 
 
             } catch Exception.Error(let type, let message) {
-                print("type: \(type), message: \(message)")
+                NSLog("type: \(type), message: \(message)")
             } catch {
-                print("Unspecified error")
+                NSLog("Unspecified error")
             }
         }
     }

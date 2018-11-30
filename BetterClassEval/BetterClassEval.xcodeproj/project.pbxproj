@@ -10,9 +10,12 @@
 		57E76CFA169A748ECAE05C11 /* Pods_BetterClassEvalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB7AB063182B4C3A4BD2EA9 /* Pods_BetterClassEvalUITests.framework */; };
 		634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA6714B07203554E1E74C /* AppDelegate.swift */; };
 		634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA35D0626F31CF365D616 /* Main.storyboard */; };
+		634BA4F4FF197EAB29737F72 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */; };
 		634BA711AE49C7B73C5913A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634BAB497B39C1FB40050735 /* Assets.xcassets */; };
 		634BA784F8C401B651ECA610 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAB94C9EE0027E13BDD4 /* ViewController.swift */; };
+		634BA7ADE7583B96E1382212 /* Creds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA4631B4E0B338F8553A3 /* Creds.swift */; };
 		634BA7B2D325939BE7F2BBE8 /* BetterClassEvalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E1606169EFF12036E0 /* BetterClassEvalTests.swift */; };
+		634BAA0297D7B6468E95B330 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */; };
 		634BACDD99A4D6B2AD31D2D6 /* BetterClassEvalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAE36DEDFEDE1826E4DA /* BetterClassEvalUITests.swift */; };
 		634BADE735A9867D02CB11B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA57864404E1225586934 /* LaunchScreen.storyboard */; };
 		634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634BA20EF42280E142F28DE0 /* BetterClassEval.xcdatamodeld */; };
@@ -44,10 +47,12 @@
 /* Begin PBXFileReference section */
 		36D99D99AD4EED07266FAE64 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
 		57C2147573C91EB0E8784528 /* Pods_BetterClassEvalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		634BA07D173F35B84F54A386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		634BA0AC499C96C016CD682D /* BetterClassEvalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterClassEvalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		634BA159DCA4B02F1121D778 /* BetterClassEval.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterClassEval.xcdatamodel; sourceTree = "<group>"; };
 		634BA2E1606169EFF12036E0 /* BetterClassEvalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterClassEvalTests.swift; sourceTree = "<group>"; };
+		634BA4631B4E0B338F8553A3 /* Creds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creds.swift; sourceTree = "<group>"; };
 		634BA6714B07203554E1E74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		634BAA5F826BDC5BAA36AE04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		634BAAB94C9EE0027E13BDD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +172,8 @@
 			children = (
 				A456C83C21AF3C7400104445 /* Authentication.swift */,
 				A456C83B21AF3C7400104445 /* HTMLParser.swift */,
+				634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */,
+				634BA4631B4E0B338F8553A3 /* Creds.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -401,6 +408,7 @@
 				634BA7B2D325939BE7F2BBE8 /* BetterClassEvalTests.swift in Sources */,
 				A456C83E21AF3C7400104445 /* HTMLParser.swift in Sources */,
 				A456C84021AF3C7400104445 /* Authentication.swift in Sources */,
+				634BA4F4FF197EAB29737F72 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +421,8 @@
 				634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */,
 				A456C83F21AF3C7400104445 /* Authentication.swift in Sources */,
 				634BA784F8C401B651ECA610 /* ViewController.swift in Sources */,
+				634BAA0297D7B6468E95B330 /* StringExtensions.swift in Sources */,
+				634BA7ADE7583B96E1382212 /* Creds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

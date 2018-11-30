@@ -9,13 +9,13 @@
 import Foundation
 import SwiftSoup
 
-// MARK: - Utility extension for formatting
-extension String {
-    func condenseWhitespace() -> String {
-        let components = self.components(separatedBy: .whitespacesAndNewlines)
-        return components.filter { !$0.isEmpty }.joined(separator: " ")
-    }
-}
+//// MARK: - Utility extension for formatting
+//extension String {
+//    func condenseWhitespace() -> String {
+//        let components = self.components(separatedBy: .whitespacesAndNewlines)
+//        return components.filter { !$0.isEmpty }.joined(separator: " ")
+//    }
+//}
 
 public class HTMLParser {
     // TODO: rewrite in Alamofire
@@ -27,7 +27,7 @@ public class HTMLParser {
     ///   - completion: An array of dictionaries of all classes in the provided webpage
     ///
     /// - Usage:
-    ///   - call:       HTMLParser().getStats("http://localhost:80/example.html", completion: { result in print(result) })
+    ///   - call:       HTMLParser().getStats("http://localhost:80/example.html", completion: { result in NSLog(result) })
     ///   - format:     ["link": href, "dept": dept, "number_code": number_code, "section": section]
     func getAllClasses(_ url: String, completion: @escaping ((Any) -> Void)) {
 
@@ -37,7 +37,7 @@ public class HTMLParser {
         URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
             
             guard let data = data else {
-                print("got error \(error.debugDescription)")
+                NSLog("got error \(error.debugDescription)")
                 return
             }
             
@@ -81,9 +81,9 @@ public class HTMLParser {
                 completion(result)
                 
             } catch Exception.Error(let type, let message) {
-                print("type: \(type), message: \(message)")
+                NSLog("type: \(type), message: \(message)")
             } catch {
-                print("Unspecified error")
+                NSLog("Unspecified error")
             }}.resume()
     }
 
@@ -96,7 +96,7 @@ public class HTMLParser {
     ///   - completion: A dictionary of statistics of a classes
     ///
     /// - Usage:
-    ///   - call:       HTMLParser().getStats("http://localhost:80/example.html", completion: { result in print(result) })
+    ///   - call:       HTMLParser().getStats("http://localhost:80/example.html", completion: { result in NSLog(result) })
     ///   - format:     ["Surveyed": surveyed, "Enrolled": enrolled, "Name": name, "Quarter": quarter, "Statistics": parsed_scores]
     ///   - example:    ["Quarter": "WI18",
     ///                  "Statistics": ["Instructor\'s contribution:": ["46%", "35%", "18%", "2%", "0%", "0%", "4.38"],
@@ -114,7 +114,7 @@ public class HTMLParser {
         URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
             
             guard let data = data else {
-                print("got error \(error.debugDescription)")
+                NSLog("got error \(error.debugDescription)")
                 return
             }
             
@@ -155,9 +155,9 @@ public class HTMLParser {
                 completion(result)
                 
             } catch Exception.Error(let type, let message) {
-                print("type: \(type), message: \(message)")
+                NSLog("type: \(type), message: \(message)")
             } catch {
-                print("Unspecified error")
+                NSLog("Unspecified error")
             }}.resume()
     }
 
