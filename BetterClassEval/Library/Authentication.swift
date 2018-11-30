@@ -290,4 +290,24 @@ public class Authentication {
             }
         }
     }
+    
+    public func getStats(_ url: String) -> [String : Any] {
+        
+        guard let _ = URL(string: url) else {
+            NSLog("Bad URL")
+            return [:]
+        }
+        
+        return ["Quarter": "WI18",
+                "Statistics": ["Instructor\'s contribution:": ["46%", "35%", "18%", "2%", "0%", "0%", "4.38"],
+                               "The course as a whole:": ["47%", "37%", "14%", "2%", "0%", "0%", "4.43"],
+                               "Instructor\'s effectiveness:": ["54%", "25%", "18%", "2%", "2%", "0%", "4.57"],
+                               "Instructor\'s interest:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+                               "Amount learned:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+                               "Grading techniques:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+                               "The course content:": ["44%", "44%", "12%", "0%", "0%", "0%", "4.36"]],
+                "Surveyed": "\"58\"",
+                "Enrolled": "\"147\"",
+                "Name": "Joel Ross"]
+    }
 }
