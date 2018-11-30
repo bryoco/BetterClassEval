@@ -19,7 +19,7 @@ class ViewController: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let user = Authentication(username: "ricowang", password: "Jiayu@9264")
+        let user = Authentication(username: "", password: "")
         
         user.getFirstKiss(completion: { result in
             user.getWeblogin(cookies: result, completion: {
