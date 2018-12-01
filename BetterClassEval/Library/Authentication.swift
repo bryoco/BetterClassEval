@@ -5,18 +5,27 @@
 //  Created by Rico Wang on 11/26/18.
 //  Copyright © 2018 Group_5. All rights reserved.
 //
+// To any poor souls whom try to maintain this spaghetti, you have my warning - don't.
+//
+// Just use it.
+//
+// This service literally retires on Dec. 30, 2018 and I am not intended to maintain it unless they switch to
+// oauth or something similar.
+//
+// The complete flow of requesting a review page is as followed:
+// 1. Issue a GET request to UW Weblogin, get the hidden fields
+// 2. POST user creds and the hidden fields from Step 1 to UW Weblogin to *actually* log in,
+//    record pubcookie_l from response
+// 3. GET the review page, record pubcookie_g_req and relay_url from response
+// 4. POST to UW Weblogin with [Cookie: pubcookie_l] as header, and pubcookie_g_req=?&relay_url=? as body,
+//    record pubcookie_g from the hidden fields from response
+// 5. GET the review page with [Cookie: pubcookie_g] as header, and parse the resulting HTML
+//
 
 import Foundation
 import SwiftSoup
 import Alamofire
 
-//user.firstKiss(completion: { result in
-//    user.weblogin(cookies: result, completion: {
-//        user.getCoursePage(url, completion: {
-//            user.webloginRedirect(url, completion: {
-//                user.getCoursePageWithCookie(url, completion: {
-//                    NSLog("done")
-//                })})})})})
 public class Authentication {
 
     let username: String
@@ -30,8 +39,6 @@ public class Authentication {
 
     public init(username: String, password: String) {
 
-//        setenv("CFNETWORK_DIAGNOSTICS", "3", 1);
-
         self.username = username
         self.password = password
 
@@ -40,63 +47,78 @@ public class Authentication {
         self.pubcookie_g_req = ""
         self.redirect_url = ""
 
-        let _: Alamofire.SessionManager = {
-            let serverTrustPolicies: [String: ServerTrustPolicy] = [
-                "www.washington.edu": .disableEvaluation,
-                "weblogin.washington.edu": .disableEvaluation
-            ]
-
-            let configuration = URLSessionConfiguration.default
-            configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
-
-            return Alamofire.SessionManager(
-                    configuration: configuration,
-                    serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
-            )
-        }()
+//        let _: Alamofire.SessionManager = {
+//            let serverTrustPolicies: [String: ServerTrustPolicy] = [
+//                "www.washington.edu": .disableEvaluation,
+//                "weblogin.washington.edu": .disableEvaluation
+//            ]
+//
+//            let configuration = URLSessionConfiguration.default
+//            configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+//
+//            return Alamofire.SessionManager(
+//                    configuration: configuration,
+//                    serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+//            )
+//        }()
     }
 
     public func ifCookiesValid() -> Bool {
         return NSDate().timeIntervalSince1970 - timeCreation < 28800 // 8 hours in seconds
     }
 
+    // TODO: Probably will not release this
+//    public func firstTimeRequest(_ url: String, completion: @escaping (([String : Any]) -> Void)) {
+//        guard url.isValidURL else {
+//            NSLog("Bad URL")
+//            return
+//        }
+//
+//        self.firstKiss(completion: { result in
+//            self.weblogin(cookies: result, completion: {
+//                self.getCoursePage(url, completion: {
+//                    self.webloginRedirect(url, completion: {
+//                        self.getCoursePageWithCookie(url, completion: { result in
+//                            HTMLParser().getStatsFromPage(result, completion: { result in
+//                                completion(result)})})})})})})
+//    }
+
     /// TODO: remove this
     public func printFields() {
-        NSLog(self.username)
-        NSLog(self.password)
-        NSLog(String(self.timeCreation))
-        NSLog(self.pubcookie_g)
-        NSLog(self.pubcookie_l)
-        NSLog(self.pubcookie_g_req)
+        NSLog("username = \(self.username)")
+        NSLog("password = \(self.password)")
+        NSLog("time creation = \(String(self.timeCreation))")
+        NSLog("pubcookie_g = \(self.pubcookie_g)")
+        NSLog("pubcookie_l = \(self.pubcookie_l)")
+        NSLog("pubcookie_g_req = \(self.pubcookie_g_req)")
     }
 
+    /// Step 1
     /// Invokes a GET request to weblogin service to retrieve first kiss cookies and is used for logging in
     /// Typically used with getLogin()
     ///
     /// - Parameters:
     ///   - completion: Returns a dictionary of first kiss cookies
-    ///
     public func firstKiss(completion: @escaping (([String: String]) -> Void)) {
+
         var cookies: [String: String] = [:]
 
-        // Requesting first kiss cookies
-        let requestFirstKiss = Alamofire.request("https://weblogin.washington.edu/", method: .get) // put?????
+        // Requesting
+        let requestFirstKiss = Alamofire.request("https://weblogin.washington.edu/", method: .get)
         requestFirstKiss.validate()
-
         requestFirstKiss.response { response in
 
             guard response.data != nil else {
-                NSLog("got nothing \(response.error.debugDescription)")
+                NSLog("got nothing from firstKiss")
                 return
             }
 
             let data = response.data
-
             do {
 
                 let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
 
-                // Getting first kiss data
+                // Parsing
                 let elements = try doc.select("[type=hidden]")
                 for e in elements {
                     cookies.updateValue(try e.val(), forKey: try e.attr("name"))
@@ -115,7 +137,7 @@ public class Authentication {
         }
     }
 
-    // TODO: Isolate and only return "Set-Cookie" field
+    /// Step 2
     /// Invokes a POST request to login and retrieves cookies
     ///
     /// - Parameters:
@@ -123,21 +145,23 @@ public class Authentication {
     ///   - completion: returns nothing
     public func weblogin(cookies: [String: String], completion: @escaping () -> Void) {
 
+        // Requesting
         let requestLogin = Alamofire.request("https://weblogin.washington.edu/", method: .post, parameters: cookies)
         requestLogin.validate()
         requestLogin.responseJSON { response in
 
             guard response.data != nil else {
-                NSLog("got nothing \(response.error.debugDescription)")
+                NSLog("got nothing from weblogin")
                 return
             }
 
+            // Setting cookies
             self.pubcookie_l = String((response.response!.allHeaderFields["Set-Cookie"] as! String).split(separator: ";")[0])
-
             completion()
         }
     }
 
+    /// Step 3
     /// Getting a course page and cookies accordingly, redirect to weblogin
     ///
     /// - Parameters:
@@ -147,22 +171,9 @@ public class Authentication {
 
         var cookies: [String: String] = [:]
 
-        print("getting course page: \(url)")
-
-        guard url.isValidURL else {
-            NSLog("Bad URL")
-            return
-        }
-
-        let headers: [String: String] =
-                ["Host":"www.washington.edu",
-                 "Connection":"close",
-                 "Upgrade-Insecure-Requests":"1"]
-//                 ,"Referer":"https://weblogin.washington.edu"]
-        let requestCoursePage = Alamofire.request(url, headers: headers)
-
-        print("request: \(requestCoursePage.request!.allHTTPHeaderFields)")
-
+        // Requesting
+        guard url.isValidURL else { NSLog("Bad URL"); return }
+        let requestCoursePage = Alamofire.request(url)
         requestCoursePage.validate()
         requestCoursePage.response { response in
 
@@ -177,15 +188,13 @@ public class Authentication {
 
                 let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
 
-                // Getting first cookies
+                // Parsing
                 let elements = try doc.select("[type=hidden]")
                 for e in elements {
                     cookies.updateValue(try e.val(), forKey: try e.attr("name"))
                 }
 
-                print(try doc.text())
-
-                // Getting two more cookies from this page
+                // Setting cookies
                 let a = "pubcookie_g_req=" + (cookies["pubcookie_g_req"] ?? "NOT FOUND")
                 let b = "relay_url=" + (cookies["relay_url"] ?? "NOT FOUND")
                 self.pubcookie_g_req = a + "&" + b
@@ -201,6 +210,7 @@ public class Authentication {
     }
 
 
+    /// Step 4
     /// The "You do not have Javascript turned on" page. Gets pubcookie_g
     ///
     /// - Parameter
@@ -208,11 +218,11 @@ public class Authentication {
     public func webloginRedirect(_ url: String, completion: @escaping (() -> Void)) {
 
         var cookies: [String: String] = [:]
-
         let params: [String: String] =
                 ["Cookie": self.pubcookie_l,
                  "Referer": url]
 
+        // Requesting
         let requestLogin = Alamofire.request("https://weblogin.washington.edu",
                 method: .post,
                 parameters: params,
@@ -222,24 +232,22 @@ public class Authentication {
         requestLogin.response { response in
 
             guard response.data != nil else {
-                NSLog("got nothing \(response.error.debugDescription)")
+                NSLog("got nothing from webloginRedirect")
                 return
             }
 
             let data = response.data
-
             do {
 
                 let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
 
-                // Getting first kiss data
+                // Parsing
                 let elements = try doc.select("[type=hidden]")
                 for e in elements {
                     cookies.updateValue(try e.val(), forKey: try e.attr("name"))
                 }
 
-//                NSLog("printing cookies: \(cookies.debugDescription)")
-
+                // Setting cookies
                 self.pubcookie_g = "pubcookie_g=" + (cookies["pubcookie_g"] ?? "NOT FOUND")
                 self.redirect_url = cookies["redirect_url"] ?? "NOT FOUND"
 
@@ -253,6 +261,7 @@ public class Authentication {
         }
     }
 
+    /// Step 5
     /// Gets course page
     ///
     /// - Parameters:
@@ -263,11 +272,9 @@ public class Authentication {
         let params: [String: String] =
                 ["Referer": "https://weblogin.washington.edu/"]
 
-        guard url.isValidURL else {
-            NSLog("Bad URL")
-            return
-        }
+        guard url.isValidURL else { NSLog("Bad URL"); return }
 
+        // Requesting
         let requestCoursePage =
                 Alamofire.request(url, method: .get,
                         parameters: params,
@@ -276,12 +283,11 @@ public class Authentication {
         requestCoursePage.response { response in
 
             guard response.data != nil else {
-                NSLog("got nothing \(response.error.debugDescription)")
+                NSLog("got nothing from getCoursePageWithCookie")
                 return
             }
 
             let data = response.data
-
             do {
 
                 let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)

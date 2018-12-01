@@ -140,7 +140,7 @@ public class HTMLParser {
             let caption: String = try doc.select("caption").text().condenseWhitespace()
             let caption_split: [Substring] = caption.split(separator: " ")
             let surveyed: String = String(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -4)])
-            let enrolled: String = String'(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -2)])
+            let enrolled: String = String(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -2)])
 
             // tables, gets stats
             let rawStats = try doc.select("td").array()
