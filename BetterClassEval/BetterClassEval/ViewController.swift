@@ -23,16 +23,18 @@ class ViewController: UIViewController, WKUIDelegate {
         let url: String = "https://www.washington.edu/cec/d/DANCE100A1116.html"
 
         user.firstKiss(completion: { result in
-            NSLog("!!!firstKiss completed!!!") // TODO: remove
             user.weblogin(cookies: result, completion: {
-                NSLog("!!!weblogin completed!!!") // TODO: remove
                 user.getCoursePage(url, completion: {
-                    NSLog("!!!getCoursePage completed!!!") // TODO: remove
                     user.webloginRedirect(url, completion: {
-                        NSLog("!!!webloginRedirect completed!!!") // TODO: remove
-                        user.getCoursePageWithCookie(url, completion: {
-                            NSLog("done")
-                        })})})})})
+                        user.getCoursePageWithCookie(url, completion: { result in
+                            HTMLParser().getStatsFromPage(result, completion: { result in
+                                NSLog(result.debugDescription)
+                            })
+                        })
+                    })
+                })
+            })
+        })
     }
 
 }

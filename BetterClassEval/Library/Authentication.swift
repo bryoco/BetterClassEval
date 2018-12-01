@@ -30,7 +30,7 @@ public class Authentication {
 
     public init(username: String, password: String) {
 
-        setenv("CFNETWORK_DIAGNOSTICS", "3", 1);
+//        setenv("CFNETWORK_DIAGNOSTICS", "3", 1);
 
         self.username = username
         self.password = password
@@ -80,7 +80,7 @@ public class Authentication {
         var cookies: [String: String] = [:]
 
         // Requesting first kiss cookies
-        let requestFirstKiss = Alamofire.request("https://weblogin.washington.edu/", method: .put)
+        let requestFirstKiss = Alamofire.request("https://weblogin.washington.edu/", method: .get) // put?????
         requestFirstKiss.validate()
 
         requestFirstKiss.response { response in
@@ -141,19 +141,27 @@ public class Authentication {
     /// Getting a course page and cookies accordingly, redirect to weblogin
     ///
     /// - Parameters:
-    ///   - url: url
+    ///   - url: url, e.g. https://www.washington.edu/cec/f/FHL333A4651.html
     ///   - completion: returns nothing
     public func getCoursePage(_ url: String, completion: @escaping (() -> Void)) {
 
         var cookies: [String: String] = [:]
 
-        // https://www.washington.edu/cec/f/FHL333A4651.html
+        print("getting course page: \(url)")
+
         guard url.isValidURL else {
             NSLog("Bad URL")
             return
         }
 
-        let requestCoursePage = Alamofire.request(url)
+        let headers: [String: String] =
+                ["Host":"www.washington.edu",
+                 "Connection":"close",
+                 "Upgrade-Insecure-Requests":"1"]
+//                 ,"Referer":"https://weblogin.washington.edu"]
+        let requestCoursePage = Alamofire.request(url, headers: headers)
+
+        print("request: \(requestCoursePage.request!.allHTTPHeaderFields)")
 
         requestCoursePage.validate()
         requestCoursePage.response { response in
@@ -174,6 +182,8 @@ public class Authentication {
                 for e in elements {
                     cookies.updateValue(try e.val(), forKey: try e.attr("name"))
                 }
+
+                print(try doc.text())
 
                 // Getting two more cookies from this page
                 let a = "pubcookie_g_req=" + (cookies["pubcookie_g_req"] ?? "NOT FOUND")
@@ -228,6 +238,8 @@ public class Authentication {
                     cookies.updateValue(try e.val(), forKey: try e.attr("name"))
                 }
 
+//                NSLog("printing cookies: \(cookies.debugDescription)")
+
                 self.pubcookie_g = "pubcookie_g=" + (cookies["pubcookie_g"] ?? "NOT FOUND")
                 self.redirect_url = cookies["redirect_url"] ?? "NOT FOUND"
 
@@ -246,7 +258,7 @@ public class Authentication {
     /// - Parameters:
     ///   - url: Course URL
     ///   - completion: returns nothing
-    public func getCoursePageWithCookie(_ url: String, completion: @escaping (() -> Void)) {
+    public func getCoursePageWithCookie(_ url: String, completion: @escaping ((Document) -> Void)) {
 
         let params: [String: String] =
                 ["Referer": "https://weblogin.washington.edu/"]
@@ -273,10 +285,7 @@ public class Authentication {
             do {
 
                 let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
-
-                // TODO
-                NSLog(try doc.text())
-
+                completion(doc)
 
             } catch Exception.Error(let type, let message) {
                 NSLog("!!!getCoursePageWithCookie failed!!! type: \(type), message: \(message)")
