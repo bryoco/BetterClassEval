@@ -35,6 +35,9 @@ class ViewController: UIViewController, WKUIDelegate {
         4. POST to UW Weblogin with [Cookie: pubcookie_l] as header, and pubcookie_g_req=?&relay_url=? as body,
            record pubcookie_g from the hidden fields from response
         5. GET the review page with [Cookie: pubcookie_g] as header, and parse the resulting HTML
+
+        TODO: Will simplify multiple requests and release later so no need to do all five steps for every request.
+              So long as cookies are valid, the pubcookie_g is the universal key to any review page
         */
 
         // Creating a new Authentication object
