@@ -58,20 +58,8 @@ class ViewController: UIViewController, WKUIDelegate {
 //                            HTMLParser().getStatsFromPage(result, completion: { result in
 //                                NSLog(result.debugDescription) })})})})})})
         
-        user.firstKiss(completion: {
-            user.weblogin(cookies: user.firstKiss, completion: {
-                user.getCoursePage(url, completion: {
-                    user.webloginRedirect(url, completion: {
-                        user.getCoursePageWithCookie(url, completion: { _ in
-                            user.printFields()
-//                            let list: [[String : String]] = HTMLParser().parseAllClassHrefs(result)
-//                            for l: [String : String] in list {
-//                                print(l.debugDescription)
-//                            }
-                        })
-                    })
-                })
-            })
+        user.webLoginFirstKiss(completion: {
+            NSLog(user.firstKiss.debugDescription)
         })
         
     }

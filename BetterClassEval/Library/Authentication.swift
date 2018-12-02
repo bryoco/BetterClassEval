@@ -50,41 +50,11 @@ public class Authentication {
         self.redirect_url = ""
 
         self.firstKiss = [:]
-//        let _: Alamofire.SessionManager = {
-//            let serverTrustPolicies: [String: ServerTrustPolicy] = [
-//                "www.washington.edu": .disableEvaluation,
-//                "weblogin.washington.edu": .disableEvaluation
-//            ]
-//
-//            let configuration = URLSessionConfiguration.default
-//            configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
-//
-//            return Alamofire.SessionManager(
-//                    configuration: configuration,
-//                    serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
-//            )
-//        }()
     }
 
     public func ifCookiesValid() -> Bool {
         return NSDate().timeIntervalSince1970 - timeCreation < 28800 // 8 hours in seconds
     }
-
-    // TODO: Probably will not release this
-//    public func firstTimeRequest(_ url: String, completion: @escaping (([String : Any]) -> Void)) {
-//        guard url.isValidURL else {
-//            NSLog("Bad URL")
-//            return
-//        }
-//
-//        self.firstKiss(completion: { result in
-//            self.weblogin(cookies: result, completion: {
-//                self.getCoursePage(url, completion: {
-//                    self.webloginRedirect(url, completion: {
-//                        self.getCoursePageWithCookie(url, completion: { result in
-//                            HTMLParser().getStatsFromPage(result, completion: { result in
-//                                completion(result)})})})})})})
-//    }
 
     /// TODO: remove this
     public func printFields() {
@@ -102,14 +72,14 @@ public class Authentication {
     ///
     /// - Parameters:
     ///   - completion: Returns a dictionary of first kiss cookies
-    public func firstKiss(completion: @escaping (() -> Void)) {
+    public func webLoginFirstKiss(completion: @escaping (() -> Void) ) {
 
         var firstKiss: [String: String] = [:]
 
         // Requesting
-        let requestFirstKiss = Alamofire.request("https://weblogin.washington.edu/", method: .get)
-        requestFirstKiss.validate()
-        requestFirstKiss.response { response in
+//        let requestFirstKiss =
+            Alamofire.request("https://weblogin.washington.edu/", method: .get)
+            .response { response in
 
             guard response.data != nil else {
                 NSLog("got nothing from firstKiss")
@@ -131,7 +101,6 @@ public class Authentication {
                 firstKiss.updateValue(self.password, forKey: "pass")
                 
                 self.firstKiss = firstKiss
-
                 completion()
 
             } catch Exception.Error(let type, let message) {
