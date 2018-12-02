@@ -43,19 +43,36 @@ class ViewController: UIViewController, WKUIDelegate {
         // Creating a new Authentication object
         let user = Authentication(username: Creds().username, password: Creds().password)
         // Specify a target review URL
-        let url: String = "https://www.washington.edu/cec/d/DANCE100A1116.html"
+        let url: String = "https://www.washington.edu/cec/m/MATH307F2696.html"
 
-        // Step 1
-        user.firstKiss(completion: { result in
-            // Step 2
-            user.weblogin(cookies: result, completion: {
-                // Step 3
+//        // Step 1
+//        user.firstKiss(completion: { result in
+//            // Step 2
+//            user.weblogin(cookies: result, completion: {
+//                // Step 3
+//                user.getCoursePage(url, completion: {
+//                    // Step 4
+//                    user.webloginRedirect(url, completion: {
+//                        // Step 5
+//                        user.getCoursePageWithCookie(url, completion: { result in
+//                            HTMLParser().getStatsFromPage(result, completion: { result in
+//                                NSLog(result.debugDescription) })})})})})})
+        
+        user.firstKiss(completion: {
+            user.weblogin(cookies: user.firstKiss, completion: {
                 user.getCoursePage(url, completion: {
-                    // Step 4
                     user.webloginRedirect(url, completion: {
-                        // Step 5
-                        user.getCoursePageWithCookie(url, completion: { result in
-                            HTMLParser().getStatsFromPage(result, completion: { result in
-                                NSLog(result.debugDescription) })})})})})})
+                        user.getCoursePageWithCookie(url, completion: { _ in
+                            user.printFields()
+//                            let list: [[String : String]] = HTMLParser().parseAllClassHrefs(result)
+//                            for l: [String : String] in list {
+//                                print(l.debugDescription)
+//                            }
+                        })
+                    })
+                })
+            })
+        })
+        
     }
 }

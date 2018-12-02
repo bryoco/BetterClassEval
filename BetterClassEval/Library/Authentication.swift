@@ -36,6 +36,8 @@ public class Authentication {
     var pubcookie_g_req: String
     var pubcookie_l: String
     var redirect_url: String
+    
+    var firstKiss: [String : String]
 
     public init(username: String, password: String) {
 
@@ -47,6 +49,7 @@ public class Authentication {
         self.pubcookie_g_req = ""
         self.redirect_url = ""
 
+        self.firstKiss = [:]
 //        let _: Alamofire.SessionManager = {
 //            let serverTrustPolicies: [String: ServerTrustPolicy] = [
 //                "www.washington.edu": .disableEvaluation,
@@ -99,9 +102,9 @@ public class Authentication {
     ///
     /// - Parameters:
     ///   - completion: Returns a dictionary of first kiss cookies
-    public func firstKiss(completion: @escaping (([String: String]) -> Void)) {
+    public func firstKiss(completion: @escaping (() -> Void)) {
 
-        var cookies: [String: String] = [:]
+        var firstKiss: [String: String] = [:]
 
         // Requesting
         let requestFirstKiss = Alamofire.request("https://weblogin.washington.edu/", method: .get)
@@ -121,13 +124,15 @@ public class Authentication {
                 // Parsing
                 let elements = try doc.select("[type=hidden]")
                 for e in elements {
-                    cookies.updateValue(try e.val(), forKey: try e.attr("name"))
+                    firstKiss.updateValue(try e.val(), forKey: try e.attr("name"))
                 }
 
-                cookies.updateValue(self.username, forKey: "user")
-                cookies.updateValue(self.password, forKey: "pass")
+                firstKiss.updateValue(self.username, forKey: "user")
+                firstKiss.updateValue(self.password, forKey: "pass")
+                
+                self.firstKiss = firstKiss
 
-                completion(cookies)
+                completion()
 
             } catch Exception.Error(let type, let message) {
                 NSLog("!!!firstKiss failed!!! type: \(type), message: \(message)")
@@ -187,6 +192,10 @@ public class Authentication {
             do {
 
                 let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
+                
+//                NSLog("*****************")
+//                NSLog(try doc.text())
+//                NSLog("*****************")
 
                 // Parsing
                 let elements = try doc.select("[type=hidden]")

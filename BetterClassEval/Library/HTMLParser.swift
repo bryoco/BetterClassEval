@@ -86,6 +86,56 @@ public class HTMLParser {
                 NSLog("Unspecified error")
             }}.resume()
     }
+    
+    func parseAllClassHrefs(_ doc: Document) -> [[String : String]] {
+        
+        
+        let urlStub: String = "https://www.washington.edu/cec/"
+        var result: [[String : String]] = []
+        
+        do {
+            
+            // removes first 9 and last 3 embedded links
+            let hrefs = Array(try doc.select("a").array().dropFirst(9).dropLast(3))
+            
+            for e: Element in hrefs {
+                let href: String = try urlStub + e.attr("href")
+                let code = Array(String(href.split(separator: "/")[4].split(separator: ".")[0]))
+                
+                // Gets the metadata of class codes
+                var i = 0
+                
+                var dept: String = ""
+                while code[i] >= "A" && code[i] <= "Z" {
+                    dept.append(code[i])
+                    i += 1
+                }
+                
+                var number_code: String = ""
+                for j in i...i+2 {
+                    number_code.append(code[j])
+                }
+                
+                // The loop above does not move i forward, moving manually
+                i += 3
+                var section: String = ""
+                while code[i] >= "A" && code[i] <= "Z" {
+                    section.append(code[i])
+                    i += 1
+                }
+                
+                let data: [String: String] = ["link": href, "dept": dept, "number_code": number_code, "section": section]
+                result.append(data)
+            }
+            
+        } catch Exception.Error(let type, let message) {
+            NSLog("type: \(type), message: \(message)")
+        } catch {
+            NSLog("Unspecified error")
+        }
+        
+        return(result)
+    }
 
     /// Parses and returns the statistics of a class from a given "class" webpage
     /// e.g. https://www.washington.edu/cec/m/MARINT370A1061.html
@@ -133,7 +183,7 @@ public class HTMLParser {
 
             // h2 tag, gets lecturer's name and quarter of the class
             let h2: [String] = try doc.select("h2").text().components(separatedBy: " ")
-            let name: String = h2[0...1].joined(separator: " ")
+                let name: String = h2[0...1].joined(separator: " ")
             let quarter: String = String(h2[h2.count - 1])
 
             // caption, gets statistics of the survey
