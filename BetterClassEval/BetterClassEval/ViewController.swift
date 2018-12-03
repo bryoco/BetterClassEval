@@ -49,37 +49,44 @@ class ViewController: UIViewController, WKUIDelegate {
                                  "https://www.washington.edu/cec/a/AA210A1861.html",
                                  "https://www.washington.edu/cec/a/AA210A2099.html"]
 
-        // Step 1
-        for url in urlList {
-            // do everything
-            if !user.cookiesAreValid() {
-                user.webLoginFirstKiss(completion: {
-                    // Step 2
-                    user.weblogin(completion: {
-                        // Step 3
-                        user.getCoursePage(url, completion: {
-                            // Step 4
-                            user.webloginRedirect(url, completion: {
+        // TODO: construct (serialize?) evaluation statistics (class Stats: Equatable, Hashable)
+//        var evalList: Set = Set.init()
 
-                                // Step 5: Do whatever with pubcookie_g
-                                user.getCoursePageWithCookie(url, completion: { result in
-                                    HTMLParser().getStatsFromPage(result, completion: { result in
-                                        NSLog(result.debugDescription)
-                                    })
-                                })
-                            })
-                        })
-                    })
-                })
-            } else {
+        func getEvalList(urlList: [String], completion: @escaping ([[String : Any]]) -> Void) {
+
+            var resultList: [[String : Any]] = []
+
+            // Step 1
+            for url in urlList {
+
+                // do everything
+                if !user.cookiesAreValid() {
+                    user.webLoginFirstKiss(completion: {
+                        // Step 2
+                        user.weblogin(completion: {
+                            // Step 3
+                            user.getCoursePage(url, completion: {
+                                // Step 4
+                                user.webloginRedirect(url, completion: {})})})})
+                }
+
                 // Step 5: Do whatever with pubcookie_g
                 user.getCoursePageWithCookie(url, completion: { result in
                     HTMLParser().getStatsFromPage(result, completion: { result in
                         NSLog(result.debugDescription)
-                    })
-                })
+                        resultList.append(result)})})
             }
+
+            // TODO: how to not complete prematurely?
+            completion(resultList)
+
         }
+
+        // TODO: probably needs a DispatchQueue here
+        getEvalList(urlList: urlList, completion: { result in
+            NSLog("getting resultlist back")
+            NSLog(result.debugDescription)
+        })
 
 
         // write NSLog to disk
