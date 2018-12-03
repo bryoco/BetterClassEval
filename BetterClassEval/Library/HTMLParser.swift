@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import SwiftSoup
 
 //// MARK: - Utility extension for formatting
@@ -18,7 +19,7 @@ import SwiftSoup
 //}
 
 public class HTMLParser {
-    // TODO: rewrite in Alamofire
+
     /// Parses and returns all classes from a given "toc" webpage
     /// e.g. https://www.washington.edu/cec/X-toc.html
     ///
@@ -29,93 +30,104 @@ public class HTMLParser {
     /// - Usage:
     ///   - call:       HTMLParser().getStats("http://localhost:80/example.html", completion: { result in NSLog(result) })
     ///   - format:     ["link": href, "dept": dept, "number_code": number_code, "section": section]
-    func getAllClasses(_ url: String, completion: @escaping ((Any) -> Void)) {
+    func getAllClasses(_ url: String, completion: @escaping (([[String : String]]) -> Void)) {
 
         let urlStub: String = "https://www.washington.edu/cec/"
-        var result: [Any] = []
+        var result: [[String: String]] = []
 
-        URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
+//        URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
+        Alamofire.request(url, method: .get)
+                .validate()
+                .response { response in
 
-            guard let data = data else {
-                NSLog("got error \(error.debugDescription)")
-                return
-            }
-
-            do {
-
-                let doc: Document = try SwiftSoup.parse(String(data: data, encoding: .utf8)!)
-
-                // removes first 9 and last 3 embedded links
-                let hrefs = Array(try doc.select("a").array().dropFirst(9).dropLast(3))
-
-                for e: Element in hrefs {
-                    let href: String = try urlStub + e.attr("href")
-                    let code = Array(String(href.split(separator: "/")[4].split(separator: ".")[0]))
-
-                    // Gets the metadata of class codes
-                    var i = 0
-
-                    var dept: String = ""
-                    while code[i] >= "A" && code[i] <= "Z" {
-                        dept.append(code[i])
-                        i += 1
+                    guard let data = response.data else {
+                        NSLog("got nothing from getAllClasses")
+                        return
                     }
 
-                    var number_code: String = ""
-                    for j in i...i+2 {
-                        number_code.append(code[j])
-                    }
+                    do {
 
-                    // The loop above does not move i forward, moving manually
-                    i += 3
-                    var section: String = ""
-                    while code[i] >= "A" && code[i] <= "Z" {
-                        section.append(code[i])
-                        i += 1
-                    }
+                        let doc: Document = try SwiftSoup.parse(String(data: data, encoding: .utf8)!)
+                        
+                        // removes first 9 and last 3 embedded links
+                        let hrefs = Array(try doc.select("a").array().dropFirst(9).dropLast(3))
 
-                    let data: [String: String] = ["link": href, "dept": dept, "number_code": number_code, "section": section]
-                    result.append(data)
+                        for e: Element in hrefs {
+//                            NSLog(e.debugDescription)
+                            
+                            
+                            let href: String = try urlStub + e.attr("href")
+//                            let href: String = try e.attr("href")
+                            
+                            let code = Array(String(href.split(separator: "/")[4].split(separator: ".")[0]))
+
+                            // Gets the metadata of class codes
+                            var i = 0
+
+                            var dept: String = ""
+                            while code[i] >= "A" && code[i] <= "Z" {
+                                dept.append(code[i])
+                                i += 1
+                            }
+
+                            var number_code: String = ""
+                            for j in i...i + 2 {
+                                number_code.append(code[j])
+                            }
+
+                            // The loop above does not move i forward, moving manually
+                            i += 3
+                            var section: String = ""
+                            while code[i] >= "A" && code[i] <= "Z" {
+                                section.append(code[i])
+                                i += 1
+                            }
+
+                            let data: [String: String] = ["link": href, "dept": dept, "number_code": number_code, "section": section]
+                            result.append(data)
+                        }
+
+                        completion(result)
+
+                    } catch Exception.Error(let type, let message) {
+                        NSLog("!!!firstKiss failed!!! type: \(type), message: \(message)")
+                    } catch {
+                        NSLog("Unspecified error")
+                    }
                 }
-
-                completion(result)
-
-            } catch Exception.Error(let type, let message) {
-                NSLog("type: \(type), message: \(message)")
-            } catch {
-                NSLog("Unspecified error")
-            }}.resume()
     }
-    
+
     func parseAllClassHrefs(_ doc: Document) -> [[String : String]] {
-        
-        
+
+
         let urlStub: String = "https://www.washington.edu/cec/"
         var result: [[String : String]] = []
-        
+
         do {
-            
+
             // removes first 9 and last 3 embedded links
             let hrefs = Array(try doc.select("a").array().dropFirst(9).dropLast(3))
-            
+
             for e: Element in hrefs {
-                let href: String = try urlStub + e.attr("href")
+//                let href: String = try urlStub + e.attr("href")
+                let href: String = try e.attr("href")
+
                 let code = Array(String(href.split(separator: "/")[4].split(separator: ".")[0]))
-                
+
                 // Gets the metadata of class codes
                 var i = 0
-                
+
                 var dept: String = ""
                 while code[i] >= "A" && code[i] <= "Z" {
                     dept.append(code[i])
                     i += 1
                 }
-                
+
                 var number_code: String = ""
                 for j in i...i+2 {
                     number_code.append(code[j])
                 }
-                
+
                 // The loop above does not move i forward, moving manually
                 i += 3
                 var section: String = ""
@@ -123,41 +135,41 @@ public class HTMLParser {
                     section.append(code[i])
                     i += 1
                 }
-                
+
                 let data: [String: String] = ["link": href, "dept": dept, "number_code": number_code, "section": section]
                 result.append(data)
             }
-            
+
         } catch Exception.Error(let type, let message) {
             NSLog("type: \(type), message: \(message)")
         } catch {
             NSLog("Unspecified error")
         }
-        
+
         return(result)
     }
 
-    /// Parses and returns the statistics of a class from a given "class" webpage
-    /// e.g. https://www.washington.edu/cec/m/MARINT370A1061.html
-    ///
-    /// - Parameters:
-    ///   - url: A class URL
-    ///   - completion: A dictionary of statistics of a classes
-    ///
-    /// - Usage:
-    ///   - call:       HTMLParser().getStats("http://localhost:80/example.html", completion: { result in NSLog(result) })
-    ///   - format:     ["Surveyed": surveyed, "Enrolled": enrolled, "Name": name, "Quarter": quarter, "Statistics": parsed_scores]
-    ///   - example:    ["Quarter": "WI18",
-    ///                  "Statistics": ["Instructor\'s contribution:": ["46%", "35%", "18%", "2%", "0%", "0%", "4.38"],
-    ///                                 "The course as a whole:": ["47%", "37%", "14%", "2%", "0%", "0%", "4.43"],
-    ///                                 "Instructor\'s effectiveness:": ["54%", "25%", "18%", "2%", "2%", "0%", "4.57"],
-    ///                                 "Instructor\'s interest:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
-    ///                                 "Amount learned:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
-    ///                                 "Grading techniques:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
-    ///                                 "The course content:": ["44%", "44%", "12%", "0%", "0%", "0%", "4.36"]],
-    ///                  "Surveyed": "\"58\"",
-    ///                  "Enrolled": "\"147\"",
-    ///                  "Name": "Joel Ross"]
+/// Parses and returns the statistics of a class from a given "class" webpage
+/// e.g. https://www.washington.edu/cec/m/MARINT370A1061.html
+///
+/// - Parameters:
+///   - url: A class URL
+///   - completion: A dictionary of statistics of a classes
+///
+/// - Usage:
+///   - call:       HTMLParser().getStats("http://localhost:80/example.html", completion: { result in NSLog(result) })
+///   - format:     ["Surveyed": surveyed, "Enrolled": enrolled, "Name": name, "Quarter": quarter, "Statistics": parsed_scores]
+///   - example:    ["Quarter": "WI18",
+///                  "Statistics": ["Instructor\'s contribution:": ["46%", "35%", "18%", "2%", "0%", "0%", "4.38"],
+///                                 "The course as a whole:": ["47%", "37%", "14%", "2%", "0%", "0%", "4.43"],
+///                                 "Instructor\'s effectiveness:": ["54%", "25%", "18%", "2%", "2%", "0%", "4.57"],
+///                                 "Instructor\'s interest:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+///                                 "Amount learned:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+///                                 "Grading techniques:": ["0%", "0%", "0%", "0%", "0%", "0%", "0.00"],
+///                                 "The course content:": ["44%", "44%", "12%", "0%", "0%", "0%", "4.36"]],
+///                  "Surveyed": "\"58\"",
+///                  "Enrolled": "\"147\"",
+///                  "Name": "Joel Ross"]
     func getStatsFromURL(_ url: String, completion: @escaping (([String : Any]) -> Void)) {
 
         URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
@@ -183,7 +195,7 @@ public class HTMLParser {
 
             // h2 tag, gets lecturer's name and quarter of the class
             let h2: [String] = try doc.select("h2").text().components(separatedBy: " ")
-                let name: String = h2[0...1].joined(separator: " ")
+            let name: String = h2[0...1].joined(separator: " ")
             let quarter: String = String(h2[h2.count - 1])
 
             // caption, gets statistics of the survey

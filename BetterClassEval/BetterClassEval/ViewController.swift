@@ -8,15 +8,15 @@
 
 import UIKit
 import WebKit
+import Alamofire
 
 class ViewController: UIViewController, WKUIDelegate {
-
-    var webView = WKWebView()
 
     override func loadView() {
     }
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
         /*
@@ -43,24 +43,75 @@ class ViewController: UIViewController, WKUIDelegate {
         // Creating a new Authentication object
         let user = Authentication(username: Creds().username, password: Creds().password)
         // Specify a target review URL
-        let url: String = "https://www.washington.edu/cec/m/MATH307F2696.html"
+//        let url: String = "https://www.washington.edu/cec/a/AA101A2098.html"
+        let urlList: [String] = ["https://www.washington.edu/cec/a/AA101A2098.html",
+                                 "https://www.washington.edu/cec/a/AA198A1001.html",
+                                 "https://www.washington.edu/cec/a/AA210A1861.html",
+                                 "https://www.washington.edu/cec/a/AA210A2099.html"]
 
-//        // Step 1
-//        user.firstKiss(completion: { result in
-//            // Step 2
-//            user.weblogin(cookies: result, completion: {
-//                // Step 3
-//                user.getCoursePage(url, completion: {
-//                    // Step 4
-//                    user.webloginRedirect(url, completion: {
-//                        // Step 5
-//                        user.getCoursePageWithCookie(url, completion: { result in
-//                            HTMLParser().getStatsFromPage(result, completion: { result in
-//                                NSLog(result.debugDescription) })})})})})})
-        
-        user.webLoginFirstKiss(completion: {
-            NSLog(user.firstKiss.debugDescription)
-        })
-        
+        // Step 1
+        for url in urlList {
+            // do everything
+            if !user.cookiesAreValid() {
+                user.webLoginFirstKiss(completion: {
+                    // Step 2
+                    user.weblogin(completion: {
+                        // Step 3
+                        user.getCoursePage(url, completion: {
+                            // Step 4
+                            user.webloginRedirect(url, completion: {
+
+                                // Step 5: Do whatever with pubcookie_g
+                                user.getCoursePageWithCookie(url, completion: { result in
+                                    HTMLParser().getStatsFromPage(result, completion: { result in
+                                        NSLog(result.debugDescription)
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            } else {
+                // Step 5: Do whatever with pubcookie_g
+                user.getCoursePageWithCookie(url, completion: { result in
+                    HTMLParser().getStatsFromPage(result, completion: { result in
+                        NSLog(result.debugDescription)
+                    })
+                })
+            }
+        }
+
+
+        // write NSLog to disk
+//        let docDirectory: NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
+//        let logpath = docDirectory.appendingPathComponent("YourFileName.txt")
+//        NSLog(logpath)
+//        freopen(logpath.cString(using: String.Encoding.utf8)!, "a+", stderr)
+
+        // Manually getting local data
+//        let chars: [Character] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+//                                  "q", "r", "s", "t", "u", "v", "w"]
+//        var urlList: [String] = []
+//        for char in chars {
+//            urlList.append("http://localhost:8123/" + String(char) + "-toc.html")
+//        }
+
+        // Getting all class URLs from ToC pages
+//        for url in urlList {
+//            HTMLParser().getAllClasses(url, completion: { result in
+//                let hrefs: [[String : String]] = result
+//
+//                for href in hrefs {
+//                    let link: String = href["link"]!
+//                    NSLog(link)
+        //// Getting course pages
+////                user.getCoursePageWithCookie(link, completion: { result in
+////                    HTMLParser().getStatsFromPage(result, completion: { result in
+////                        NSLog(result.debugDescription) })
+////                })
+//                }
+//
+//            })
+//        }
     }
 }

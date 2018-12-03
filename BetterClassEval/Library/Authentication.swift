@@ -28,15 +28,18 @@ import Alamofire
 
 public class Authentication {
 
+    // User info
     let username: String
     let password: String
+
+    // Object info
     let timeCreation = NSDate().timeIntervalSince1970 // Cookies last for 8 hours
 
+    // Cookies
     var pubcookie_g: String
     var pubcookie_g_req: String
     var pubcookie_l: String
     var redirect_url: String
-    
     var firstKiss: [String : String]
 
     public init(username: String, password: String) {
@@ -48,12 +51,14 @@ public class Authentication {
         self.pubcookie_l = ""
         self.pubcookie_g_req = ""
         self.redirect_url = ""
-
         self.firstKiss = [:]
     }
 
-    public func ifCookiesValid() -> Bool {
-        return NSDate().timeIntervalSince1970 - timeCreation < 28800 // 8 hours in seconds
+    public func cookiesAreValid() -> Bool {
+        // 8 hours in seconds
+        return NSDate().timeIntervalSince1970 - timeCreation < 28800
+                && self.pubcookie_g != ""
+                && self.pubcookie_g != "NULL"
     }
 
     /// TODO: remove this
@@ -72,43 +77,44 @@ public class Authentication {
     ///
     /// - Parameters:
     ///   - completion: Returns a dictionary of first kiss cookies
-    public func webLoginFirstKiss(completion: @escaping (() -> Void) ) {
+//    public func webLoginFirstKiss(completion: @escaping (() -> Void) ) {
+    public func webLoginFirstKiss(completion: @escaping (() -> ())) {
 
         var firstKiss: [String: String] = [:]
 
         // Requesting
 //        let requestFirstKiss =
-            Alamofire.request("https://weblogin.washington.edu/", method: .get)
-            .response { response in
+        Alamofire.request("https://weblogin.washington.edu/", method: .get)
+                .validate()
+                .response { response in
 
-            guard response.data != nil else {
-                NSLog("got nothing from firstKiss")
-                return
-            }
+                    guard let data = response.data else {
+                        NSLog("got nothing from firstKiss")
+                        return
+                    }
 
-            let data = response.data
-            do {
+                    do {
 
-                let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
+                        let doc: Document = try SwiftSoup.parse(String(data: data, encoding: .utf8)!)
 
-                // Parsing
-                let elements = try doc.select("[type=hidden]")
-                for e in elements {
-                    firstKiss.updateValue(try e.val(), forKey: try e.attr("name"))
+                        // Parsing
+                        let elements = try doc.select("[type=hidden]")
+                        for e in elements {
+                            firstKiss.updateValue(try e.val(), forKey: try e.attr("name"))
+                        }
+
+                        firstKiss.updateValue(self.username, forKey: "user")
+                        firstKiss.updateValue(self.password, forKey: "pass")
+
+                        self.firstKiss = firstKiss
+                        completion()
+
+                    } catch Exception.Error(let type, let message) {
+                        NSLog("!!!firstKiss failed!!! type: \(type), message: \(message)")
+                    } catch {
+                        NSLog("Unspecified error")
+                    }
                 }
-
-                firstKiss.updateValue(self.username, forKey: "user")
-                firstKiss.updateValue(self.password, forKey: "pass")
-                
-                self.firstKiss = firstKiss
-                completion()
-
-            } catch Exception.Error(let type, let message) {
-                NSLog("!!!firstKiss failed!!! type: \(type), message: \(message)")
-            } catch {
-                NSLog("Unspecified error")
-            }
-        }
     }
 
     /// Step 2
@@ -117,22 +123,25 @@ public class Authentication {
     /// - Parameters:
     ///   - cookies: First kiss cookies, typically from getFirstKiss()
     ///   - completion: returns nothing
-    public func weblogin(cookies: [String: String], completion: @escaping () -> Void) {
+    public func weblogin(completion: @escaping () -> Void) {
 
         // Requesting
-        let requestLogin = Alamofire.request("https://weblogin.washington.edu/", method: .post, parameters: cookies)
-        requestLogin.validate()
-        requestLogin.responseJSON { response in
+        Alamofire.request("https://weblogin.washington.edu/",
+                        method: .post,
+                        parameters: self.firstKiss)
+                .validate()
+                .responseJSON { response in
 
-            guard response.data != nil else {
-                NSLog("got nothing from weblogin")
-                return
-            }
+                    guard response.data != nil else {
+                        NSLog("got nothing from weblogin")
+                        return
+                    }
 
-            // Setting cookies
-            self.pubcookie_l = String((response.response!.allHeaderFields["Set-Cookie"] as! String).split(separator: ";")[0])
-            completion()
-        }
+                    // Setting cookies
+                    self.pubcookie_l = String((response.response!.allHeaderFields["Set-Cookie"] as! String)
+                            .split(separator: ";")[0])
+                    completion()
+                }
     }
 
     /// Step 3
@@ -147,44 +156,40 @@ public class Authentication {
 
         // Requesting
         guard url.isValidURL else { NSLog("Bad URL"); return }
-        let requestCoursePage = Alamofire.request(url)
-        requestCoursePage.validate()
-        requestCoursePage.response { response in
+        Alamofire.request(url)
+                .validate()
+                .response { response in
 
-            guard response.data != nil else {
-                NSLog("got nothing \(response.error.debugDescription)")
-                return
-            }
+                    guard response.data != nil else {
+                        NSLog("got nothing \(response.error.debugDescription)")
+                        return
+                    }
 
-            let data = response.data
+                    let data = response.data
 
-            do {
+                    do {
 
-                let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
-                
-//                NSLog("*****************")
-//                NSLog(try doc.text())
-//                NSLog("*****************")
+                        let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
 
-                // Parsing
-                let elements = try doc.select("[type=hidden]")
-                for e in elements {
-                    cookies.updateValue(try e.val(), forKey: try e.attr("name"))
+                        // Parsing
+                        let elements = try doc.select("[type=hidden]")
+                        for e in elements {
+                            cookies.updateValue(try e.val(), forKey: try e.attr("name"))
+                        }
+
+                        // Setting cookies
+                        let a = "pubcookie_g_req=" + (cookies["pubcookie_g_req"] ?? "NULL")
+                        let b = "relay_url=" + (cookies["relay_url"] ?? "NULL")
+                        self.pubcookie_g_req = a + "&" + b
+
+                        completion()
+
+                    } catch Exception.Error(let type, let message) {
+                        NSLog("!!!getCoursePage failed!!! type: \(type), message: \(message)")
+                    } catch {
+                        NSLog("Unspecified error")
+                    }
                 }
-
-                // Setting cookies
-                let a = "pubcookie_g_req=" + (cookies["pubcookie_g_req"] ?? "NOT FOUND")
-                let b = "relay_url=" + (cookies["relay_url"] ?? "NOT FOUND")
-                self.pubcookie_g_req = a + "&" + b
-
-                completion()
-
-            } catch Exception.Error(let type, let message) {
-                NSLog("!!!getCoursePage failed!!! type: \(type), message: \(message)")
-            } catch {
-                NSLog("Unspecified error")
-            }
-        }
     }
 
 
@@ -201,42 +206,42 @@ public class Authentication {
                  "Referer": url]
 
         // Requesting
-        let requestLogin = Alamofire.request("https://weblogin.washington.edu",
-                method: .post,
-                parameters: params,
-                encoding: self.pubcookie_g_req,
-                headers: [:])
-        requestLogin.validate()
-        requestLogin.response { response in
+        Alamofire.request("https://weblogin.washington.edu",
+                        method: .post,
+                        parameters: params,
+                        encoding: self.pubcookie_g_req,
+                        headers: [:])
+                .validate()
+                .response { response in
 
-            guard response.data != nil else {
-                NSLog("got nothing from webloginRedirect")
-                return
-            }
+                    guard response.data != nil else {
+                        NSLog("got nothing from webloginRedirect")
+                        return
+                    }
 
-            let data = response.data
-            do {
+                    let data = response.data
+                    do {
 
-                let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
+                        let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
 
-                // Parsing
-                let elements = try doc.select("[type=hidden]")
-                for e in elements {
-                    cookies.updateValue(try e.val(), forKey: try e.attr("name"))
+                        // Parsing
+                        let elements = try doc.select("[type=hidden]")
+                        for e in elements {
+                            cookies.updateValue(try e.val(), forKey: try e.attr("name"))
+                        }
+
+                        // Setting cookies
+                        self.pubcookie_g = "pubcookie_g=" + (cookies["pubcookie_g"] ?? "NULL")
+                        self.redirect_url = cookies["redirect_url"] ?? "NULL"
+
+                        completion()
+
+                    } catch Exception.Error(let type, let message) {
+                        NSLog("!!!webloginRedirect failed!!! type: \(type), message: \(message)")
+                    } catch {
+                        NSLog("Unspecified error")
+                    }
                 }
-
-                // Setting cookies
-                self.pubcookie_g = "pubcookie_g=" + (cookies["pubcookie_g"] ?? "NOT FOUND")
-                self.redirect_url = cookies["redirect_url"] ?? "NOT FOUND"
-
-                completion()
-
-            } catch Exception.Error(let type, let message) {
-                NSLog("!!!webloginRedirect failed!!! type: \(type), message: \(message)")
-            } catch {
-                NSLog("Unspecified error")
-            }
-        }
     }
 
     /// Step 5
@@ -253,30 +258,29 @@ public class Authentication {
         guard url.isValidURL else { NSLog("Bad URL"); return }
 
         // Requesting
-        let requestCoursePage =
-                Alamofire.request(url, method: .get,
+        Alamofire.request(url, method: .get,
                         parameters: params,
                         headers: ["Cookie": self.pubcookie_g])
-        requestCoursePage.validate()
-        requestCoursePage.response { response in
+                .validate()
+                .response { response in
 
-            guard response.data != nil else {
-                NSLog("got nothing from getCoursePageWithCookie")
-                return
-            }
+                    guard response.data != nil else {
+                        NSLog("got nothing from getCoursePageWithCookie")
+                        return
+                    }
 
-            let data = response.data
-            do {
+                    let data = response.data
+                    do {
 
-                let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
-                completion(doc)
+                        let doc: Document = try SwiftSoup.parse(String(data: data!, encoding: .utf8)!)
+                        completion(doc)
 
-            } catch Exception.Error(let type, let message) {
-                NSLog("!!!getCoursePageWithCookie failed!!! type: \(type), message: \(message)")
-            } catch {
-                NSLog("Unspecified error")
-            }
-        }
+                    } catch Exception.Error(let type, let message) {
+                        NSLog("!!!getCoursePageWithCookie failed!!! type: \(type), message: \(message)")
+                    } catch {
+                        NSLog("Unspecified error")
+                    }
+                }
     }
 
     public func getStats(_ url: String) -> [String: Any] {

@@ -42,11 +42,21 @@
 			<string>UIInterfaceOrientationLandscapeRight</string>
 		</array>
 
-		<!-- Security Overrides -->
-		<key>AppTransportSecurity</key>
+		<!-- HTTP Overrides -->
+		<key>NSAppTransportSecurity</key>
 		<dict>
-			<key>AllowsArbitraryLoads</key>
+			<key>NSAllowsArbitraryLoads</key>
 			<true/>
+			<key>NSExceptionDomains</key>
+			<dict>
+				<key>example.com</key>
+				<dict>
+					<key>NSExceptionAllowsInsecureHTTPLoads</key>
+					<true/>
+					<key>NSIncludesSubdomains</key>
+					<true/>
+				</dict>
+			</dict>
 		</dict>
 
 	</dict>
