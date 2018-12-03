@@ -10,7 +10,8 @@ target 'BetterClassEval' do
   pod 'SwiftSoup'
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON'
-
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
   target 'BetterClassEvalTests' do
     inherit! :search_paths
     # Pods for testing
