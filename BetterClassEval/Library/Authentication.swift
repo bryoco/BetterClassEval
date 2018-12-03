@@ -63,8 +63,8 @@ public class Authentication {
 
     /// TODO: remove this
     public func printFields() {
-        NSLog("username = \(self.username)")
-        NSLog("password = \(self.password)")
+//        NSLog("username = \(self.username)")
+//        NSLog("password = \(self.password)")
         NSLog("time creation = \(String(self.timeCreation))")
         NSLog("pubcookie_g = \(self.pubcookie_g)")
         NSLog("pubcookie_l = \(self.pubcookie_l)")

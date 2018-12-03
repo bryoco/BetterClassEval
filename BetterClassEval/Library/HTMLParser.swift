@@ -109,6 +109,8 @@ public class HTMLParser {
             let hrefs = Array(try doc.select("a").array().dropFirst(9).dropLast(3))
 
             for e: Element in hrefs {
+
+                // Download data may have two versions
 //                let href: String = try urlStub + e.attr("href")
                 let href: String = try e.attr("href")
 

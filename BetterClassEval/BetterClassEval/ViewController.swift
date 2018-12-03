@@ -18,82 +18,16 @@ class ViewController: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
 
         super.viewDidLoad()
-
-        /*
-        To any poor souls whom try to maintain this spaghetti, you have my warning - don't.
-
-        Just use it.
-
-        This service literally retires on Dec. 30, 2018 and I am not intended to maintain it unless they switch to
-        oauth or something similar.
-
-        The complete flow of requesting a review page is as followed:
-        1. Issue a GET request to UW Weblogin, get the hidden fields
-        2. POST user creds and the hidden fields from Step 1 to UW Weblogin to *actually* log in,
-           record pubcookie_l from response
-        3. GET the review page, record pubcookie_g_req and relay_url from response
-        4. POST to UW Weblogin with [Cookie: pubcookie_l] as header, and pubcookie_g_req=?&relay_url=? as body,
-           record pubcookie_g from the hidden fields from response
-        5. GET the review page with [Cookie: pubcookie_g] as header, and parse the resulting HTML
-
-        TODO: Will simplify multiple requests and release later so no need to do all five steps for every request.
-              So long as cookies are valid, the pubcookie_g is the universal key to any review page
-        */
-
-        // Creating a new Authentication object
-        let user = Authentication(username: Creds().username, password: Creds().password)
-        // Specify a target review URL
-//        let url: String = "https://www.washington.edu/cec/a/AA101A2098.html"
-        let urlList: [String] = ["https://www.washington.edu/cec/a/AA101A2098.html",
-                                 "https://www.washington.edu/cec/a/AA198A1001.html",
-                                 "https://www.washington.edu/cec/a/AA210A1861.html",
-                                 "https://www.washington.edu/cec/a/AA210A2099.html"]
+        self.doThings()
 
         // TODO: construct (serialize?) evaluation statistics (class Stats: Equatable, Hashable)
 //        var evalList: Set = Set.init()
 
-        func getEvalList(urlList: [String], completion: @escaping ([[String : Any]]) -> Void) {
-
-            var resultList: [[String : Any]] = []
-
-            // Step 1
-            for url in urlList {
-
-                // do everything
-                if !user.cookiesAreValid() {
-                    user.webLoginFirstKiss(completion: {
-                        // Step 2
-                        user.weblogin(completion: {
-                            // Step 3
-                            user.getCoursePage(url, completion: {
-                                // Step 4
-                                user.webloginRedirect(url, completion: {})})})})
-                }
-
-                // Step 5: Do whatever with pubcookie_g
-                user.getCoursePageWithCookie(url, completion: { result in
-                    HTMLParser().getStatsFromPage(result, completion: { result in
-                        NSLog(result.debugDescription)
-                        resultList.append(result)})})
-            }
-
-            // TODO: how to not complete prematurely?
-            completion(resultList)
-
-        }
-
         // TODO: probably needs a DispatchQueue here
-        getEvalList(urlList: urlList, completion: { result in
-            NSLog("getting resultlist back")
-            NSLog(result.debugDescription)
-        })
-
-
-        // write NSLog to disk
-//        let docDirectory: NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
-//        let logpath = docDirectory.appendingPathComponent("YourFileName.txt")
-//        NSLog(logpath)
-//        freopen(logpath.cString(using: String.Encoding.utf8)!, "a+", stderr)
+//        getEvalList(urlList: urlList, completion: { result in
+//            NSLog("getting resultlist back")
+//            NSLog(result.debugDescription)
+//        })
 
         // Manually getting local data
 //        let chars: [Character] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
@@ -121,4 +55,95 @@ class ViewController: UIViewController, WKUIDelegate {
 //            })
 //        }
     }
+
+    func doThings() {
+//        writeLogToDisk(fileName: "log")
+
+        // Create a new Network object
+        let user = Authentication(username: Creds().username, password: Creds().password)
+
+        // TODO: still doing twice
+        user.webLoginFirstKiss(completion: {
+            user.printFields()
+        })
+
+        // Target URL list
+        var urlList: [String] = []
+
+        // test data
+//        urlList = ["https://www.washington.edu/cec/a/AA101A2098.html",
+//                   "https://www.washington.edu/cec/a/AA198A1001.html",
+//                   "https://www.washington.edu/cec/a/AA210A1861.html",
+//                   "https://www.washington.edu/cec/a/AA210A2099.html"]
+
+        // Load local URL list
+        if let path = Bundle.main.path(forResource: "smallList", ofType: "txt") {
+            do {
+                let content = try String(contentsOfFile: path, encoding: .utf8)
+                urlList = content.components(separatedBy: .newlines)
+//                NSLog("content: \(content)")
+            } catch {
+                NSLog("Unspecified error")
+            }
+        }
+        
+//        for url in urlList {
+//            NSLog(url)
+//        }
+
+        getEvalList(user: user, urlList: urlList, completion: { result in
+            NSLog(result.debugDescription)
+        })
+    }
+
+    func getEvalList(user: Authentication, urlList: [String], completion: @escaping ([[String: Any]]) -> Void) {
+
+        /*
+        To any poor souls whom try to maintain this spaghetti, you have my warning - don't.
+
+        Just use it.
+
+        This service literally retires on Dec. 30, 2018 and I am not intended to maintain it unless they switch to
+        oauth or something similar.
+
+        The complete flow of requesting a review page is as followed:
+        1. Issue a GET request to UW Weblogin, get the hidden fields
+        2. POST user creds and the hidden fields from Step 1 to UW Weblogin to *actually* log in,
+           record pubcookie_l from response
+        3. GET the review page, record pubcookie_g_req and relay_url from response
+        4. POST to UW Weblogin with [Cookie: pubcookie_l] as header, and pubcookie_g_req=?&relay_url=? as body,
+           record pubcookie_g from the hidden fields from response
+        5. GET the review page with [Cookie: pubcookie_g] as header, and parse the resulting HTML
+
+        TODO: Will simplify multiple requests and release later so no need to do all five steps for every request.
+              So long as cookies are valid, the pubcookie_g is the universal key to any review page
+        */
+
+        var resultList: [[String: Any]] = []
+
+        for url in urlList {
+            // If cookies are not valid, do everything
+            if !user.cookiesAreValid() {
+                // Step 1
+                user.webLoginFirstKiss(completion: {
+                    // Step 2
+                    user.weblogin(completion: {
+                        // Step 3
+                        user.getCoursePage(url, completion: {
+                            // Step 4, gets pubcookie_g
+                            user.webloginRedirect(url, completion: {})})})})
+            }
+
+            // Step 5: Do whatever with pubcookie_g
+            user.getCoursePageWithCookie(url, completion: { result in
+                HTMLParser().getStatsFromPage(result, completion: { result in
+                    NSLog(result.debugDescription)
+                    resultList.append(result)})})
+        }
+
+        // TODO: fix completing prematurely
+//        NSLog(resultList.debugDescription)
+        completion(resultList)
+    }
+
 }
