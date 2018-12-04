@@ -30,7 +30,7 @@ public class HTMLParser {
     /// - Usage:
     ///   - call:       HTMLParser().getStats("http://localhost:80/example.html", completion: { result in NSLog(result) })
     ///   - format:     ["link": href, "dept": dept, "number_code": number_code, "section": section]
-    func getAllClasses(_ url: String, completion: @escaping (([[String : String]]) -> Void)) {
+    func getAllClasses(_ url: String, completion: @escaping (([[String : String]]) -> ())) {
 
         let urlStub: String = "https://www.washington.edu/cec/"
         var result: [[String: String]] = []
@@ -98,7 +98,6 @@ public class HTMLParser {
     }
 
     func parseAllClassHrefs(_ doc: Document) -> [[String : String]] {
-
 
         let urlStub: String = "https://www.washington.edu/cec/"
         var result: [[String : String]] = []

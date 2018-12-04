@@ -7,6 +7,13 @@
 //
 
 import XCTest
+import Foundation
+import SwiftSoup
+import Alamofire
+import BetterClassEval
+
+@testable import SwiftSoup
+@testable import Alamofire
 @testable import BetterClassEval
 
 class BetterClassEvalTests: XCTestCase {
@@ -29,6 +36,17 @@ class BetterClassEvalTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+
+    func testEvalData() {
+        let user: Authentication = Authentication(username: Creds().username, password: Creds().password)
+        user.printFields()
+        let url: String = "https://www.washington.edu/cec/a/AA101A2098.html"
+
+        Request().requestEvalFromURL(user: user, url: url, completion: { result in
+            NSLog("done")
+        })
+        user.printFields()
     }
 
 }

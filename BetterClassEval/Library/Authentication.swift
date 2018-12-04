@@ -77,13 +77,11 @@ public class Authentication {
     ///
     /// - Parameters:
     ///   - completion: Returns a dictionary of first kiss cookies
-//    public func webLoginFirstKiss(completion: @escaping (() -> Void) ) {
     public func webLoginFirstKiss(completion: @escaping (() -> ())) {
 
         var firstKiss: [String: String] = [:]
 
         // Requesting
-//        let requestFirstKiss =
         Alamofire.request("https://weblogin.washington.edu/", method: .get)
                 .validate()
                 .response { response in
@@ -123,7 +121,7 @@ public class Authentication {
     /// - Parameters:
     ///   - cookies: First kiss cookies, typically from getFirstKiss()
     ///   - completion: returns nothing
-    public func weblogin(completion: @escaping () -> Void) {
+    public func weblogin(completion: @escaping () -> ()) {
 
         // Requesting
         Alamofire.request("https://weblogin.washington.edu/",
@@ -155,7 +153,7 @@ public class Authentication {
     /// - Parameters:
     ///   - url: url, e.g. https://www.washington.edu/cec/f/FHL333A4651.html
     ///   - completion: returns nothing
-    public func getCoursePage(_ url: String, completion: @escaping (() -> Void)) {
+    public func getCoursePage(_ url: String, completion: @escaping (() -> ())) {
 
         var cookies: [String: String] = [:]
 
@@ -203,7 +201,7 @@ public class Authentication {
     ///
     /// - Parameter
     ///   - completion: returns nothing
-    public func webloginRedirect(_ url: String, completion: @escaping (() -> Void)) {
+    public func webloginRedirect(_ url: String, completion: @escaping (() -> ())) {
 
         var cookies: [String: String] = [:]
         let params: [String: String] =
@@ -255,7 +253,7 @@ public class Authentication {
     /// - Parameters:
     ///   - url: Course URL
     ///   - completion: returns nothing
-    public func getCoursePageWithCookie(_ url: String, completion: @escaping ((Document) -> Void)) {
+    public func getCoursePageWithCookie(_ url: String, completion: @escaping ((Document) -> ())) {
 
         let params: [String: String] =
                 ["Referer": "https://weblogin.washington.edu/"]

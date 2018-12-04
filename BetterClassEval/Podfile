@@ -14,6 +14,9 @@ target 'BetterClassEval' do
   target 'BetterClassEvalTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'SwiftSoup'
+    pod 'Alamofire', '~> 4.7'
+    pod 'SwiftyJSON'
   end
 
   target 'BetterClassEvalUITests' do

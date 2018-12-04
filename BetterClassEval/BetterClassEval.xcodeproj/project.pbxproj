@@ -10,29 +10,37 @@
 		57E76CFA169A748ECAE05C11 /* Pods_BetterClassEvalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB7AB063182B4C3A4BD2EA9 /* Pods_BetterClassEvalUITests.framework */; };
 		634BA060517A5F4BFF3BC240 /* 5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA9BCC80A6E94693386D1 /* 5.txt */; };
 		634BA0A750172C1B14F82DFA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2FF8640318DAA3ECAA8 /* Log.swift */; };
+		634BA1602C26A8FEAD8C4B78 /* Creds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA4631B4E0B338F8553A3 /* Creds.swift */; };
 		634BA20A421D4A15D2FAD930 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA7516BC2865A93698390 /* Request.swift */; };
 		634BA24CAC477DCAF95BEB2B /* 5.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA9BCC80A6E94693386D1 /* 5.txt */; };
+		634BA2506857B0ADA148CD45 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2FF8640318DAA3ECAA8 /* Log.swift */; };
 		634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA6714B07203554E1E74C /* AppDelegate.swift */; };
 		634BA2FE79E72FC3964D0DA0 /* 100.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E06F4DC091AF05E69D /* 100.txt */; };
 		634BA343150904272EF60E69 /* 3.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA72862F22C673A14125D /* 3.txt */; };
 		634BA3AE3217267FBF658E7F /* 20.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA753714ED0B233C34CA7 /* 20.txt */; };
+		634BA3D160A3CC32CBE41679 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA7516BC2865A93698390 /* Request.swift */; };
 		634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA35D0626F31CF365D616 /* Main.storyboard */; };
 		634BA3ECC7C3702B1946CF3E /* 100.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA2E06F4DC091AF05E69D /* 100.txt */; };
+		634BA405FD547F2D733D8DF0 /* 100.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E06F4DC091AF05E69D /* 100.txt */; };
 		634BA473A92B761D3FD5F5A4 /* 20.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA753714ED0B233C34CA7 /* 20.txt */; };
-		634BA4F4FF197EAB29737F72 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */; };
 		634BA5FDE2E8970818DA723D /* all.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BAB91B1296F5AF44A607C /* all.txt */; };
+		634BA6B90446BB3D34DF1798 /* 20.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA753714ED0B233C34CA7 /* 20.txt */; };
 		634BA711AE49C7B73C5913A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634BAB497B39C1FB40050735 /* Assets.xcassets */; };
+		634BA721BB34C9B5B1F93A8C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */; };
 		634BA784F8C401B651ECA610 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAB94C9EE0027E13BDD4 /* ViewController.swift */; };
 		634BA7ADE7583B96E1382212 /* Creds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA4631B4E0B338F8553A3 /* Creds.swift */; };
 		634BA7B2D325939BE7F2BBE8 /* BetterClassEvalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E1606169EFF12036E0 /* BetterClassEvalTests.swift */; };
+		634BA86C769A1405EBC218FF /* all.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BAB91B1296F5AF44A607C /* all.txt */; };
 		634BA8C10F7070DD88280C5D /* 3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA72862F22C673A14125D /* 3.txt */; };
-		634BAA0297D7B6468E95B330 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */; };
+		634BA8DDF6CA5D748EE69383 /* 3.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA72862F22C673A14125D /* 3.txt */; };
 		634BAAFDC23E6AEA1CDCD039 /* all.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BAB91B1296F5AF44A607C /* all.txt */; };
+		634BAB1174C1FD6182AA6765 /* 5.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA9BCC80A6E94693386D1 /* 5.txt */; };
 		634BAB49627184CE6A917A8C /* 10.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA72A2FBC20F68D4FE61E /* 10.txt */; };
 		634BAC0775C2BC5A0378CF1B /* 10.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA72A2FBC20F68D4FE61E /* 10.txt */; };
 		634BACDD99A4D6B2AD31D2D6 /* BetterClassEvalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAE36DEDFEDE1826E4DA /* BetterClassEvalUITests.swift */; };
 		634BADE735A9867D02CB11B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA57864404E1225586934 /* LaunchScreen.storyboard */; };
 		634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634BA20EF42280E142F28DE0 /* BetterClassEval.xcdatamodeld */; };
+		634BAFBF7EE98E66F31799D5 /* 10.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA72A2FBC20F68D4FE61E /* 10.txt */; };
 		A456C83D21AF3C7400104445 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83B21AF3C7400104445 /* HTMLParser.swift */; };
 		A456C83E21AF3C7400104445 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83B21AF3C7400104445 /* HTMLParser.swift */; };
 		A456C83F21AF3C7400104445 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83C21AF3C7400104445 /* Authentication.swift */; };
@@ -278,6 +286,7 @@
 				634BA16DC3A4A89E8C0AF9AA /* Sources */,
 				634BA03F36CF7A2F1BC2B9ED /* Frameworks */,
 				634BABEDDCFC3B552CE26F36 /* Resources */,
+				DE726C0D0C56B2ECF122C21F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -416,6 +425,32 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DE726C0D0C56B2ECF122C21F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FCDF23FDE34A6863377A9422 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,7 +487,15 @@
 				634BA7B2D325939BE7F2BBE8 /* BetterClassEvalTests.swift in Sources */,
 				A456C83E21AF3C7400104445 /* HTMLParser.swift in Sources */,
 				A456C84021AF3C7400104445 /* Authentication.swift in Sources */,
-				634BA4F4FF197EAB29737F72 /* StringExtensions.swift in Sources */,
+				634BA8DDF6CA5D748EE69383 /* 3.txt in Sources */,
+				634BAB1174C1FD6182AA6765 /* 5.txt in Sources */,
+				634BAFBF7EE98E66F31799D5 /* 10.txt in Sources */,
+				634BA6B90446BB3D34DF1798 /* 20.txt in Sources */,
+				634BA405FD547F2D733D8DF0 /* 100.txt in Sources */,
+				634BA86C769A1405EBC218FF /* all.txt in Sources */,
+				634BA1602C26A8FEAD8C4B78 /* Creds.swift in Sources */,
+				634BA2506857B0ADA148CD45 /* Log.swift in Sources */,
+				634BA3D160A3CC32CBE41679 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,7 +508,6 @@
 				634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */,
 				A456C83F21AF3C7400104445 /* Authentication.swift in Sources */,
 				634BA784F8C401B651ECA610 /* ViewController.swift in Sources */,
-				634BAA0297D7B6468E95B330 /* StringExtensions.swift in Sources */,
 				634BA7ADE7583B96E1382212 /* Creds.swift in Sources */,
 				634BA0A750172C1B14F82DFA /* Log.swift in Sources */,
 				634BAAFDC23E6AEA1CDCD039 /* all.txt in Sources */,
@@ -475,6 +517,7 @@
 				634BA473A92B761D3FD5F5A4 /* 20.txt in Sources */,
 				634BA24CAC477DCAF95BEB2B /* 5.txt in Sources */,
 				634BA20A421D4A15D2FAD930 /* Request.swift in Sources */,
+				634BA721BB34C9B5B1F93A8C /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

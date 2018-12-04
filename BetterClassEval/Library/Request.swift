@@ -4,16 +4,19 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 public class Request {
 
+    /// Gets URL list from the package
     public func readLocalURL() -> [String] {
 
         // Target URL list
         var urlList: [String] = []
 
         // Load local URL list
-        if let path = Bundle.main.path(forResource: "100", ofType: "txt") {
+        if let path = Bundle.main.path(forResource: "all", ofType: "txt") {
             do {
                 let content = try String(contentsOfFile: path, encoding: .utf8)
                 urlList = content.components(separatedBy: .newlines)
@@ -26,7 +29,8 @@ public class Request {
 
     }
 
-    public func requestEvalFromURL(user: Authentication, url: String, completion: @escaping (([String : Any]) ) -> Void) {
+    /// Gets class evaluation data from a URL
+    public func requestEvalFromURL(user: Authentication, url: String, completion: @escaping (([String: Any])) -> ()) {
 
         // If cookies are not valid, do everything
         if !user.cookiesAreValid() {
@@ -37,18 +41,24 @@ public class Request {
                     // Step 3
                     user.getCoursePage(url, completion: {
                         // Step 4, gets pubcookie_g
-                        user.webloginRedirect(url, completion: {})})})})
+                        user.webloginRedirect(url, completion: {})
+                    })
+                })
+            })
         }
 
         // Step 5: Do whatever with pubcookie_g
         user.getCoursePageWithCookie(url, completion: { result in
             HTMLParser().getStatsFromPage(result, completion: { result in
-                completion(result)})})
+//                NSLog(result.debugDescription)
+                completion(result)
+            })
+        })
 
     }
-}
 
-    public func requestEvalFromList(user: Authentication, urlList: [String], completion: @escaping ([[String: Any]]) -> Void) {
+    /// Gets class evaluation data from a list of URLs
+    public func requestEvalFromList(user: Authentication, urlList: [String], completion: @escaping () -> ()) {
 
         /*
         To any poor souls whom try to maintain this spaghetti, you have my warning - don't.
@@ -68,13 +78,21 @@ public class Request {
         5. GET the review page with [Cookie: pubcookie_g] as header, and parse the resulting HTML
         */
 
-        // TODO: construct (serialize?) evaluation statistics (class Stats: Equatable, Hashable)
-//        var evalList: Set = Set.init()
+//        var resultList: [[String: Any]] = []
+//        var json: [JSON] = []
+//        var resultList: [String] = []
 
-        var resultList: [[String: Any]] = []
+        // File writing
+        let file = "eval.txt"
+        var fileURL: URL? = nil
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            fileURL = dir.appendingPathComponent(file)
+            NSLog("fileURL: \(fileURL.debugDescription)")
+        }
 
         // Simplified flow
         for url in urlList {
+
             // If cookies are not valid, do everything
             if !user.cookiesAreValid() {
                 // Step 1
@@ -91,9 +109,19 @@ public class Request {
             user.getCoursePageWithCookie(url, completion: { result in
                 HTMLParser().getStatsFromPage(result, completion: { result in
                     NSLog(result.debugDescription)
-                    resultList.append(result)})})
+                    do {
+                        let fileHandle = try FileHandle(forWritingTo: fileURL!)
+                        fileHandle.seekToEndOfFile()
+                        fileHandle.write("\n".data(using: .utf8)!)
+                        fileHandle.write(Data(result.debugDescription.utf8))
+                        fileHandle.closeFile()
+                    } catch {
+                        NSLog("Caught error!!! \(error)")
+                    }
+                })
+            })
 
-        // Complete flow - Does everything for every quest
+            // Complete flow - Does everything for every quest
 //        for url in urlList {
 //            // Step 1
 //            user.webLoginFirstKiss(completion: {
@@ -108,12 +136,23 @@ public class Request {
 //                                    NSLog(result.debugDescription)
 //                                    resultList.append(result)})})})})})})
 //        }
+//            completion(resultList)
+        }
 
-        // TODO: fix completing prematurely
-//        NSLog(resultList.debugDescription)
-        completion(resultList)
+//        do {
+//            NSLog("resultList: \(resultList)")
+//            let fileHandle = try FileHandle(forWritingTo: fileURL!)
+//            fileHandle.seekToEndOfFile()
+//            fileHandle.write(Data(resultList.debugDescription.utf8))
+//            fileHandle.closeFile()
+//        } catch {
+//            NSLog("Caught error!!! \(error)")
+//        }
+
+        completion()
     }
 }
+
 
 
 // TODO: probably needs a DispatchQueue here?
