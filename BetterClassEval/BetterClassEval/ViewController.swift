@@ -12,18 +12,19 @@ import Alamofire
 
 class ViewController: UIViewController, WKUIDelegate {
 
-    override func loadView() {
-    }
+    override func loadView() {}
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        self.doThings()
 
-        // TODO: construct (serialize?) evaluation statistics (class Stats: Equatable, Hashable)
-//        var evalList: Set = Set.init()
+//        writeLogToDisk(fileName: "log")
 
-        // TODO: probably needs a DispatchQueue here
+        let user = Authentication(username: Creds().username, password: Creds().password)
+        self.doEverything(user)
+
+
+        // TODO: probably needs a DispatchQueue here?
 //        getEvalList(urlList: urlList, completion: { result in
 //            NSLog("getting resultlist back")
 //            NSLog(result.debugDescription)
@@ -56,16 +57,12 @@ class ViewController: UIViewController, WKUIDelegate {
 //        }
     }
 
-    func doThings() {
-//        writeLogToDisk(fileName: "log")
+    func doEverything(_ user: Authentication) {
 
-        // Create a new Network object
-        let user = Authentication(username: Creds().username, password: Creds().password)
-
-        // TODO: still doing twice
-        user.webLoginFirstKiss(completion: {
-            user.printFields()
-        })
+        // TODO: still gets done twice
+//        user.webLoginFirstKiss(completion: {
+//            user.printFields()
+//        })
 
         // Target URL list
         var urlList: [String] = []
@@ -77,23 +74,20 @@ class ViewController: UIViewController, WKUIDelegate {
 //                   "https://www.washington.edu/cec/a/AA210A2099.html"]
 
         // Load local URL list
-        if let path = Bundle.main.path(forResource: "smallList", ofType: "txt") {
+        if let path = Bundle.main.path(forResource: "20", ofType: "txt") {
             do {
                 let content = try String(contentsOfFile: path, encoding: .utf8)
                 urlList = content.components(separatedBy: .newlines)
-//                NSLog("content: \(content)")
             } catch {
                 NSLog("Unspecified error")
             }
         }
-        
-//        for url in urlList {
-//            NSLog(url)
-//        }
 
-        getEvalList(user: user, urlList: urlList, completion: { result in
-            NSLog(result.debugDescription)
-        })
+        for url in urlList {
+            NSLog(url)
+        }
+
+        getEvalList(user: user, urlList: urlList, completion: { _ in })
     }
 
     func getEvalList(user: Authentication, urlList: [String], completion: @escaping ([[String: Any]]) -> Void) {
@@ -119,26 +113,45 @@ class ViewController: UIViewController, WKUIDelegate {
               So long as cookies are valid, the pubcookie_g is the universal key to any review page
         */
 
+        // TODO: construct (serialize?) evaluation statistics (class Stats: Equatable, Hashable)
+//        var evalList: Set = Set.init()
+
         var resultList: [[String: Any]] = []
 
-        for url in urlList {
-            // If cookies are not valid, do everything
-            if !user.cookiesAreValid() {
-                // Step 1
-                user.webLoginFirstKiss(completion: {
-                    // Step 2
-                    user.weblogin(completion: {
-                        // Step 3
-                        user.getCoursePage(url, completion: {
-                            // Step 4, gets pubcookie_g
-                            user.webloginRedirect(url, completion: {})})})})
-            }
+        // Simplified flow
+//        for url in urlList {
+//            // If cookies are not valid, do everything
+//            if !user.cookiesAreValid() {
+//                // Step 1
+//                user.webLoginFirstKiss(completion: {
+//                    // Step 2
+//                    user.weblogin(completion: {
+//                        // Step 3
+//                        user.getCoursePage(url, completion: {
+//                            // Step 4, gets pubcookie_g
+//                            user.webloginRedirect(url, completion: {})})})})
+//            }
+//
+//            // Step 5: Do whatever with pubcookie_g
+//            user.getCoursePageWithCookie(url, completion: { result in
+//                HTMLParser().getStatsFromPage(result, completion: { result in
+//                    NSLog(result.debugDescription)
+//                    resultList.append(result)})})
 
-            // Step 5: Do whatever with pubcookie_g
-            user.getCoursePageWithCookie(url, completion: { result in
-                HTMLParser().getStatsFromPage(result, completion: { result in
-                    NSLog(result.debugDescription)
-                    resultList.append(result)})})
+        // Does everything for every quest
+        for url in urlList {
+            // Step 1
+            user.webLoginFirstKiss(completion: {
+                // Step 2
+                user.weblogin(completion: {
+                    // Step 3
+                    user.getCoursePage(url, completion: {
+                        // Step 4, gets pubcookie_g
+                        user.webloginRedirect(url, completion: {
+                            user.getCoursePageWithCookie(url, completion: { result in
+                                HTMLParser().getStatsFromPage(result, completion: { result in
+                                    NSLog(result.debugDescription)
+                                    resultList.append(result) })})})})})})
         }
 
         // TODO: fix completing prematurely

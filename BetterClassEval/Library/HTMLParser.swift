@@ -48,17 +48,17 @@ public class HTMLParser {
                     do {
 
                         let doc: Document = try SwiftSoup.parse(String(data: data, encoding: .utf8)!)
-                        
+
                         // removes first 9 and last 3 embedded links
                         let hrefs = Array(try doc.select("a").array().dropFirst(9).dropLast(3))
 
                         for e: Element in hrefs {
 //                            NSLog(e.debugDescription)
-                            
-                            
+
+
                             let href: String = try urlStub + e.attr("href")
 //                            let href: String = try e.attr("href")
-                            
+
                             let code = Array(String(href.split(separator: "/")[4].split(separator: ".")[0]))
 
                             // Gets the metadata of class codes
@@ -196,36 +196,47 @@ public class HTMLParser {
         do {
 
             // h2 tag, gets lecturer's name and quarter of the class
+            let h1: String = try doc.select("h1").text()
             let h2: [String] = try doc.select("h2").text().components(separatedBy: " ")
-            let name: String = h2[0...1].joined(separator: " ")
-            let quarter: String = String(h2[h2.count - 1])
 
-            // caption, gets statistics of the survey
-            let caption: String = try doc.select("caption").text().condenseWhitespace()
-            let caption_split: [Substring] = caption.split(separator: " ")
-            let surveyed: String = String(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -4)])
-            let enrolled: String = String(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -2)])
+            if h1.count > 1 && h2.count > 1 {
 
-            // tables, gets stats
-            let rawStats = try doc.select("td").array()
-            var parsedStats = [String:[String]]()
-            let NUMBER_OF_ELEMENTS = 8
+//            NSLog("h2.count = \(h2.count)")
+                let name: String = h2[0...1].joined(separator: " ")
+                let quarter: String = String(h2[h2.count - 1])
 
-            for i in stride(from: 0, to: rawStats.count - 1, by: NUMBER_OF_ELEMENTS) {
-                var stats: [String] = []
-                // only getting data from certain number of tags
-                for j in i+1...i+7 { stats.append(try rawStats[j].text()) }
-                parsedStats.updateValue(stats, forKey: try rawStats[i].text())
+                // caption, gets statistics of the survey
+                let caption: String = try doc.select("caption").text().condenseWhitespace()
+                let caption_split: [Substring] = caption.split(separator: " ")
+                let surveyed: String = String(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -4)])
+                let enrolled: String = String(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -2)])
+
+                // tables, gets stats
+                let rawStats = try doc.select("td").array()
+                var parsedStats = [String: [String]]()
+                let NUMBER_OF_ELEMENTS = 8
+
+                for i in stride(from: 0, to: rawStats.count - 1, by: NUMBER_OF_ELEMENTS) {
+                    var stats: [String] = []
+                    // only getting data from certain number of tags
+                    for j in i + 1...i + 7 {
+                        stats.append(try rawStats[j].text())
+                    }
+                    parsedStats.updateValue(stats, forKey: try rawStats[i].text())
+                }
+
+                // final results to return
+                let result: [String: Any] =
+                        ["Code": h1,
+                         "Surveyed": surveyed,
+                         "Enrolled": enrolled,
+                         "Name": name,
+                         "Quarter": quarter,
+                         "Statistics": parsedStats]
+                completion(result)
+            } else {
+                completion([:])
             }
-
-            // final results to return
-            let result: [String: Any] = ["Surveyed": surveyed,
-                                         "Enrolled": enrolled,
-                                         "Name": name,
-                                         "Quarter": quarter,
-                                         "Statistics": parsedStats]
-
-            completion(result)
 
         } catch Exception.Error(let type, let message) {
             NSLog("type: \(type), message: \(message)")

@@ -12,4 +12,9 @@ public func writeLogToDisk(fileName: String) {
     let logPath = docDirectory.appendingPathComponent("\(fileName).txt")
     NSLog(logPath)
     freopen(logPath.cString(using: String.Encoding.utf8)!, "a+", stderr)
+
+    NSLog("******************************************************")
+    NSLog("**************** STARTING NEW SESSION ****************")
+    NSLog("******************************************************")
+
 }

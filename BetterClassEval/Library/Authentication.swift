@@ -132,13 +132,18 @@ public class Authentication {
                 .validate()
                 .responseJSON { response in
 
-                    guard response.data != nil else {
+                    guard let resp = response.response else {
                         NSLog("got nothing from weblogin")
                         return
                     }
-
+                    
                     // Setting cookies
-                    self.pubcookie_l = String((response.response!.allHeaderFields["Set-Cookie"] as! String)
+                    guard resp.allHeaderFields["Set-Cookie"] != nil else {
+                        NSLog("Cannot find cookie @ weblogin()")
+                        return
+                    }
+                    
+                    self.pubcookie_l = String((resp.allHeaderFields["Set-Cookie"] as! String)
                             .split(separator: ";")[0])
                     completion()
                 }
