@@ -10,6 +10,7 @@
 		57E76CFA169A748ECAE05C11 /* Pods_BetterClassEvalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB7AB063182B4C3A4BD2EA9 /* Pods_BetterClassEvalUITests.framework */; };
 		634BA060517A5F4BFF3BC240 /* 5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA9BCC80A6E94693386D1 /* 5.txt */; };
 		634BA0A750172C1B14F82DFA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2FF8640318DAA3ECAA8 /* Log.swift */; };
+		634BA20A421D4A15D2FAD930 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA7516BC2865A93698390 /* Request.swift */; };
 		634BA24CAC477DCAF95BEB2B /* 5.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA9BCC80A6E94693386D1 /* 5.txt */; };
 		634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA6714B07203554E1E74C /* AppDelegate.swift */; };
 		634BA2FE79E72FC3964D0DA0 /* 100.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E06F4DC091AF05E69D /* 100.txt */; };
@@ -71,6 +72,7 @@
 		634BA6714B07203554E1E74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		634BA72862F22C673A14125D /* 3.txt */ = {isa = PBXFileReference; lastKnownFileType = file.small; path = 3.txt; sourceTree = "<group>"; };
 		634BA72A2FBC20F68D4FE61E /* 10.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10.txt; sourceTree = "<group>"; };
+		634BA7516BC2865A93698390 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		634BA753714ED0B233C34CA7 /* 20.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 20.txt; sourceTree = "<group>"; };
 		634BA9BCC80A6E94693386D1 /* 5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 5.txt; sourceTree = "<group>"; };
 		634BAA5F826BDC5BAA36AE04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */,
 				634BA4631B4E0B338F8553A3 /* Creds.swift */,
 				634BA2FF8640318DAA3ECAA8 /* Log.swift */,
+				634BA7516BC2865A93698390 /* Request.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				634BAC0775C2BC5A0378CF1B /* 10.txt in Sources */,
 				634BA473A92B761D3FD5F5A4 /* 20.txt in Sources */,
 				634BA24CAC477DCAF95BEB2B /* 5.txt in Sources */,
+				634BA20A421D4A15D2FAD930 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
