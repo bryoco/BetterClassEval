@@ -20,12 +20,14 @@ class ViewController: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let testData = ["Name": "Joel Ross", "Instructor\'s Contribution": "46%", "The Course as a Whole": "47%", "Instructor\'s Effectiveness": "54%", "Instructor\'s Interest": "80%", "Amount Learned": "50%", "Grading Techniques": "45%", "Course Content": "44%"] //mock data for post to firebase
+        let testData = ["Name": "Joel Ross", "Instructor\'s Contribution": "15%", "The Course as a Whole": "28%", "Instructor\'s Effectiveness": "5%", "Instructor\'s Interest": "15%", "Amount Learned": "25%", "Grading Techniques": "35%", "Course Content": "25%"] //mock data for post to firebase
         var fbUser = FirebaseUser(fbEmail: nil, fbPw: nil) {return}
         fbUser = FirebaseUser(fbEmail: mockUsrEmail, fbPw: mockUsrPw, completion: {
-            fbUser.postData(testData); fbUser.getData(ofLecturer: "Joel Ross", completion: {
-                (lecturerData) in NSLog(lecturerData.description)
-            })})
+            fbUser.postData(testData as NSDictionary, "WI18"); fbUser.getAllData(ofLecturer: "Joel Ross", ofQuarter: "WI18") { result in
+                print(result)
+            }
+
+            })
         
 //        let user = Authentication(username: "", password: "")
 //        
