@@ -10,13 +10,15 @@ import SwiftyJSON
 public class Request {
 
     /// Gets URL list from the package
-    public func readLocalURL() -> [String] {
+    /// Reads 10 links from 10.txt by default.
+    /// See /src/ for available files.
+    public func readLocalURL(_ file: String = "10") -> [String] {
 
         // Target URL list
         var urlList: [String] = []
 
         // Load local URL list
-        if let path = Bundle.main.path(forResource: "all", ofType: "txt") {
+        if let path = Bundle.main.path(forResource: file, ofType: "txt") {
             do {
                 let content = try String(contentsOfFile: path, encoding: .utf8)
                 urlList = content.components(separatedBy: .newlines)
