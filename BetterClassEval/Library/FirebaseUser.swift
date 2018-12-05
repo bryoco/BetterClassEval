@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-public class PostWithFirebase {
+public class FirebaseUser {
     let fbEmail: String?
     
     public init(fbEmail: String?, fbPw: String?, completion: @escaping (() -> Void)) {
@@ -30,12 +30,7 @@ public class PostWithFirebase {
             guard let _ = authResult?.user else {return}
         }
     }
-//
-//    private func usrSignIn (_ usrName: String, _ usrPw: String, completion: @escaping (() -> Void)) {
-//
-//        }
-//    }
-//
+    
     private func getUserID () -> String? {
         let user = Auth.auth().currentUser!
         return user.uid

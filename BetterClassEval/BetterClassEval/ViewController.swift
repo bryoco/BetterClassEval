@@ -20,9 +20,9 @@ class ViewController: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let testData = ["Name": "Joel Ross", "Instructor\'s Contribution": "46%", "The Course as a Whole": "47%", "Instructor\'s Effectiveness": "54%", "Instructor\'s Interest": "80%", "Amount Learned": "50%", "Grading Techniques": "45%", "Course Content": "44%"]
-        var fbUser = PostWithFirebase(fbEmail: nil, fbPw: nil) {return}
-        fbUser = PostWithFirebase(fbEmail: mockUsrEmail, fbPw: mockUsrPw, completion: {
+        let testData = ["Name": "Joel Ross", "Instructor\'s Contribution": "46%", "The Course as a Whole": "47%", "Instructor\'s Effectiveness": "54%", "Instructor\'s Interest": "80%", "Amount Learned": "50%", "Grading Techniques": "45%", "Course Content": "44%"] //mock data for post to firebase
+        var fbUser = FirebaseUser(fbEmail: nil, fbPw: nil) {return}
+        fbUser = FirebaseUser(fbEmail: mockUsrEmail, fbPw: mockUsrPw, completion: {
             fbUser.postData(testData); fbUser.getData(ofLecturer: "Joel Ross", completion: {
                 (lecturerData) in NSLog(lecturerData.description)
             })})
