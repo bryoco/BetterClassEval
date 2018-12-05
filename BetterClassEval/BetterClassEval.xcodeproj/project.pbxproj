@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01400AD321B0F73100A1E281 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01400AD221B0F73100A1E281 /* GoogleService-Info.plist */; };
-		01400AD521B0FF0800A1E281 /* PostUserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01400AD421B0FF0800A1E281 /* PostUserAuth.swift */; };
+		01400AD521B0FF0800A1E281 /* PostWithFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01400AD421B0FF0800A1E281 /* PostWithFirebase.swift */; };
 		57E76CFA169A748ECAE05C11 /* Pods_BetterClassEvalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB7AB063182B4C3A4BD2EA9 /* Pods_BetterClassEvalUITests.framework */; };
 		634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA6714B07203554E1E74C /* AppDelegate.swift */; };
 		634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA35D0626F31CF365D616 /* Main.storyboard */; };
@@ -45,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		01400AD221B0F73100A1E281 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		01400AD421B0FF0800A1E281 /* PostUserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUserAuth.swift; sourceTree = "<group>"; };
+		01400AD421B0FF0800A1E281 /* PostWithFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWithFirebase.swift; sourceTree = "<group>"; };
 		0822D5B221E5B279DE543FE6 /* Pods-BetterClassEval.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.debug.xcconfig"; sourceTree = "<group>"; };
 		34294589AD3156E48A1356E3 /* Pods-BetterClassEvalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		36D99D99AD4EED07266FAE64 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 			children = (
 				A456C83C21AF3C7400104445 /* Authentication.swift */,
 				A456C83B21AF3C7400104445 /* HTMLParser.swift */,
-				01400AD421B0FF0800A1E281 /* PostUserAuth.swift */,
+				01400AD421B0FF0800A1E281 /* PostWithFirebase.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -403,6 +403,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -414,6 +415,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +444,7 @@
 				A456C83D21AF3C7400104445 /* HTMLParser.swift in Sources */,
 				634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */,
 				A456C83F21AF3C7400104445 /* Authentication.swift in Sources */,
-				01400AD521B0FF0800A1E281 /* PostUserAuth.swift in Sources */,
+				01400AD521B0FF0800A1E281 /* PostWithFirebase.swift in Sources */,
 				634BA784F8C401B651ECA610 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,7 +508,7 @@
 		};
 		634BA28D50FFF35F65DC530B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A4A65C31CB4FBEBA19CD1AF /* Pods-BetterClassEvalUITests.debug.xcconfig */;
+			baseConfigurationReference = D3D6EC99183748018FAA9AE9 /* Pods-BetterClassEvalUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BetterClassEvalUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -535,7 +537,7 @@
 		};
 		634BA913869FC62CEF4B2604 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34294589AD3156E48A1356E3 /* Pods-BetterClassEvalTests.debug.xcconfig */;
+			baseConfigurationReference = A5622AAF279AF4C5299EC7B9 /* Pods-BetterClassEvalTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BetterClassEval.app/BetterClassEval";
 				INFOPLIST_FILE = BetterClassEvalTests/Info.plist;
@@ -608,7 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -619,7 +621,7 @@
 		};
 		634BAA935C13D28A452F4213 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0822D5B221E5B279DE543FE6 /* Pods-BetterClassEval.debug.xcconfig */;
+			baseConfigurationReference = A05BB990F2A7BEC5D4B44F7E /* Pods-BetterClassEval.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J82GKHS47H;
@@ -683,7 +685,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
