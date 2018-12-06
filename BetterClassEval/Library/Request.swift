@@ -9,6 +9,42 @@ import SwiftyJSON
 
 public class Request {
 
+    public func login(_ user: Authentication, completion: @escaping (() -> ())) {
+        let url: String = "https://www.washington.edu/cec/a/AA101A2098.html"
+
+        let cstorage = HTTPCookieStorage.shared
+        if let cookies = cstorage.cookies(for: URL(string: "https://weblogin.washington.edu")!) {
+            for cookie in cookies {
+                cstorage.deleteCookie(cookie)
+            }
+        }
+
+        if let cookies = cstorage.cookies(for: URL(string: "https://www.washington.edu")!) {
+            for cookie in cookies {
+                cstorage.deleteCookie(cookie)
+            }
+        }
+
+        // Step 1
+        user.webLoginFirstKiss(completion: {
+            NSLog("step 1")
+            // Step 2
+            user.weblogin(completion: {
+                NSLog("step 2")
+                // Step 3
+                user.getCoursePage(url, completion: {
+                    NSLog("step 3")
+                    // Step 4, gets pubcookie_g
+                    user.webloginRedirect(url, completion: {
+                        NSLog("step 4")
+                        completion()
+                    })
+                })
+            })
+        })
+
+    }
+
     /// Gets URL list from the package
     /// Reads 10 links from 10.txt by default.
     /// See /src/ for available files.
@@ -36,17 +72,7 @@ public class Request {
 
         // If cookies are not valid, do everything
         if !user.cookiesAreValid() {
-            // Step 1
-            user.webLoginFirstKiss(completion: {
-                // Step 2
-                user.weblogin(completion: {
-                    // Step 3
-                    user.getCoursePage(url, completion: {
-                        // Step 4, gets pubcookie_g
-                        user.webloginRedirect(url, completion: {})
-                    })
-                })
-            })
+            login(user, completion: {})
         }
 
         // Step 5: Do whatever with pubcookie_g
@@ -80,48 +106,104 @@ public class Request {
         5. GET the review page with [Cookie: pubcookie_g] as header, and parse the resulting HTML
         */
 
-//        var resultList: [[String: Any]] = []
-//        var json: [JSON] = []
-//        var resultList: [String] = []
-
         // File writing
         let file = "eval.txt"
         var fileURL: URL? = nil
+
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             fileURL = dir.appendingPathComponent(file)
             NSLog("fileURL: \(fileURL.debugDescription)")
         }
 
+        clearFile(fileURL!)
+
+        // Set counter to sleep()
+        var counter: Int = 0
+
         // Simplified flow
         for url in urlList {
 
-            // If cookies are not valid, do everything
+            // Number of HTTP request
+            counter += 1
             if !user.cookiesAreValid() {
-                // Step 1
-                user.webLoginFirstKiss(completion: {
-                    // Step 2
-                    user.weblogin(completion: {
-                        // Step 3
-                        user.getCoursePage(url, completion: {
-                            // Step 4, gets pubcookie_g
-                            user.webloginRedirect(url, completion: {})})})})
+                self.login(user, completion: {})
             }
 
-            // Step 5: Do whatever with pubcookie_g
-            user.getCoursePageWithCookie(url, completion: { result in
-                HTMLParser().getStatsFromPage(result, completion: { result in
-                    NSLog(result.debugDescription)
-                    do {
-                        let fileHandle = try FileHandle(forWritingTo: fileURL!)
-                        fileHandle.seekToEndOfFile()
-                        fileHandle.write("\n".data(using: .utf8)!)
-                        fileHandle.write(Data(result.debugDescription.utf8))
-                        fileHandle.closeFile()
-                    } catch {
-                        NSLog("Caught error!!! \(error)")
-                    }
+            if counter % 100 == 0 {
+                sleep(1)
+            }
+
+            // Cookies are invalidated at 967th request.
+            // Re-login every 500 requests
+//            let group = DispatchGroup()
+//            group.enter()
+//            if counter % 10 == 0 {
+//                DispatchQueue(label: "sequential").sync(execute: {
+//                    self.login(user, completion: {
+//                        NSLog("logged in")
+//                        group.leave()
+//                    })
+//                    NSLog("done logging in")
+//                })
+//            } else {
+//                group.leave()
+//            }
+//
+//            group.wait()
+//            NSLog(String(counter))
+
+            if counter % 500 == 0 {
+                self.login(user, completion: {
+                    user.getCoursePageWithCookie(url, completion: { result in
+                        HTMLParser().getStatsFromPage(result, completion: { result in
+
+                            guard let fileHandle = try? FileHandle(forWritingTo: fileURL!) else {
+                                NSLog("Cannot write file!!!")
+                                return
+                            }
+
+                            NSLog(result.debugDescription)
+                            fileHandle.seekToEndOfFile()
+                            fileHandle.write(Data(result.debugDescription.utf8))
+                            fileHandle.write("\n".data(using: .utf8)!)
+                            fileHandle.closeFile()
+                        })
+                    })
                 })
-            })
+            } else {
+                user.getCoursePageWithCookie(url, completion: { result in
+                    HTMLParser().getStatsFromPage(result, completion: { result in
+
+                        guard let fileHandle = try? FileHandle(forWritingTo: fileURL!) else {
+                            NSLog("Cannot write file!!!")
+                            return
+                        }
+
+                        NSLog(result.debugDescription)
+                        fileHandle.seekToEndOfFile()
+                        fileHandle.write(Data(result.debugDescription.utf8))
+                        fileHandle.write("\n".data(using: .utf8)!)
+                        fileHandle.closeFile()
+                    })
+                })
+            }
+
+            // Do whatever with pubcookie_g
+//            user.getCoursePageWithCookie(url, completion: { result in
+//                HTMLParser().getStatsFromPage(result, completion: { result in
+//
+//                    guard let fileHandle = try? FileHandle(forWritingTo: fileURL!) else {
+//                        NSLog("Cannot write file!!!")
+//                        return
+//                    }
+//
+//                    NSLog(result.debugDescription)
+//                    fileHandle.seekToEndOfFile()
+//                    fileHandle.write(Data(result.debugDescription.utf8))
+//                    fileHandle.write("\n".data(using: .utf8)!)
+//                    fileHandle.closeFile()
+//                })
+//            })
 
             // Complete flow - Does everything for every quest
 //        for url in urlList {
@@ -141,21 +223,12 @@ public class Request {
 //            completion(resultList)
         }
 
-//        do {
-//            NSLog("resultList: \(resultList)")
-//            let fileHandle = try FileHandle(forWritingTo: fileURL!)
-//            fileHandle.seekToEndOfFile()
-//            fileHandle.write(Data(resultList.debugDescription.utf8))
-//            fileHandle.closeFile()
-//        } catch {
-//            NSLog("Caught error!!! \(error)")
-//        }
-
         completion()
     }
 }
 
 
+// TODO: Clean this
 
 // TODO: probably needs a DispatchQueue here?
 //        getEvalList(urlList: urlList, completion: { result in
@@ -163,7 +236,6 @@ public class Request {
 //            NSLog(result.debugDescription)
 //        })
 
-// TODO: Clean this
 // Manually getting local data
 //        let chars: [Character] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
 //                                  "q", "r", "s", "t", "u", "v", "w"]

@@ -234,6 +234,7 @@ public class HTMLParser {
                          "Statistics": parsedStats]
                 completion(result)
             } else {
+                NSLog("Bad document!!! \(try doc.text())")
                 completion([:])
             }
 

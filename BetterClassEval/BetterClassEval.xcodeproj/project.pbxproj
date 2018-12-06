@@ -22,6 +22,7 @@
 		634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA35D0626F31CF365D616 /* Main.storyboard */; };
 		634BA3ECC7C3702B1946CF3E /* 100.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA2E06F4DC091AF05E69D /* 100.txt */; };
 		634BA405FD547F2D733D8DF0 /* 100.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E06F4DC091AF05E69D /* 100.txt */; };
+		634BA413B902038EECBF6D81 /* 1000.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA00556E27188FDEBE551 /* 1000.txt */; };
 		634BA473A92B761D3FD5F5A4 /* 20.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA753714ED0B233C34CA7 /* 20.txt */; };
 		634BA5FDE2E8970818DA723D /* all.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BAB91B1296F5AF44A607C /* all.txt */; };
 		634BA6B90446BB3D34DF1798 /* 20.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA753714ED0B233C34CA7 /* 20.txt */; };
@@ -34,6 +35,7 @@
 		634BA8C10F7070DD88280C5D /* 3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA72862F22C673A14125D /* 3.txt */; };
 		634BA8DDF6CA5D748EE69383 /* 3.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA72862F22C673A14125D /* 3.txt */; };
 		634BAAFDC23E6AEA1CDCD039 /* all.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BAB91B1296F5AF44A607C /* all.txt */; };
+		634BAAFDCE432427B5D255D2 /* 1000.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA00556E27188FDEBE551 /* 1000.txt */; };
 		634BAB1174C1FD6182AA6765 /* 5.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA9BCC80A6E94693386D1 /* 5.txt */; };
 		634BAB49627184CE6A917A8C /* 10.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA72A2FBC20F68D4FE61E /* 10.txt */; };
 		634BAC0775C2BC5A0378CF1B /* 10.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA72A2FBC20F68D4FE61E /* 10.txt */; };
@@ -69,6 +71,7 @@
 /* Begin PBXFileReference section */
 		36D99D99AD4EED07266FAE64 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
 		57C2147573C91EB0E8784528 /* Pods_BetterClassEvalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		634BA00556E27188FDEBE551 /* 1000.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1000.txt; sourceTree = "<group>"; };
 		634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		634BA07D173F35B84F54A386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		634BA0AC499C96C016CD682D /* BetterClassEvalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterClassEvalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +200,7 @@
 				634BA753714ED0B233C34CA7 /* 20.txt */,
 				634BA72A2FBC20F68D4FE61E /* 10.txt */,
 				634BA9BCC80A6E94693386D1 /* 5.txt */,
+				634BA00556E27188FDEBE551 /* 1000.txt */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -339,6 +343,7 @@
 				634BA3AE3217267FBF658E7F /* 20.txt in Resources */,
 				634BAB49627184CE6A917A8C /* 10.txt in Resources */,
 				634BA060517A5F4BFF3BC240 /* 5.txt in Resources */,
+				634BAAFDCE432427B5D255D2 /* 1000.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +523,7 @@
 				634BA24CAC477DCAF95BEB2B /* 5.txt in Sources */,
 				634BA20A421D4A15D2FAD930 /* Request.swift in Sources */,
 				634BA721BB34C9B5B1F93A8C /* StringExtensions.swift in Sources */,
+				634BA413B902038EECBF6D81 /* 1000.txt in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

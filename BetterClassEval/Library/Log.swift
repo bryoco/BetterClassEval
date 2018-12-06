@@ -18,3 +18,17 @@ public func writeLogToDisk(fileName: String) {
     NSLog("******************************************************")
 
 }
+
+public func clearFile(_ fileURL: URL!) {
+//    guard let fileHandle = try? FileHandle(forWritingTo: fileURL) else {
+//        NSLog("Cannot write file!!!")
+//        return
+//    }
+//    fileHandle.write("".data(using: .utf8)!)
+//    fileHandle.closeFile()
+    do {
+        try "".write(to: fileURL!, atomically: true, encoding: .utf8)
+    } catch {
+        NSLog("Cannot clear file!!! \(error)")
+    }
+}

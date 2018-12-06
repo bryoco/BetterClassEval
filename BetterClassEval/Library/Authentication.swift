@@ -82,7 +82,7 @@ public class Authentication {
         var firstKiss: [String: String] = [:]
 
         // Requesting
-        Alamofire.request("https://weblogin.washington.edu/", method: .get)
+        Alamofire.request("https://weblogin.washington.edu/", method: .get, parameters: [:])
                 .validate()
                 .response { response in
 
@@ -134,13 +134,14 @@ public class Authentication {
                         NSLog("got nothing from weblogin")
                         return
                     }
-                    
+
                     // Setting cookies
                     guard resp.allHeaderFields["Set-Cookie"] != nil else {
                         NSLog("Cannot find cookie @ weblogin()")
+                        self.printFields()
                         return
                     }
-                    
+
                     self.pubcookie_l = String((resp.allHeaderFields["Set-Cookie"] as! String)
                             .split(separator: ";")[0])
                     completion()
@@ -159,9 +160,10 @@ public class Authentication {
 
         // Requesting
         guard url.isValidURL else { NSLog("Bad URL"); return }
-        Alamofire.request(url)
+        let request = Alamofire.request(url, method: .get)
                 .validate()
                 .response { response in
+
 
                     guard response.data != nil else {
                         NSLog("got nothing \(response.error.debugDescription)")
