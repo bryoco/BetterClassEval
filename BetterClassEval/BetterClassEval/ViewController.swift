@@ -7,27 +7,23 @@
 //
 
 import UIKit
-import WebKit
 import Firebase
 
-class ViewController: UIViewController, WKUIDelegate {
-    let mockUsrEmail = "info449betterclasseval@gmail.com"
-    let mockUsrPw = "uwinfo449"
+class ViewController: UIViewController {
+    let fbUsrEmail = "info449betterclasseval1@gmail.com"
+    let fbUsrPw = "uwinfo449"
     
-    var webView = WKWebView()
-    override func loadView() {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let testData = ["Name": "Joel Ross", "Instructor\'s Contribution": "15%", "The Course as a Whole": "28%", "Instructor\'s Effectiveness": "5%", "Instructor\'s Interest": "15%", "Amount Learned": "25%", "Grading Techniques": "35%", "Course Content": "25%"] //mock data for post to firebase
-        var fbUser = FirebaseUser(fbEmail: nil, fbPw: nil) {return}
-        fbUser = FirebaseUser(fbEmail: mockUsrEmail, fbPw: mockUsrPw, completion: {
-            fbUser.postData(testData as NSDictionary, "WI18"); fbUser.getAllData(ofLecturer: "Joel Ross", ofQuarter: "WI18") { result in
-                print(result)
-            }
-
-            })
+//        let testData: [String : Any] = ["Name": "Joel Ross", "Instructor\'s Contribution": 2, "The Course as a Whole": 3, "Instructor\'s Effectiveness": 1, "Instructor\'s Interest": 4, "Amount Learned": 4, "Grading Techniques": 3, "Course Content": 2]  //mock data for post to firebase
+//        var fbUser = FirebaseUser(fbEmail: nil, fbPw: nil) {return}
+//        fbUser = FirebaseUser(fbEmail: fbUsrEmail, fbPw: fbUsrPw, completion: {
+//            fbUser.postData(testData as NSDictionary, "WI18", "INFO340"); fbUser.getAllData(ofLecturer: "Joel Ross", ofQuarter: "WI18", ofClass: "INFO340") { result in
+//                print(result)
+//            }
+//            
+//        })
         
 //        let user = Authentication(username: "", password: "")
 //        
