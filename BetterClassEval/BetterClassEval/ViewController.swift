@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import WebKit
 
-class ViewController: UIViewController, WKUIDelegate {
+class Creds {
+    let username = "rayjae3"
+    let password = "Northkorea12!"
+}
 
-    var webView = WKWebView()
 
-    override func loadView() {
-    }
+class ViewController: UIViewController {
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class ViewController: UIViewController, WKUIDelegate {
 
         // Creating a new Authentication object
         let user = Authentication(username: Creds().username, password: Creds().password)
-        // Specify a target review URL
+//         Specify a target review URL
         let url: String = "https://www.washington.edu/cec/d/DANCE100A1116.html"
 
         // Step 1

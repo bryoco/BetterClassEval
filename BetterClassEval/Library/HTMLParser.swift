@@ -133,14 +133,17 @@ public class HTMLParser {
 
             // h2 tag, gets lecturer's name and quarter of the class
             let h2: [String] = try doc.select("h2").text().components(separatedBy: " ")
-            let name: String = h2[0...1].joined(separator: " ")
+//            let name: String = h2[0...1].joined(separator: " ")
+            let name: String = "John Doe"
             let quarter: String = String(h2[h2.count - 1])
 
             // caption, gets statistics of the survey
             let caption: String = try doc.select("caption").text().condenseWhitespace()
             let caption_split: [Substring] = caption.split(separator: " ")
-            let surveyed: String = String(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -4)])
-            let enrolled: String = String(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -2)])
+//            let surveyed: String = String(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -4)])
+            let surveyed: String = "surveyed"
+//            let enrolled: String = String(caption_split[caption_split.index(caption_split.endIndex, offsetBy: -2)])
+            let enrolled: String = "enrolled"
 
             // tables, gets stats
             let rawStats = try doc.select("td").array()
