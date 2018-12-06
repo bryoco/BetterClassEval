@@ -42,7 +42,7 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell") as! PostTableViewCell
         cell.categoryLabel.text = currentData.categories[indexPath.row]
-        cell.scoreLabel.text = "0"
+        cell.scoreLabel.text = String(Int(round(cell.scoreSlider.value)))
         return cell
     }
     /*
@@ -58,7 +58,7 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cells = self.tableView.visibleCells as! [PostTableViewCell]
         for cell in cells {
             let categoryName = cell.categoryLabel.text
-            let categoryValue = Int(round(cell.scoreSlider.value))
+            let categoryValue = Int(cell.scoreSlider.value)
             submitForm.updateValue(categoryValue, forKey: categoryName!)
         }
         fbUser.postData(submitForm as NSDictionary, currentData.quarters, currentData.classTaught) {

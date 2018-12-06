@@ -26,6 +26,7 @@ class PostTableViewCell: UITableViewCell {
     }
 
     @IBAction func slideBarChanged(_ sender: UISlider) {
+        sender.value = Float(Int(sender.value))
         self.scoreLabel.text = "\(Int(sender.value))"
     }
 }
