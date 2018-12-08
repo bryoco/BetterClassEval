@@ -10,6 +10,9 @@
 		1B81A89F21B8C992004A2481 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A89E21B8C992004A2481 /* MainViewController.swift */; };
 		1B81A8A321B8D0CE004A2481 /* LecturerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */; };
 		1B81A8A521B8DBFE004A2481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B81A8A421B8DBFE004A2481 /* Assets.xcassets */; };
+		1B81A8A721B8E1D1004A2481 /* LectuererCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */; };
+		1B81A8A921BB8CE7004A2481 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8A821BB8CE7004A2481 /* ClassViewController.swift */; };
+		1B81A8AB21BB8D29004A2481 /* ClassesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */; };
 		634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA6714B07203554E1E74C /* AppDelegate.swift */; };
 		634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA35D0626F31CF365D616 /* Main.storyboard */; };
 		634BA4F4FF197EAB29737F72 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */; };
@@ -51,6 +54,9 @@
 		1B81A89E21B8C992004A2481 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerViewController.swift; sourceTree = "<group>"; };
 		1B81A8A421B8DBFE004A2481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectuererCell.swift; sourceTree = "<group>"; };
+		1B81A8A821BB8CE7004A2481 /* ClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
+		1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
 		1E254ECF7ADBC3B6286C138C /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
 		634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		634BA07D173F35B84F54A386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -161,6 +167,9 @@
 				1B81A89E21B8C992004A2481 /* MainViewController.swift */,
 				1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */,
 				1B81A8A421B8DBFE004A2481 /* Assets.xcassets */,
+				1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */,
+				1B81A8A821BB8CE7004A2481 /* ClassViewController.swift */,
+				1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */,
 			);
 			path = BetterClassEval;
 			sourceTree = "<group>";
@@ -408,11 +417,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B81A8A721B8E1D1004A2481 /* LectuererCell.swift in Sources */,
+				1B81A8A921BB8CE7004A2481 /* ClassViewController.swift in Sources */,
 				1B81A89F21B8C992004A2481 /* MainViewController.swift in Sources */,
 				634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */,
 				A456C83D21AF3C7400104445 /* HTMLParser.swift in Sources */,
 				634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */,
 				1B81A8A321B8D0CE004A2481 /* LecturerViewController.swift in Sources */,
+				1B81A8AB21BB8D29004A2481 /* ClassesCell.swift in Sources */,
 				A456C83F21AF3C7400104445 /* Authentication.swift in Sources */,
 				634BA784F8C401B651ECA610 /* ViewController.swift in Sources */,
 				634BAA0297D7B6468E95B330 /* StringExtensions.swift in Sources */,
