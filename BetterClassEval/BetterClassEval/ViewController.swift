@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import WebKit
-import Alamofire
 import FirebaseCore
 import FirebaseDatabase
 
@@ -17,11 +15,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var ref: DatabaseReference!
+//        QueryFirebase().queryByLecturer("Stuart Reges", completion: { result in
+//            NSLog(result.debugDescription)
+//        })
 
-        ref = Database.database().reference()
+        QueryFirebase().queryByLecturer("Andy Ko", completion: { results in
+            for result in results {
+                NSLog(result.debugDescription)
+            }
+        })
 
-
+        NSLog("exited from completion")
     }
 
 }
