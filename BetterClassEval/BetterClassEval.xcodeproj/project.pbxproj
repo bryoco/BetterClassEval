@@ -8,43 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		57E76CFA169A748ECAE05C11 /* Pods_BetterClassEvalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB7AB063182B4C3A4BD2EA9 /* Pods_BetterClassEvalUITests.framework */; };
-		634BA060517A5F4BFF3BC240 /* 5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA9BCC80A6E94693386D1 /* 5.txt */; };
-		634BA0A750172C1B14F82DFA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2FF8640318DAA3ECAA8 /* Log.swift */; };
-		634BA1602C26A8FEAD8C4B78 /* Creds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA4631B4E0B338F8553A3 /* Creds.swift */; };
-		634BA20A421D4A15D2FAD930 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA7516BC2865A93698390 /* Request.swift */; };
-		634BA24CAC477DCAF95BEB2B /* 5.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA9BCC80A6E94693386D1 /* 5.txt */; };
-		634BA2506857B0ADA148CD45 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2FF8640318DAA3ECAA8 /* Log.swift */; };
 		634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA6714B07203554E1E74C /* AppDelegate.swift */; };
-		634BA2FE79E72FC3964D0DA0 /* 100.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E06F4DC091AF05E69D /* 100.txt */; };
-		634BA343150904272EF60E69 /* 3.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA72862F22C673A14125D /* 3.txt */; };
-		634BA3AE3217267FBF658E7F /* 20.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA753714ED0B233C34CA7 /* 20.txt */; };
-		634BA3D160A3CC32CBE41679 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA7516BC2865A93698390 /* Request.swift */; };
 		634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA35D0626F31CF365D616 /* Main.storyboard */; };
-		634BA3ECC7C3702B1946CF3E /* 100.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA2E06F4DC091AF05E69D /* 100.txt */; };
-		634BA405FD547F2D733D8DF0 /* 100.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E06F4DC091AF05E69D /* 100.txt */; };
-		634BA473A92B761D3FD5F5A4 /* 20.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA753714ED0B233C34CA7 /* 20.txt */; };
-		634BA5FDE2E8970818DA723D /* all.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BAB91B1296F5AF44A607C /* all.txt */; };
-		634BA6B90446BB3D34DF1798 /* 20.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA753714ED0B233C34CA7 /* 20.txt */; };
 		634BA711AE49C7B73C5913A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634BAB497B39C1FB40050735 /* Assets.xcassets */; };
-		634BA721BB34C9B5B1F93A8C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */; };
 		634BA784F8C401B651ECA610 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAB94C9EE0027E13BDD4 /* ViewController.swift */; };
-		634BA7ADE7583B96E1382212 /* Creds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA4631B4E0B338F8553A3 /* Creds.swift */; };
 		634BA7B2D325939BE7F2BBE8 /* BetterClassEvalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E1606169EFF12036E0 /* BetterClassEvalTests.swift */; };
-		634BA86C769A1405EBC218FF /* all.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BAB91B1296F5AF44A607C /* all.txt */; };
-		634BA8C10F7070DD88280C5D /* 3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA72862F22C673A14125D /* 3.txt */; };
-		634BA8DDF6CA5D748EE69383 /* 3.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA72862F22C673A14125D /* 3.txt */; };
-		634BAAFDC23E6AEA1CDCD039 /* all.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BAB91B1296F5AF44A607C /* all.txt */; };
-		634BAB1174C1FD6182AA6765 /* 5.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA9BCC80A6E94693386D1 /* 5.txt */; };
-		634BAB49627184CE6A917A8C /* 10.txt in Resources */ = {isa = PBXBuildFile; fileRef = 634BA72A2FBC20F68D4FE61E /* 10.txt */; };
-		634BAC0775C2BC5A0378CF1B /* 10.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA72A2FBC20F68D4FE61E /* 10.txt */; };
 		634BACDD99A4D6B2AD31D2D6 /* BetterClassEvalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAE36DEDFEDE1826E4DA /* BetterClassEvalUITests.swift */; };
 		634BADE735A9867D02CB11B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA57864404E1225586934 /* LaunchScreen.storyboard */; };
 		634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634BA20EF42280E142F28DE0 /* BetterClassEval.xcdatamodeld */; };
-		634BAFBF7EE98E66F31799D5 /* 10.txt in Sources */ = {isa = PBXBuildFile; fileRef = 634BA72A2FBC20F68D4FE61E /* 10.txt */; };
-		A456C83D21AF3C7400104445 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83B21AF3C7400104445 /* HTMLParser.swift */; };
-		A456C83E21AF3C7400104445 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83B21AF3C7400104445 /* HTMLParser.swift */; };
-		A456C83F21AF3C7400104445 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83C21AF3C7400104445 /* Authentication.swift */; };
-		A456C84021AF3C7400104445 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83C21AF3C7400104445 /* Authentication.swift */; };
+		A4B7629D21BB838300A7F763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */; };
+		A4B7629E21BB838300A7F763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */; };
+		A4B7629F21BB838300A7F763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */; };
 		D051E4954A344C1ACE717311 /* Pods_BetterClassEval.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF78EC357E60DC2F4C24B24 /* Pods_BetterClassEval.framework */; };
 		DA72B5D87C315845FDBE7EF7 /* Pods_BetterClassEvalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57C2147573C91EB0E8784528 /* Pods_BetterClassEvalTests.framework */; };
 /* End PBXBuildFile section */
@@ -69,26 +43,16 @@
 /* Begin PBXFileReference section */
 		36D99D99AD4EED07266FAE64 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
 		57C2147573C91EB0E8784528 /* Pods_BetterClassEvalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		634BA07D173F35B84F54A386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		634BA0AC499C96C016CD682D /* BetterClassEvalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterClassEvalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		634BA159DCA4B02F1121D778 /* BetterClassEval.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterClassEval.xcdatamodel; sourceTree = "<group>"; };
-		634BA2E06F4DC091AF05E69D /* 100.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 100.txt; sourceTree = "<group>"; };
 		634BA2E1606169EFF12036E0 /* BetterClassEvalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterClassEvalTests.swift; sourceTree = "<group>"; };
-		634BA2FF8640318DAA3ECAA8 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		634BA4631B4E0B338F8553A3 /* Creds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creds.swift; sourceTree = "<group>"; };
 		634BA6714B07203554E1E74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		634BA72862F22C673A14125D /* 3.txt */ = {isa = PBXFileReference; lastKnownFileType = file.small; path = 3.txt; sourceTree = "<group>"; };
-		634BA72A2FBC20F68D4FE61E /* 10.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10.txt; sourceTree = "<group>"; };
-		634BA7516BC2865A93698390 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		634BA753714ED0B233C34CA7 /* 20.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 20.txt; sourceTree = "<group>"; };
-		634BA9BCC80A6E94693386D1 /* 5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 5.txt; sourceTree = "<group>"; };
 		634BAA5F826BDC5BAA36AE04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		634BAAB94C9EE0027E13BDD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		634BAAE36DEDFEDE1826E4DA /* BetterClassEvalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterClassEvalUITests.swift; sourceTree = "<group>"; };
 		634BAB4594A0A89EAE534314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		634BAB497B39C1FB40050735 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		634BAB91B1296F5AF44A607C /* all.txt */ = {isa = PBXFileReference; lastKnownFileType = file.big; path = all.txt; sourceTree = "<group>"; };
 		634BAC9A850B27727AC0D686 /* BetterClassEvalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterClassEvalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		634BAE4CCB0B9DA97B3282A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		634BAED55D90B88148956FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -97,8 +61,7 @@
 		8501C80F8006DE99D2573B59 /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
 		9DF78EC357E60DC2F4C24B24 /* Pods_BetterClassEval.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEval.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05BB990F2A7BEC5D4B44F7E /* Pods-BetterClassEval.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.debug.xcconfig"; sourceTree = "<group>"; };
-		A456C83B21AF3C7400104445 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
-		A456C83C21AF3C7400104445 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A5622AAF279AF4C5299EC7B9 /* Pods-BetterClassEvalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3D6EC99183748018FAA9AE9 /* Pods-BetterClassEvalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBB7AB063182B4C3A4BD2EA9 /* Pods_BetterClassEvalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +121,7 @@
 		634BA35FF88FDA129FBD9A92 /* BetterClassEval */ = {
 			isa = PBXGroup;
 			children = (
+				A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */,
 				634BAA5F826BDC5BAA36AE04 /* Info.plist */,
 				634BA6714B07203554E1E74C /* AppDelegate.swift */,
 				634BAAB94C9EE0027E13BDD4 /* ViewController.swift */,
@@ -191,12 +155,6 @@
 		634BADE441772587B11DEFF3 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				634BAB91B1296F5AF44A607C /* all.txt */,
-				634BA72862F22C673A14125D /* 3.txt */,
-				634BA2E06F4DC091AF05E69D /* 100.txt */,
-				634BA753714ED0B233C34CA7 /* 20.txt */,
-				634BA72A2FBC20F68D4FE61E /* 10.txt */,
-				634BA9BCC80A6E94693386D1 /* 5.txt */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -214,12 +172,6 @@
 		A4D247B021ACB58C00D33C27 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				A456C83C21AF3C7400104445 /* Authentication.swift */,
-				A456C83B21AF3C7400104445 /* HTMLParser.swift */,
-				634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */,
-				634BA4631B4E0B338F8553A3 /* Creds.swift */,
-				634BA2FF8640318DAA3ECAA8 /* Log.swift */,
-				634BA7516BC2865A93698390 /* Request.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -331,14 +283,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				634BA711AE49C7B73C5913A3 /* Assets.xcassets in Resources */,
+				A4B7629D21BB838300A7F763 /* GoogleService-Info.plist in Resources */,
 				634BADE735A9867D02CB11B2 /* LaunchScreen.storyboard in Resources */,
 				634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */,
-				634BA5FDE2E8970818DA723D /* all.txt in Resources */,
-				634BA8C10F7070DD88280C5D /* 3.txt in Resources */,
-				634BA3ECC7C3702B1946CF3E /* 100.txt in Resources */,
-				634BA3AE3217267FBF658E7F /* 20.txt in Resources */,
-				634BAB49627184CE6A917A8C /* 10.txt in Resources */,
-				634BA060517A5F4BFF3BC240 /* 5.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B7629E21BB838300A7F763 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B7629F21BB838300A7F763 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,16 +410,22 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -485,17 +440,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				634BA7B2D325939BE7F2BBE8 /* BetterClassEvalTests.swift in Sources */,
-				A456C83E21AF3C7400104445 /* HTMLParser.swift in Sources */,
-				A456C84021AF3C7400104445 /* Authentication.swift in Sources */,
-				634BA8DDF6CA5D748EE69383 /* 3.txt in Sources */,
-				634BAB1174C1FD6182AA6765 /* 5.txt in Sources */,
-				634BAFBF7EE98E66F31799D5 /* 10.txt in Sources */,
-				634BA6B90446BB3D34DF1798 /* 20.txt in Sources */,
-				634BA405FD547F2D733D8DF0 /* 100.txt in Sources */,
-				634BA86C769A1405EBC218FF /* all.txt in Sources */,
-				634BA1602C26A8FEAD8C4B78 /* Creds.swift in Sources */,
-				634BA2506857B0ADA148CD45 /* Log.swift in Sources */,
-				634BA3D160A3CC32CBE41679 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,20 +448,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */,
-				A456C83D21AF3C7400104445 /* HTMLParser.swift in Sources */,
 				634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */,
-				A456C83F21AF3C7400104445 /* Authentication.swift in Sources */,
 				634BA784F8C401B651ECA610 /* ViewController.swift in Sources */,
-				634BA7ADE7583B96E1382212 /* Creds.swift in Sources */,
-				634BA0A750172C1B14F82DFA /* Log.swift in Sources */,
-				634BAAFDC23E6AEA1CDCD039 /* all.txt in Sources */,
-				634BA343150904272EF60E69 /* 3.txt in Sources */,
-				634BA2FE79E72FC3964D0DA0 /* 100.txt in Sources */,
-				634BAC0775C2BC5A0378CF1B /* 10.txt in Sources */,
-				634BA473A92B761D3FD5F5A4 /* 20.txt in Sources */,
-				634BA24CAC477DCAF95BEB2B /* 5.txt in Sources */,
-				634BA20A421D4A15D2FAD930 /* Request.swift in Sources */,
-				634BA721BB34C9B5B1F93A8C /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

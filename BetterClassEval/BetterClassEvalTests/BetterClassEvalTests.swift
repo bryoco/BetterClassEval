@@ -38,15 +38,4 @@ class BetterClassEvalTests: XCTestCase {
         }
     }
 
-    func testEvalData() {
-        let user: Authentication = Authentication(username: Creds().username, password: Creds().password)
-        user.printFields()
-        let url: String = "https://www.washington.edu/cec/a/AA101A2098.html"
-
-        Request().requestEvalFromURL(user: user, url: url, completion: { result in
-            NSLog("done")
-        })
-        user.printFields()
-    }
-
 }
