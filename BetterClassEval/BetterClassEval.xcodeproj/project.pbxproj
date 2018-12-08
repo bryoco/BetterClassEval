@@ -17,7 +17,7 @@
 		634BACDD99A4D6B2AD31D2D6 /* BetterClassEvalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAE36DEDFEDE1826E4DA /* BetterClassEvalUITests.swift */; };
 		634BADE735A9867D02CB11B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA57864404E1225586934 /* LaunchScreen.storyboard */; };
 		634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634BA20EF42280E142F28DE0 /* BetterClassEval.xcdatamodeld */; };
-		634BAF23A0E51542171AD605 /* classData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA66AE427F2FD3D6BAD8D /* classData.swift */; };
+		634BAF23A0E51542171AD605 /* ClassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA66AE427F2FD3D6BAD8D /* ClassData.swift */; };
 		A4B7629D21BB838300A7F763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */; };
 		A4B7629E21BB838300A7F763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */; };
 		A4B7629F21BB838300A7F763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */; };
@@ -50,7 +50,7 @@
 		634BA159DCA4B02F1121D778 /* BetterClassEval.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterClassEval.xcdatamodel; sourceTree = "<group>"; };
 		634BA2B6081CBBBD80958D7E /* QueryFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryFirebase.swift; sourceTree = "<group>"; };
 		634BA2E1606169EFF12036E0 /* BetterClassEvalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterClassEvalTests.swift; sourceTree = "<group>"; };
-		634BA66AE427F2FD3D6BAD8D /* classData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classData.swift; sourceTree = "<group>"; };
+		634BA66AE427F2FD3D6BAD8D /* ClassData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassData.swift; sourceTree = "<group>"; };
 		634BA6714B07203554E1E74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		634BA6A4FFD70633D8158EBB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		634BAA5F826BDC5BAA36AE04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				634BA2B6081CBBBD80958D7E /* QueryFirebase.swift */,
-				634BA66AE427F2FD3D6BAD8D /* classData.swift */,
+				634BA66AE427F2FD3D6BAD8D /* ClassData.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -457,7 +457,7 @@
 				634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */,
 				634BA92733B038A7D6E1B115 /* ViewController.swift in Sources */,
 				634BA0BA699FA84C75BFE423 /* QueryFirebase.swift in Sources */,
-				634BAF23A0E51542171AD605 /* classData.swift in Sources */,
+				634BAF23A0E51542171AD605 /* ClassData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

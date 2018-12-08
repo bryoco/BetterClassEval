@@ -14,7 +14,7 @@ class QueryFirebase {
         self.ref = Database.database().reference()
     }
 
-    public func queryByLecturer(_ lecturer: String, completion: @escaping (([classData]) -> ())) {
+    public func queryByLecturer(_ lecturer: String, completion: @escaping (([ClassData]) -> ())) {
 
         let q = ref.child("UW")
                 .queryOrdered(byChild: "lecturer")
@@ -32,7 +32,7 @@ class QueryFirebase {
 //        })
     }
 
-    public func queryByClass(_ className: String, completion: @escaping (([classData]) -> ())) {
+    public func queryByClass(_ className: String, completion: @escaping (([ClassData]) -> ())) {
 
         let q = ref.child("UW")
                 .queryOrdered(byChild: "class")
@@ -51,13 +51,13 @@ class QueryFirebase {
 //        })
     }
 
-    private func query(_ q: DatabaseQuery, completion: @escaping (([classData]) -> Void)) {
-        var results: [classData] = []
+    private func query(_ q: DatabaseQuery, completion: @escaping (([ClassData]) -> Void)) {
+        var results: [ClassData] = []
         q.observe(.value, with: { snapshots in
             for snapshot in snapshots.children {
 //                let snap = (snapshot as! DataSnapshot).value as! NSDictionary
                 let snap = snapshot as! DataSnapshot
-                results.append(classData(snap))
+                results.append(ClassData(snap))
             }
             completion(results)
         })

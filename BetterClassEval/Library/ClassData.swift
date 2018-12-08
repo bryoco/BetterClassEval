@@ -7,7 +7,7 @@ import Foundation
 import FirebaseCore
 import FirebaseDatabase
 
-struct classData: CustomDebugStringConvertible {
+struct ClassData: CustomDebugStringConvertible {
     let key: String
     let className: String
     let lecturer: String

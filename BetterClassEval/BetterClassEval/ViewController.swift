@@ -15,15 +15,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        QueryFirebase().queryByLecturer("Stuart Reges", completion: { result in
-//            NSLog(result.debugDescription)
-//        })
-
         QueryFirebase().queryByLecturer("Andy Ko", completion: { results in
             for result in results {
                 NSLog(result.debugDescription)
             }
         })
+
+        QueryFirebase().queryByClass("INFO 200", completion: <#T##@escaping (([classData]) -> ())##@escaping (([BetterClassEval.classData]) -> ())#>)
 
         NSLog("exited from completion")
     }
