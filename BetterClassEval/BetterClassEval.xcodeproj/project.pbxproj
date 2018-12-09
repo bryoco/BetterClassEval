@@ -24,6 +24,8 @@
 		634BAF23A0E51542171AD605 /* ClassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA66AE427F2FD3D6BAD8D /* ClassData.swift */; };
 		7210036BE34A1144B80E70D0 /* Pods_BetterClassEvalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB47DEFCD85451E5B3641A7C /* Pods_BetterClassEvalTests.framework */; };
 		A36292FE7BAC40408AFFF07C /* Pods_BetterClassEvalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA9EB4D71AA6073D5752D6F /* Pods_BetterClassEvalUITests.framework */; };
+		A40B263121BDBBFC00C9C425 /* InstantSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40B263021BDBBFC00C9C425 /* InstantSearch.storyboard */; };
+		A40B263321BDBD9B00C9C425 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40B263221BDBD9B00C9C425 /* SearchTableViewController.swift */; };
 		A478370021BCF62A0023B6A4 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47836FE21BCF62A0023B6A4 /* Post.storyboard */; };
 		A478370C21BCF65E0023B6A4 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370221BCF65D0023B6A4 /* ClassViewController.swift */; };
 		A478370D21BCF65E0023B6A4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370321BCF65D0023B6A4 /* PostTableViewCell.swift */; };
@@ -75,6 +77,8 @@
 		634BAF8106B0F798DE0EBF17 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		6C334225997F8F9B2E671190 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
 		9EA9EB4D71AA6073D5752D6F /* Pods_BetterClassEvalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A40B263021BDBBFC00C9C425 /* InstantSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InstantSearch.storyboard; sourceTree = "<group>"; };
+		A40B263221BDBD9B00C9C425 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		A47836FF21BCF62A0023B6A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		A478370121BCF65D0023B6A4 /* ClassesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
 		A478370221BCF65D0023B6A4 /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
@@ -151,9 +155,14 @@
 			children = (
 				A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */,
 				634BAA5F826BDC5BAA36AE04 /* Info.plist */,
+				A40B263021BDBBFC00C9C425 /* InstantSearch.storyboard */,
 				A478370921BCF65E0023B6A4 /* AppDelegate.swift */,
+				1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */,
 				A478370221BCF65D0023B6A4 /* ClassViewController.swift */,
 				A478370621BCF65D0023B6A4 /* data.swift */,
+				1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */,
+				1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */,
+				1B81A89E21B8C992004A2481 /* MainViewController.swift */,
 				A478370321BCF65D0023B6A4 /* PostTableViewCell.swift */,
 				A478370421BCF65D0023B6A4 /* PostViewController.swift */,
 				A478370A21BCF65E0023B6A4 /* ViewController.swift */,
@@ -162,10 +171,7 @@
 				634BA57864404E1225586934 /* LaunchScreen.storyboard */,
 				634BA35D0626F31CF365D616 /* Main.storyboard */,
 				A47836FE21BCF62A0023B6A4 /* Post.storyboard */,
-				1B81A89E21B8C992004A2481 /* MainViewController.swift */,
-				1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */,
-				1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */,
-				1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */,
+				A40B263221BDBD9B00C9C425 /* SearchTableViewController.swift */,
 			);
 			path = BetterClassEval;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 			files = (
 				634BADE735A9867D02CB11B2 /* LaunchScreen.storyboard in Resources */,
 				1B81A8A521B8DBFE004A2481 /* Assets.xcassets in Resources */,
+				A40B263121BDBBFC00C9C425 /* InstantSearch.storyboard in Resources */,
 				A478370021BCF62A0023B6A4 /* Post.storyboard in Resources */,
 				634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */,
 			);
@@ -482,6 +489,7 @@
 				634BA8FD688B425088C47470 /* FirebaseUser.swift in Sources */,
 				634BAF23A0E51542171AD605 /* ClassData.swift in Sources */,
 				634BACA672BEC324156A5AC1 /* GoogleService-Info.plist in Sources */,
+				A40B263321BDBD9B00C9C425 /* SearchTableViewController.swift in Sources */,
 				634BACB2210499DF2DDDB645 /* BetterClassEval.xcdatamodel in Sources */,
 				634BA41A33831DCEF8E50D8F /* Authentication.swift in Sources */,
 			);
