@@ -52,7 +52,7 @@ class ViewController: UIViewController {
 //        QueryFirebase().uploadEvaluation(classData: testClassData)
 
 
-        NSLog("exited from completion")
+        QueryFirebase().queryByClass()
     }
 
 }

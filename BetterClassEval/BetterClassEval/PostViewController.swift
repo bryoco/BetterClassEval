@@ -8,12 +8,14 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseCore
 
 class PostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let fbUsrEmail = "info449betterclasseval@gmail.com"
     let fbUsrPw = "uwinfo449"
-    var currentData = EvalData.shared
+//    var currentData = EvalData.shared
     var submitForm: [String: Any] = [:]
     var fbUser: FirebaseUser = FirebaseUser(fbEmail: nil, fbPw: nil) {return}
 

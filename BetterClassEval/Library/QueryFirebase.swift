@@ -44,11 +44,11 @@ class QueryFirebase {
     }
 
     public func uploadEvaluation(map: [String : Any]) {
-        self.ref.child("userEval").setValue(data)
+        self.ref.child("userEval").childByAutoId().setValue(map)
     }
 
     public func uploadEvaluation(classData: ClassData) {
-        self.ref.child("userEval").setValue(data.getSelf())
+        self.ref.child("userEval").childByAutoId().setValue(classData.getSelf())
     }
 
     private func query(_ q: DatabaseQuery, completion: @escaping (([ClassData]) -> Void)) {
@@ -56,13 +56,11 @@ class QueryFirebase {
         q.observe(.value, with: { snapshots in
             NSLog("received results")
             var counter = 0
-
             for snapshot in snapshots.children {
                 counter += 1
                 let snap = snapshot as! DataSnapshot
                 results.append(ClassData(snap))
             }
-
             NSLog("completed of size \(counter)")
             completion(results)
         })
@@ -71,9 +69,7 @@ class QueryFirebase {
     func queryAllClasses() {
         let limit = 5
         var counter = 0
-
         var uniqueClass: Set = [""]
-
         ref.child("UW").queryOrdered(byChild: "class").observe(.value, with: { snapshots in
             for snapshot in snapshots.children {
                 counter += 1
