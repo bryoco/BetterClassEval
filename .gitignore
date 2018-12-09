@@ -5,6 +5,11 @@
 MyPlayground.playground/**
 MyPlayground.playground
 
+# Pods
+/Pods/**
+/Pods/
+
+
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
