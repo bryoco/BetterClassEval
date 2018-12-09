@@ -52,7 +52,12 @@ class ViewController: UIViewController {
 //        QueryFirebase().uploadEvaluation(classData: testClassData)
 
 
-        QueryFirebase().queryByClass()
+        QueryFirebase().query(anything: "INFO 200", completion: { results in
+            NSLog("returning results of size \(results.count)")
+            for result in results {
+                NSLog(result.debugDescription)
+            }
+        })
     }
 
 }

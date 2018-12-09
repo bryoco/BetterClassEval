@@ -6,12 +6,15 @@
 import Foundation
 import FirebaseCore
 import FirebaseDatabase
+import InstantSearchClient
 
 class QueryFirebase {
     let ref: DatabaseReference
+    let client: Client
 
     init() {
         self.ref = Database.database().reference()
+        self.client = Client(appID: "WLTP65SNR9", apiKey: "d41b5a90c41803f6948733ad827d9f19")
     }
 
     public func queryByLecturer(target: String, lecturer: String, completion: @escaping (([ClassData]) -> ())) {
@@ -41,6 +44,31 @@ class QueryFirebase {
                 .queryEnding(atValue: className + "\u{F8FF}")
 
         self.query(q, completion: { result in completion(result) })
+    }
+
+    public func query(anything: String, completion: @escaping (([ClassData]) -> ())) {
+        let index = self.client.index(withName: "uw")
+        index.search(Query(query: anything), completionHandler: { (content, error) -> Void in
+            if error == nil {
+                let results = ((content!["hits"]!) as Any) as! [[String : Any]]
+                var classData: [ClassData] = []
+
+                var counter = 0
+                for result in results {
+                    counter += 1
+
+                    classData.append(
+                            ClassData(objectID: result["objectID"] as! String,
+                                      className: result["class"] as! String,
+                                      lecturer: result["lecturer"] as! String,
+                                      quarter: result["quarter"] as! String,
+                                      enrolled: Int(result["enrolled"] as! String)!,
+                                      surveyed: Int(result["surveyed"] as! String)!,
+                                      statistics: result["statistics"] as! [String : Any]))
+                }
+                completion(classData)
+            }
+        })
     }
 
     public func uploadEvaluation(map: [String : Any]) {
