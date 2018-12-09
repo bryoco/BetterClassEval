@@ -103,9 +103,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    override init() {
-        FirebaseApp.configure()
-
-    }
+//    override init() {
+//        FirebaseApp.configure()
+//
+//    }
 
 }

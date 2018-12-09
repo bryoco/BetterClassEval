@@ -8,13 +8,13 @@
 
 import XCTest
 import Foundation
-import SwiftSoup
-import Alamofire
-import BetterClassEval
+//import SwiftSoup
+//import Alamofire
+//import BetterClassEval
 
-@testable import SwiftSoup
-@testable import Alamofire
-@testable import BetterClassEval
+//@testable import SwiftSoup
+//@testable import Alamofire
+//@testable import BetterClassEval
 
 class BetterClassEvalTests: XCTestCase {
 

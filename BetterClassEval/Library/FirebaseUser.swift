@@ -11,13 +11,14 @@ import Firebase
 
 public class FirebaseUser {
     let fbEmail: String?
+    var userID: String?
     
     public init(fbEmail: String?, fbPw: String?, completion: @escaping (() -> Void)) {
         if fbEmail != nil && fbPw != nil {
             self.fbEmail = fbEmail
-
+            createUsr(fbEmail!, fbPw!)
             Auth.auth().signIn(withEmail: fbEmail!, password: fbPw!) { (user, error) in
-                guard let _ = user else {print("\(error.debugDescription)"); return}; completion()}
+                guard let _ = user else {print("\(error.debugDescription)"); return}; self.userID = Auth.auth().currentUser!.uid;completion()}
         } else {
             self.fbEmail = fbEmail
             completion()
@@ -30,16 +31,11 @@ public class FirebaseUser {
         }
     }
     
-    private func getUserID () -> String? {
-        let user = Auth.auth().currentUser!
-        return user.uid
-    }
-    
 
     func postData (_ data: NSDictionary, _ quarter: String, _ forClass: String, completion: @escaping (() -> Void)) {
-        let userID = getUserID()!
+        let userID = self.userID
         let ref = Database.database().reference()
-        ref.child("users/\(userID)/").child("\(quarter)").child("\(data["Name"] as! String)").child("\(forClass)").setValue(data)
+        ref.child("users/\(String(describing: userID!))/").child("\(quarter)").child("\(data["Name"] as! String)").child("\(forClass)").setValue(data)
         completion()
     }
     

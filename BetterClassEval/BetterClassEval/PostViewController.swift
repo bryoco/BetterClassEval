@@ -11,7 +11,7 @@ import Firebase
 
 class PostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let fbUsrEmail = "info449betterclasseval@gmail.com"
+    let fbUsrEmail = "info449betterclasseval1@gmail.com"
     let fbUsrPw = "uwinfo449"
     var currentData = EvalData.shared
     var submitForm: [String: Any] = [:]
@@ -25,15 +25,6 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         lecturerName.text = "\(currentData.professor) \(currentData.classTaught)"
         submitForm.updateValue(currentData.professor, forKey: "Name")
         fbUser = FirebaseUser(fbEmail: fbUsrEmail, fbPw: fbUsrPw) {return}
-//        let testData: [String : Any] = ["Name": "Stuart Reges", "Instructor\'s Contribution": 2, "The Course as a Whole": 3, "Instructor\'s Effectiveness": 1, "Instructor\'s Interest": 4, "Amount Learned": 4, "Grading Techniques": 3, "Course Content": 2]  //mock data for post to firebase
-//        var fbUser = FirebaseUser(fbEmail: nil, fbPw: nil) {return}
-//        fbUser = FirebaseUser(fbEmail: fbUsrEmail, fbPw: fbUsrPw, completion: {
-//            fbUser.postData(testData as NSDictionary, "WI18", "CSE 143"); fbUser.getAllData(ofLecturer: "Stuart Reges", ofQuarter: "WI18", ofClass: "CSE 143") { result in
-//                print(result)
-//            }
-//
-//        })
-        // Do any additional setup after loading the view.
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentData.categories.count

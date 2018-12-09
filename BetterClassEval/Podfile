@@ -20,11 +20,20 @@ target 'BetterClassEval' do
     pod 'SwiftSoup'
     pod 'Alamofire', '~> 4.7'
     pod 'SwiftyJSON'
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Database'
   end
 
   target 'BetterClassEvalUITests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'SwiftSoup'
+    pod 'Alamofire', '~> 4.7'
+    pod 'SwiftyJSON'
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Database'
   end
 
 end
