@@ -24,7 +24,6 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         lecturerName.text = "\(currentData.professor) \(currentData.classTaught)"
         submitForm.updateValue(currentData.professor, forKey: "Name")
-        fbUser = FirebaseUser(fbEmail: fbUsrEmail, fbPw: fbUsrPw) {return}
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentData.categories.count
@@ -52,11 +51,30 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let categoryValue = Int(cell.scoreSlider.value)
             submitForm.updateValue(categoryValue, forKey: categoryName!)
         }
-        fbUser.postData(submitForm as NSDictionary, currentData.quarters, currentData.classTaught) {
-            let uiAlert = UIAlertController(title: "Thank you for evaluating \(self.currentData.professor) for \(self.currentData.classTaught)!", message: nil, preferredStyle: .alert)
-            uiAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(uiAlert, animated: true, completion: nil)
+        let UIalert = UIAlertController(title: "Sign in/ Sign up", message: "Please type in Firebase email and password (If you don't have an account, sign up by typing in an email address and password.)", preferredStyle: .alert)
+        UIalert.addTextField { (username) in
+            username.text = ""
+            username.placeholder = "Login:"
         }
+        UIalert.addTextField(configurationHandler: { (passwordField) in
+            passwordField.text = ""
+            passwordField.placeholder = "Password:"
+            passwordField.isSecureTextEntry = true
+        })
+        UIalert.addAction(UIAlertAction(title:"OK", style: .default, handler: {alert -> Void in
+            let userEmail = UIalert.textFields![0] as UITextField
+            let userPw = UIalert.textFields![1] as UITextField
+            self.fbUser = FirebaseUser(fbEmail: userEmail.text!, fbPw: userPw.text!, completion: {
+                self.fbUser.postData(self.submitForm as NSDictionary, self.currentData.quarters, self.currentData.classTaught) {
+                    let uiAlert = UIAlertController(title: "Thank you for evaluating \(self.currentData.professor) for \(self.currentData.classTaught)!", message: nil, preferredStyle: .alert)
+                    uiAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(uiAlert, animated: true, completion: nil)
+                }
+            })
+        }))
+        UIalert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.present(UIalert, animated: true, completion: nil)
+
     }
     
 }

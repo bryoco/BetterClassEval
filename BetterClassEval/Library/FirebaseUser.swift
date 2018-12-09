@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 public class FirebaseUser {
     let fbEmail: String?
@@ -16,18 +17,18 @@ public class FirebaseUser {
     public init(fbEmail: String?, fbPw: String?, completion: @escaping (() -> Void)) {
         if fbEmail != nil && fbPw != nil {
             self.fbEmail = fbEmail
-            createUsr(fbEmail!, fbPw!)
-            Auth.auth().signIn(withEmail: fbEmail!, password: fbPw!) { (user, error) in
-                guard let _ = user else {print("\(error.debugDescription)"); return}; self.userID = Auth.auth().currentUser!.uid;completion()}
+            createUsr(fbEmail!, fbPw!) {
+                Auth.auth().signIn(withEmail: fbEmail!, password: fbPw!) { (user, error) in
+                    guard let _ = user else {print("\(error.debugDescription)"); return}; self.userID = Auth.auth().currentUser!.uid;completion()}}
         } else {
             self.fbEmail = fbEmail
             completion()
         }
     }
     
-    private func createUsr (_ usrName: String, _ usrPw: String) {
+    private func createUsr (_ usrName: String, _ usrPw: String, completion: @escaping(() -> Void)) {
         Auth.auth().createUser(withEmail: usrName, password: usrPw) { (authResult, error) in
-            guard let _ = authResult?.user else {return}
+            guard let _ = authResult?.user else {return}; completion()
         }
     }
     
