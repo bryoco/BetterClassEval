@@ -24,6 +24,7 @@
 		634BAF23A0E51542171AD605 /* ClassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA66AE427F2FD3D6BAD8D /* ClassData.swift */; };
 		7210036BE34A1144B80E70D0 /* Pods_BetterClassEvalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB47DEFCD85451E5B3641A7C /* Pods_BetterClassEvalTests.framework */; };
 		A36292FE7BAC40408AFFF07C /* Pods_BetterClassEvalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA9EB4D71AA6073D5752D6F /* Pods_BetterClassEvalUITests.framework */; };
+		A418464421BDCAC700050BBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418464321BDCAC700050BBF /* HomeViewController.swift */; };
 		A478370021BCF62A0023B6A4 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47836FE21BCF62A0023B6A4 /* Post.storyboard */; };
 		A478370C21BCF65E0023B6A4 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370221BCF65D0023B6A4 /* ClassViewController.swift */; };
 		A478370D21BCF65E0023B6A4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370321BCF65D0023B6A4 /* PostTableViewCell.swift */; };
@@ -75,6 +76,7 @@
 		634BAF8106B0F798DE0EBF17 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		6C334225997F8F9B2E671190 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
 		9EA9EB4D71AA6073D5752D6F /* Pods_BetterClassEvalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A418464321BDCAC700050BBF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A47836FF21BCF62A0023B6A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		A478370121BCF65D0023B6A4 /* ClassesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
 		A478370221BCF65D0023B6A4 /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */,
 				1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */,
 				1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */,
+				A418464321BDCAC700050BBF /* HomeViewController.swift */,
 			);
 			path = BetterClassEval;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				A478371321BCF65E0023B6A4 /* AppDelegate.swift in Sources */,
 				1B81A8A721B8E1D1004A2481 /* LectuererCell.swift in Sources */,
 				A478370E21BCF65E0023B6A4 /* PostViewController.swift in Sources */,
+				A418464421BDCAC700050BBF /* HomeViewController.swift in Sources */,
 				1B81A89F21B8C992004A2481 /* MainViewController.swift in Sources */,
 				A478371421BCF65E0023B6A4 /* ViewController.swift in Sources */,
 				A478370C21BCF65E0023B6A4 /* ClassViewController.swift in Sources */,

@@ -17,7 +17,8 @@ class ClassViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NSLog("did load ClassViewController")
+
         setUpDummyClass()
 
         // Do any additional setup after loading the view.

@@ -19,7 +19,7 @@ class LecturerViewController: UIViewController, UITableViewDataSource  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NSLog("did load LecturerViewController")
         setUpDummyData()
 
     }

@@ -10,7 +10,6 @@ target 'BetterClassEval' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  pod 'Firebase/Auth'
   pod 'InstantSearchClient'
 
   target 'BetterClassEvalTests' do

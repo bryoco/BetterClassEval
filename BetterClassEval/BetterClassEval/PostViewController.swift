@@ -24,6 +24,8 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSLog("did load PostViewController")
+
         lecturerName.text = "\(currentData.professor) \(currentData.classTaught)"
         submitForm.updateValue(currentData.professor, forKey: "Name")
     }

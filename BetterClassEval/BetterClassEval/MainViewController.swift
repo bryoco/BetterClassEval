@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MainViewController: UITabBarController {
+class MainViewController: UITabBarController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NSLog("did load MainViewController")
         // Do any additional setup after loading the view.
     }
     

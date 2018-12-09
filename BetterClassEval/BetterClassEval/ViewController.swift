@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NSLog("did load ViewController")
         let target = "UW" // or "userEval"
 
 //        // **** Lecturer lookup ****
