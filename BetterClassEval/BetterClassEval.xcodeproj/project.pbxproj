@@ -11,24 +11,26 @@
 		1B81A8A321B8D0CE004A2481 /* LecturerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */; };
 		1B81A8A521B8DBFE004A2481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B81A8A421B8DBFE004A2481 /* Assets.xcassets */; };
 		1B81A8A721B8E1D1004A2481 /* LectuererCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */; };
-		1B81A8A921BB8CE7004A2481 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8A821BB8CE7004A2481 /* ClassViewController.swift */; };
 		1B81A8AB21BB8D29004A2481 /* ClassesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */; };
-		634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA6714B07203554E1E74C /* AppDelegate.swift */; };
+		4449F9EBF249FAECF8C12767 /* Pods_BetterClassEval.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D563323ED91EFFECCFA2D30C /* Pods_BetterClassEval.framework */; };
+		634BA0BA699FA84C75BFE423 /* QueryFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2B6081CBBBD80958D7E /* QueryFirebase.swift */; };
 		634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA35D0626F31CF365D616 /* Main.storyboard */; };
-		634BA4F4FF197EAB29737F72 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */; };
-		634BA784F8C401B651ECA610 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAB94C9EE0027E13BDD4 /* ViewController.swift */; };
 		634BA7B2D325939BE7F2BBE8 /* BetterClassEvalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2E1606169EFF12036E0 /* BetterClassEvalTests.swift */; };
-		634BAA0297D7B6468E95B330 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */; };
+		634BA8FD688B425088C47470 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA10F14003340287FF111 /* FirebaseUser.swift */; };
+		634BACA672BEC324156A5AC1 /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */; };
+		634BACB2210499DF2DDDB645 /* BetterClassEval.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 634BA159DCA4B02F1121D778 /* BetterClassEval.xcdatamodel */; };
 		634BACDD99A4D6B2AD31D2D6 /* BetterClassEvalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BAAE36DEDFEDE1826E4DA /* BetterClassEvalUITests.swift */; };
 		634BADE735A9867D02CB11B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA57864404E1225586934 /* LaunchScreen.storyboard */; };
-		634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634BA20EF42280E142F28DE0 /* BetterClassEval.xcdatamodeld */; };
-		67A3B83FA1D84C98EFE32C17 /* Pods_BetterClassEval.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A133409A6828C3709946917 /* Pods_BetterClassEval.framework */; };
-		6FAB14D30800A81B68515173 /* Pods_BetterClassEvalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1641A0C83FEE6A70FCD129 /* Pods_BetterClassEvalUITests.framework */; };
-		8DACAC3419A0722CE2F41484 /* Pods_BetterClassEvalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BCAFB1EE1D7F3327AF47A0 /* Pods_BetterClassEvalTests.framework */; };
-		A456C83D21AF3C7400104445 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83B21AF3C7400104445 /* HTMLParser.swift */; };
-		A456C83E21AF3C7400104445 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83B21AF3C7400104445 /* HTMLParser.swift */; };
-		A456C83F21AF3C7400104445 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83C21AF3C7400104445 /* Authentication.swift */; };
-		A456C84021AF3C7400104445 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456C83C21AF3C7400104445 /* Authentication.swift */; };
+		634BAF23A0E51542171AD605 /* ClassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA66AE427F2FD3D6BAD8D /* ClassData.swift */; };
+		7DD6F835FB5C7FF164AA3C52 /* Pods_BetterClassEvalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A112DD2D7EF442211D0B89 /* Pods_BetterClassEvalTests.framework */; };
+		8A25166D9ED9211F7F8A6ED9 /* Pods_BetterClassEvalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974438DDB28AD4329906D8D2 /* Pods_BetterClassEvalUITests.framework */; };
+		A478370021BCF62A0023B6A4 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47836FE21BCF62A0023B6A4 /* Post.storyboard */; };
+		A478370C21BCF65E0023B6A4 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370221BCF65D0023B6A4 /* ClassViewController.swift */; };
+		A478370D21BCF65E0023B6A4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370321BCF65D0023B6A4 /* PostTableViewCell.swift */; };
+		A478370E21BCF65E0023B6A4 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370421BCF65D0023B6A4 /* PostViewController.swift */; };
+		A478371021BCF65E0023B6A4 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370621BCF65D0023B6A4 /* data.swift */; };
+		A478371321BCF65E0023B6A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370921BCF65E0023B6A4 /* AppDelegate.swift */; };
+		A478371421BCF65E0023B6A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370A21BCF65E0023B6A4 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,37 +51,46 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		044AB090C52AE8AD2FA893A1 /* Pods-BetterClassEvalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		05B321D7E9B50EC936144E30 /* Pods-BetterClassEval.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.debug.xcconfig"; sourceTree = "<group>"; };
 		1B81A89E21B8C992004A2481 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerViewController.swift; sourceTree = "<group>"; };
 		1B81A8A421B8DBFE004A2481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectuererCell.swift; sourceTree = "<group>"; };
-		1B81A8A821BB8CE7004A2481 /* ClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
 		1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
-		1E254ECF7ADBC3B6286C138C /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
-		634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		634BA07D173F35B84F54A386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		634BA0AC499C96C016CD682D /* BetterClassEvalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterClassEvalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		634BA10F14003340287FF111 /* FirebaseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		634BA159DCA4B02F1121D778 /* BetterClassEval.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BetterClassEval.xcdatamodel; sourceTree = "<group>"; };
+		634BA2B6081CBBBD80958D7E /* QueryFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryFirebase.swift; sourceTree = "<group>"; };
 		634BA2E1606169EFF12036E0 /* BetterClassEvalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterClassEvalTests.swift; sourceTree = "<group>"; };
-		634BA6714B07203554E1E74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		634BA66AE427F2FD3D6BAD8D /* ClassData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassData.swift; sourceTree = "<group>"; };
 		634BAA5F826BDC5BAA36AE04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		634BAAB94C9EE0027E13BDD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		634BAAE36DEDFEDE1826E4DA /* BetterClassEvalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterClassEvalUITests.swift; sourceTree = "<group>"; };
 		634BAB4594A0A89EAE534314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		634BAC9A850B27727AC0D686 /* BetterClassEvalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterClassEvalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		634BAE4CCB0B9DA97B3282A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		634BAED55D90B88148956FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		634BAEE7E8E8F55543666DA5 /* BetterClassEval.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterClassEval.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A1641A0C83FEE6A70FCD129 /* Pods_BetterClassEvalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A133409A6828C3709946917 /* Pods_BetterClassEval.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEval.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A456C83B21AF3C7400104445 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
-		A456C83C21AF3C7400104445 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
-		C4BCAFB1EE1D7F3327AF47A0 /* Pods_BetterClassEvalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1F38FF1FEDAE4B3CCD49A71 /* Pods-BetterClassEvalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D47EEE4CCDC12E608EBC6D63 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
-		E1BF4D6F871988903886388D /* Pods-BetterClassEvalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.release.xcconfig"; sourceTree = "<group>"; };
+		75A112DD2D7EF442211D0B89 /* Pods_BetterClassEvalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B6EFC74655633A64296AF8E /* Pods-BetterClassEvalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8DE4616F5EA01B9207748FA0 /* Pods-BetterClassEval.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.debug.xcconfig"; sourceTree = "<group>"; };
+		9724AF9E4BD686AA6621CD07 /* Pods-BetterClassEvalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		974438DDB28AD4329906D8D2 /* Pods_BetterClassEvalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2FC5BE0DBE28F2C91231AB4 /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
+		A47836FF21BCF62A0023B6A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Post.storyboard; sourceTree = "<group>"; };
+		A478370121BCF65D0023B6A4 /* ClassesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
+		A478370221BCF65D0023B6A4 /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
+		A478370321BCF65D0023B6A4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		A478370421BCF65D0023B6A4 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		A478370521BCF65D0023B6A4 /* LectuererCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectuererCell.swift; sourceTree = "<group>"; };
+		A478370621BCF65D0023B6A4 /* data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
+		A478370721BCF65E0023B6A4 /* LecturerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturerViewController.swift; sourceTree = "<group>"; };
+		A478370821BCF65E0023B6A4 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A478370921BCF65E0023B6A4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A478370A21BCF65E0023B6A4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CF60A1912171FAD62102E434 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
+		D563323ED91EFFECCFA2D30C /* Pods_BetterClassEval.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEval.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC873DA5B3795D1E2E5C747A /* Pods-BetterClassEvalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DACAC3419A0722CE2F41484 /* Pods_BetterClassEvalTests.framework in Frameworks */,
+				7DD6F835FB5C7FF164AA3C52 /* Pods_BetterClassEvalTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FAB14D30800A81B68515173 /* Pods_BetterClassEvalUITests.framework in Frameworks */,
+				8A25166D9ED9211F7F8A6ED9 /* Pods_BetterClassEvalUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,34 +114,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67A3B83FA1D84C98EFE32C17 /* Pods_BetterClassEval.framework in Frameworks */,
+				4449F9EBF249FAECF8C12767 /* Pods_BetterClassEval.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C62312EE58D40628399EDAB /* Frameworks */ = {
+		1C425D28961DB7E1A864EA01 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9A133409A6828C3709946917 /* Pods_BetterClassEval.framework */,
-				C4BCAFB1EE1D7F3327AF47A0 /* Pods_BetterClassEvalTests.framework */,
-				8A1641A0C83FEE6A70FCD129 /* Pods_BetterClassEvalUITests.framework */,
+				D563323ED91EFFECCFA2D30C /* Pods_BetterClassEval.framework */,
+				75A112DD2D7EF442211D0B89 /* Pods_BetterClassEvalTests.framework */,
+				974438DDB28AD4329906D8D2 /* Pods_BetterClassEvalUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4EC245D985C2E4D96615D407 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				05B321D7E9B50EC936144E30 /* Pods-BetterClassEval.debug.xcconfig */,
-				1E254ECF7ADBC3B6286C138C /* Pods-BetterClassEval.release.xcconfig */,
-				D1F38FF1FEDAE4B3CCD49A71 /* Pods-BetterClassEvalTests.debug.xcconfig */,
-				D47EEE4CCDC12E608EBC6D63 /* Pods-BetterClassEvalTests.release.xcconfig */,
-				044AB090C52AE8AD2FA893A1 /* Pods-BetterClassEvalUITests.debug.xcconfig */,
-				E1BF4D6F871988903886388D /* Pods-BetterClassEvalUITests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		634BA1E93B2C9F482649FD2F /* BetterClassEvalTests */ = {
@@ -145,30 +143,36 @@
 		634BA358E3E1C8ACC0BCCC44 = {
 			isa = PBXGroup;
 			children = (
-				A4D247B021ACB58C00D33C27 /* Library */,
-				634BA862D00E913B69734681 /* Products */,
 				634BA35FF88FDA129FBD9A92 /* BetterClassEval */,
 				634BA1E93B2C9F482649FD2F /* BetterClassEvalTests */,
 				634BA95547B9BE514A117671 /* BetterClassEvalUITests */,
-				4EC245D985C2E4D96615D407 /* Pods */,
-				2C62312EE58D40628399EDAB /* Frameworks */,
+				1C425D28961DB7E1A864EA01 /* Frameworks */,
+				A4D247B021ACB58C00D33C27 /* Library */,
+				A0283B2916BDB4BA340A47B9 /* Pods */,
+				634BA862D00E913B69734681 /* Products */,
+				A4C2C5C221BCF7280081C93B /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
 		634BA35FF88FDA129FBD9A92 /* BetterClassEval */ = {
 			isa = PBXGroup;
 			children = (
+				A4B7629C21BB838300A7F763 /* GoogleService-Info.plist */,
 				634BAA5F826BDC5BAA36AE04 /* Info.plist */,
-				634BA6714B07203554E1E74C /* AppDelegate.swift */,
-				634BAAB94C9EE0027E13BDD4 /* ViewController.swift */,
+				A478370921BCF65E0023B6A4 /* AppDelegate.swift */,
+				A478370221BCF65D0023B6A4 /* ClassViewController.swift */,
+				A478370621BCF65D0023B6A4 /* data.swift */,
+				A478370321BCF65D0023B6A4 /* PostTableViewCell.swift */,
+				A478370421BCF65D0023B6A4 /* PostViewController.swift */,
+				A478370A21BCF65E0023B6A4 /* ViewController.swift */,
+				1B81A8A421B8DBFE004A2481 /* Assets.xcassets */,
 				634BA20EF42280E142F28DE0 /* BetterClassEval.xcdatamodeld */,
 				634BA57864404E1225586934 /* LaunchScreen.storyboard */,
 				634BA35D0626F31CF365D616 /* Main.storyboard */,
+				A47836FE21BCF62A0023B6A4 /* Post.storyboard */,
 				1B81A89E21B8C992004A2481 /* MainViewController.swift */,
 				1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */,
-				1B81A8A421B8DBFE004A2481 /* Assets.xcassets */,
 				1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */,
-				1B81A8A821BB8CE7004A2481 /* ClassViewController.swift */,
 				1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */,
 			);
 			path = BetterClassEval;
@@ -193,12 +197,36 @@
 			path = BetterClassEvalUITests;
 			sourceTree = "<group>";
 		};
+		A0283B2916BDB4BA340A47B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8DE4616F5EA01B9207748FA0 /* Pods-BetterClassEval.debug.xcconfig */,
+				A2FC5BE0DBE28F2C91231AB4 /* Pods-BetterClassEval.release.xcconfig */,
+				DC873DA5B3795D1E2E5C747A /* Pods-BetterClassEvalTests.debug.xcconfig */,
+				CF60A1912171FAD62102E434 /* Pods-BetterClassEvalTests.release.xcconfig */,
+				9724AF9E4BD686AA6621CD07 /* Pods-BetterClassEvalUITests.debug.xcconfig */,
+				7B6EFC74655633A64296AF8E /* Pods-BetterClassEvalUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A4C2C5C221BCF7280081C93B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A478370821BCF65E0023B6A4 /* MainViewController.swift */,
+				A478370121BCF65D0023B6A4 /* ClassesCell.swift */,
+				A478370521BCF65D0023B6A4 /* LectuererCell.swift */,
+				A478370721BCF65E0023B6A4 /* LecturerViewController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		A4D247B021ACB58C00D33C27 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				A456C83C21AF3C7400104445 /* Authentication.swift */,
-				A456C83B21AF3C7400104445 /* HTMLParser.swift */,
-				634BA053DF0FEF5F5EFA601E /* StringExtensions.swift */,
+				634BA2B6081CBBBD80958D7E /* QueryFirebase.swift */,
+				634BA66AE427F2FD3D6BAD8D /* ClassData.swift */,
+				634BA10F14003340287FF111 /* FirebaseUser.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -210,7 +238,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 634BA45404450F3705E2809A /* Build configuration list for PBXNativeTarget "BetterClassEvalUITests" */;
 			buildPhases = (
-				AD14F1655B261257A37E8E37 /* [CP] Check Pods Manifest.lock */,
+				5BA6F97E8BAE498991C277A0 /* [CP] Check Pods Manifest.lock */,
 				634BAC856C272F978578B54D /* Sources */,
 				634BA4D690400C168885A316 /* Frameworks */,
 				634BAE0FFE643EB31F54007D /* Resources */,
@@ -229,11 +257,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 634BAE4B527BD77690C267B9 /* Build configuration list for PBXNativeTarget "BetterClassEval" */;
 			buildPhases = (
-				6256F3420B14D3952F1F1153 /* [CP] Check Pods Manifest.lock */,
+				1C04A25001DA623F8D91AB6F /* [CP] Check Pods Manifest.lock */,
 				634BA904709CB2E7767C9B16 /* Sources */,
 				634BAB8F8325B7E472E05210 /* Frameworks */,
 				634BA4BF194DFC98872E72B3 /* Resources */,
-				4AEA7E9033A1F96867F87F29 /* [CP] Embed Pods Frameworks */,
+				3FDBE6558631C2F4B81F96AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,7 +276,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 634BA10F3E8BF858420A00D4 /* Build configuration list for PBXNativeTarget "BetterClassEvalTests" */;
 			buildPhases = (
-				A793F1F091F870393D72AEC4 /* [CP] Check Pods Manifest.lock */,
+				0C8C7B38D62E780D34E20A4C /* [CP] Check Pods Manifest.lock */,
 				634BA16DC3A4A89E8C0AF9AA /* Sources */,
 				634BA03F36CF7A2F1BC2B9ED /* Frameworks */,
 				634BABEDDCFC3B552CE26F36 /* Resources */,
@@ -269,10 +297,11 @@
 		634BA25726FBE3867042D4FA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Group_5;
 				TargetAttributes = {
 					634BA9912564C8AEAD39DFFB = {
-						DevelopmentTeam = 92SQVQT846;
+						DevelopmentTeam = 9HJSMX5PY5;
 					};
 				};
 			};
@@ -282,6 +311,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 634BA358E3E1C8ACC0BCCC44;
 			productRefGroup = 634BA862D00E913B69734681 /* Products */;
@@ -302,6 +332,7 @@
 			files = (
 				634BADE735A9867D02CB11B2 /* LaunchScreen.storyboard in Resources */,
 				1B81A8A521B8DBFE004A2481 /* Assets.xcassets in Resources */,
+				A478370021BCF62A0023B6A4 /* Post.storyboard in Resources */,
 				634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,56 +354,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4AEA7E9033A1F96867F87F29 /* [CP] Embed Pods Frameworks */ = {
+		0C8C7B38D62E780D34E20A4C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6256F3420B14D3952F1F1153 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BetterClassEval-checkManifestLockResult.txt",
+			outputFileListPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A793F1F091F870393D72AEC4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-BetterClassEvalTests-checkManifestLockResult.txt",
 			);
@@ -381,16 +376,70 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AD14F1655B261257A37E8E37 /* [CP] Check Pods Manifest.lock */ = {
+		1C04A25001DA623F8D91AB6F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BetterClassEval-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3FDBE6558631C2F4B81F96AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BA6F97E8BAE498991C277A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-BetterClassEvalUITests-checkManifestLockResult.txt",
 			);
@@ -407,9 +456,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				634BA7B2D325939BE7F2BBE8 /* BetterClassEvalTests.swift in Sources */,
-				A456C83E21AF3C7400104445 /* HTMLParser.swift in Sources */,
-				A456C84021AF3C7400104445 /* Authentication.swift in Sources */,
-				634BA4F4FF197EAB29737F72 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,17 +463,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A478371321BCF65E0023B6A4 /* AppDelegate.swift in Sources */,
 				1B81A8A721B8E1D1004A2481 /* LectuererCell.swift in Sources */,
-				1B81A8A921BB8CE7004A2481 /* ClassViewController.swift in Sources */,
+				A478370E21BCF65E0023B6A4 /* PostViewController.swift in Sources */,
 				1B81A89F21B8C992004A2481 /* MainViewController.swift in Sources */,
-				634BA29536F04546DE6B92B0 /* AppDelegate.swift in Sources */,
-				A456C83D21AF3C7400104445 /* HTMLParser.swift in Sources */,
-				634BADE9C120A0B53F2284E5 /* BetterClassEval.xcdatamodeld in Sources */,
+				A478371421BCF65E0023B6A4 /* ViewController.swift in Sources */,
+				A478370C21BCF65E0023B6A4 /* ClassViewController.swift in Sources */,
+				A478370D21BCF65E0023B6A4 /* PostTableViewCell.swift in Sources */,
 				1B81A8A321B8D0CE004A2481 /* LecturerViewController.swift in Sources */,
 				1B81A8AB21BB8D29004A2481 /* ClassesCell.swift in Sources */,
-				A456C83F21AF3C7400104445 /* Authentication.swift in Sources */,
-				634BA784F8C401B651ECA610 /* ViewController.swift in Sources */,
-				634BAA0297D7B6468E95B330 /* StringExtensions.swift in Sources */,
+				634BA0BA699FA84C75BFE423 /* QueryFirebase.swift in Sources */,
+				A478371021BCF65E0023B6A4 /* data.swift in Sources */,
+				634BA8FD688B425088C47470 /* FirebaseUser.swift in Sources */,
+				634BAF23A0E51542171AD605 /* ClassData.swift in Sources */,
+				634BACA672BEC324156A5AC1 /* GoogleService-Info.plist in Sources */,
+				634BACB2210499DF2DDDB645 /* BetterClassEval.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,12 +521,20 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		A47836FE21BCF62A0023B6A4 /* Post.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A47836FF21BCF62A0023B6A4 /* Base */,
+			);
+			name = Post.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		634BA16E9E99FB7715D7F7B0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1BF4D6F871988903886388D /* Pods-BetterClassEvalUITests.release.xcconfig */;
+			baseConfigurationReference = 7B6EFC74655633A64296AF8E /* Pods-BetterClassEvalUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BetterClassEvalUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -490,7 +548,7 @@
 		};
 		634BA28D50FFF35F65DC530B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 044AB090C52AE8AD2FA893A1 /* Pods-BetterClassEvalUITests.debug.xcconfig */;
+			baseConfigurationReference = 9724AF9E4BD686AA6621CD07 /* Pods-BetterClassEvalUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BetterClassEvalUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -504,13 +562,15 @@
 		};
 		634BA85ECFA11B37827CB045 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E254ECF7ADBC3B6286C138C /* Pods-BetterClassEval.release.xcconfig */;
+			baseConfigurationReference = A2FC5BE0DBE28F2C91231AB4 /* Pods-BetterClassEval.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 92SQVQT846;
+				DEVELOPMENT_TEAM = 9HJSMX5PY5;
 				INFOPLIST_FILE = BetterClassEval/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ricowang.BetterClassEval;
+				PRODUCT_MODULE_NAME = BetterClassEval;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -519,7 +579,7 @@
 		};
 		634BA913869FC62CEF4B2604 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1F38FF1FEDAE4B3CCD49A71 /* Pods-BetterClassEvalTests.debug.xcconfig */;
+			baseConfigurationReference = DC873DA5B3795D1E2E5C747A /* Pods-BetterClassEvalTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BetterClassEval.app/BetterClassEval";
 				INFOPLIST_FILE = BetterClassEvalTests/Info.plist;
@@ -534,7 +594,7 @@
 		};
 		634BA9F1A6449F36A5916F85 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D47EEE4CCDC12E608EBC6D63 /* Pods-BetterClassEvalTests.release.xcconfig */;
+			baseConfigurationReference = CF60A1912171FAD62102E434 /* Pods-BetterClassEvalTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BetterClassEval.app/BetterClassEval";
 				INFOPLIST_FILE = BetterClassEvalTests/Info.plist;
@@ -592,7 +652,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -603,13 +663,14 @@
 		};
 		634BAA935C13D28A452F4213 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05B321D7E9B50EC936144E30 /* Pods-BetterClassEval.debug.xcconfig */;
+			baseConfigurationReference = 8DE4616F5EA01B9207748FA0 /* Pods-BetterClassEval.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 92SQVQT846;
+				DEVELOPMENT_TEAM = 9HJSMX5PY5;
 				INFOPLIST_FILE = BetterClassEval/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ricowang.BetterClassEval;
+				PRODUCT_MODULE_NAME = BetterClassEval;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -667,7 +728,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
