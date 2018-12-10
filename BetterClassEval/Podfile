@@ -11,6 +11,7 @@ target 'BetterClassEval' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'InstantSearchClient'
+  pod 'Charts'
 
   target 'BetterClassEvalTests' do
     inherit! :search_paths

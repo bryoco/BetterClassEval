@@ -70,6 +70,7 @@ public class FirebaseUser {
             // Warp and send
             let obj: [String : Any] = ["data": existingData]
             index.addObject(obj, withID: userID)
+            NSLog("upload completed!")
             completion()
         })
     }

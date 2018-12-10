@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-//import Firebase
 import FirebaseCore
 
 
@@ -23,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Manually set initial view
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Post", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "PostView")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainView")
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
 
