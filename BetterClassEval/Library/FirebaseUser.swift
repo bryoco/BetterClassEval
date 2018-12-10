@@ -40,7 +40,7 @@ public class FirebaseUser {
         completion()
     }
     
-//    returned data example:
+//    returned data example:j
 //    ["Instructor\'s Contribution": ["15%", "20%"], "Grading Techniques": ["35%", "35%"], "Course Content": ["25%", "20%"], "Instructor\'s Interest": ["15%", "15%"], "Amount Learned": ["25%", "25%"], "Instructor\'s Effectiveness": ["5%", "55%"], "The Course as a Whole": ["28%", "50%"]]
     func getAllData(ofLecturer: String, ofQuarter: String, ofClass: String, completion: @escaping ([String: [Int]]) -> Void) {
     //func getAllData(ofLecturer: String, ofQuarter: String) {

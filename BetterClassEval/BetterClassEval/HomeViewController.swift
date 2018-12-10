@@ -8,12 +8,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
 
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchResultTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
+    var selectedData = EvalData.shared
+
     var data: [ClassData] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,16 +36,25 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        let cell = self.tableView.visibleCells[indexPath.row] as! ClassesCell
+        selectedData.professor = cell.lblLecturername.text!
+        selectedData.classTaught = cell.lblClassname.text!
+        selectedData.quarters = cell.lblQuarter.text!
+    }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
         
         self.searchBar.showsScopeBar = true
         self.searchBar.delegate = self
-        
+        super.viewDidLoad()
+
         self.searchBar.placeholder = "Search Anthing!"
         
-        searchResultTableView.dataSource = self
+        self.searchResultTableView.dataSource = self
+        self.searchResultTableView.delegate = self
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

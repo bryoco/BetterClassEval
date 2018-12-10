@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,40 +12,43 @@
         <!--Post View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PostViewController" customModule="BetterClassEval" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostViewController" id="BYZ-38-t0r" customClass="PostViewController" customModule="BetterClassEval" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmB-0o-aPW">
-                                <rect key="frame" x="22" y="20" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lecturer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xc7-eG-477">
-                                <rect key="frame" x="135" y="40" width="105" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lecturer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Xc7-eG-477">
+                                <rect key="frame" x="16" y="40" width="382" height="31"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6s-Kq-LP7">
+                                <rect key="frame" x="351" y="20" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitBtnTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4BB-cm-6qx"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cus-8X-JKC">
-                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <rect key="frame" x="0.0" y="79" width="414" height="657"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="99" id="SIb-gW-g8V" customClass="PostTableViewCell" customModule="BetterClassEval" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="99"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SIb-gW-g8V" id="Ggh-3f-5Br">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="98.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" restorationIdentifier="Item1" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Gxx-vB-IkC">
-                                                    <rect key="frame" x="13" y="58" width="316" height="31"/>
+                                                    <rect key="frame" x="13" y="58.000000000000007" width="316" height="31.333333333333336"/>
                                                     <connections>
                                                         <action selector="slideBarChanged:" destination="SIb-gW-g8V" eventType="valueChanged" id="SlE-ML-mUd"/>
                                                     </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Se3-Lq-fcJ">
-                                                    <rect key="frame" x="334.5" y="63" width="10.5" height="21"/>
+                                                    <rect key="frame" x="334.66666666666669" y="63.333333333333343" width="10.333333333333314" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -80,29 +83,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="FL9-tb-5cf"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6s-Kq-LP7">
-                                <rect key="frame" x="312" y="20" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitBtnTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4BB-cm-6qx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Xc7-eG-477" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Btj-ft-UDh"/>
                             <constraint firstItem="R6s-Kq-LP7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DuZ-3v-FAF"/>
-                            <constraint firstItem="Cus-8X-JKC" firstAttribute="top" secondItem="Xc7-eG-477" secondAttribute="bottom" constant="1" id="KNT-By-fAy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cus-8X-JKC" secondAttribute="trailing" id="MaM-yw-Pvp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cus-8X-JKC" secondAttribute="trailing" id="QDp-JY-uwP"/>
                             <constraint firstItem="Xc7-eG-477" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Y4E-QE-4ha"/>
+                            <constraint firstItem="Xc7-eG-477" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZYA-d3-GMA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xc7-eG-477" secondAttribute="trailing" constant="16" id="ZiO-6T-ZWH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R6s-Kq-LP7" secondAttribute="trailing" constant="14" id="buT-up-i80"/>
-                            <constraint firstItem="fmB-0o-aPW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fbm-D1-mwo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cus-8X-JKC" secondAttribute="bottom" id="m9t-Mj-pGd"/>
+                            <constraint firstItem="Cus-8X-JKC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="49" id="gXN-Ke-pEN"/>
+                            <constraint firstItem="Cus-8X-JKC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-608" id="iC5-wX-uKu"/>
                             <constraint firstItem="Cus-8X-JKC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qOU-Rh-xhh"/>
-                            <constraint firstItem="fmB-0o-aPW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="rGd-gC-LJG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="lecturerName" destination="Xc7-eG-477" id="g3n-4q-iUw"/>
                         <outlet property="tableView" destination="Cus-8X-JKC" id="msd-pw-cL5"/>
@@ -110,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-127.2" y="109.29535232383809"/>
+            <point key="canvasLocation" x="-127.53623188405798" y="109.23913043478262"/>
         </scene>
     </scenes>
 </document>
