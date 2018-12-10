@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B81A89F21B8C992004A2481 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A89E21B8C992004A2481 /* MainViewController.swift */; };
-		1B81A8A321B8D0CE004A2481 /* LecturerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */; };
 		1B81A8A521B8DBFE004A2481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B81A8A421B8DBFE004A2481 /* Assets.xcassets */; };
-		1B81A8A721B8E1D1004A2481 /* LectuererCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */; };
 		1B81A8AB21BB8D29004A2481 /* ClassesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */; };
 		634BA0BA699FA84C75BFE423 /* QueryFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BA2B6081CBBBD80958D7E /* QueryFirebase.swift */; };
 		634BA3DF86BF46DA6C827F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634BA35D0626F31CF365D616 /* Main.storyboard */; };
@@ -55,9 +53,7 @@
 /* Begin PBXFileReference section */
 		0CDEF66FD089D97D3EF7B6EE /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
 		1B81A89E21B8C992004A2481 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturerViewController.swift; sourceTree = "<group>"; };
 		1B81A8A421B8DBFE004A2481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectuererCell.swift; sourceTree = "<group>"; };
 		1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
 		3286A50AB8187B91EC617683 /* Pods-BetterClassEvalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.release.xcconfig"; sourceTree = "<group>"; };
 		35B6082234D6515101B4109D /* Pods-BetterClassEval.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,8 +167,6 @@
 				634BA35D0626F31CF365D616 /* Main.storyboard */,
 				A47836FE21BCF62A0023B6A4 /* Post.storyboard */,
 				1B81A89E21B8C992004A2481 /* MainViewController.swift */,
-				1B81A8A221B8D0CE004A2481 /* LecturerViewController.swift */,
-				1B81A8A621B8E1D1004A2481 /* LectuererCell.swift */,
 				1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */,
 				A418464321BDCAC700050BBF /* HomeViewController.swift */,
 			);
@@ -468,14 +462,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A478371321BCF65E0023B6A4 /* AppDelegate.swift in Sources */,
-				1B81A8A721B8E1D1004A2481 /* LectuererCell.swift in Sources */,
 				A478370E21BCF65E0023B6A4 /* PostViewController.swift in Sources */,
 				A418464421BDCAC700050BBF /* HomeViewController.swift in Sources */,
 				1B81A89F21B8C992004A2481 /* MainViewController.swift in Sources */,
 				A478371421BCF65E0023B6A4 /* ViewController.swift in Sources */,
 				A478370C21BCF65E0023B6A4 /* ClassViewController.swift in Sources */,
 				A478370D21BCF65E0023B6A4 /* PostTableViewCell.swift in Sources */,
-				1B81A8A321B8D0CE004A2481 /* LecturerViewController.swift in Sources */,
 				1B81A8AB21BB8D29004A2481 /* ClassesCell.swift in Sources */,
 				634BA0BA699FA84C75BFE423 /* QueryFirebase.swift in Sources */,
 				A478371021BCF65E0023B6A4 /* data.swift in Sources */,
