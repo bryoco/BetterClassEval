@@ -19,9 +19,13 @@ public class FirebaseUser {
     public init(fbEmail: String?, fbPw: String?, completion: @escaping (() -> Void)) {
         if fbEmail != nil && fbPw != nil {
             self.fbEmail = fbEmail
-            createUsr(fbEmail!, fbPw!) {
+            Auth.auth().createUser(withEmail: fbEmail!, password: fbPw!) {(authResult, error) in
+                guard let _ = authResult?.user else {return} ;
+//            createUsr(fbEmail!, fbPw!) {
+                self.userID = authResult!.user.uid
+                NSLog(self.userID!)
                 Auth.auth().signIn(withEmail: fbEmail!, password: fbPw!) { (user, error) in
-                    guard let _ = user else {print("\(error.debugDescription)"); return}; self.userID = Auth.auth().currentUser!.uid;completion()}}
+                    completion()}}
         } else {
             self.fbEmail = fbEmail
             completion()
