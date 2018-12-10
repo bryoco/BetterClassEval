@@ -17,12 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Registering Firebase
         FirebaseApp.configure()
-        NSLog("did finish launching")
 
+        // Manually set initial view
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainView")
+        let storyboard = UIStoryboard(name: "Post", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "PostView")
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
 

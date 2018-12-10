@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class EvalData: NSObject {
+class EvalData {
     static let shared = EvalData()
     
     open var professor = "Joel Ross"

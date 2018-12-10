@@ -18,6 +18,32 @@ struct ClassData: CustomDebugStringConvertible {
 
     var debugDescription: String
 
+    
+    /// Empty object
+    init() {
+        self.key = ""
+        self.className = ""
+        self.lecturer = ""
+        self.quarter = ""
+        self.enrolled = 0
+        self.surveyed = 0
+        self.statistics = [:]
+
+        self.debugDescription = "key = \(self.key)\n" +
+                "class = \(self.className)\n" +
+                "lecturer = \(self.lecturer)\n" +
+                "quarter = \(self.quarter)\n" +
+                "enrolled = \(String(self.enrolled))\n" +
+                "surveyed = \(String(self.surveyed))\n" +
+                "statistics = \(self.statistics.debugDescription)"
+    }
+    
+    
+    /// Make object from raw data.
+    /// Deprecated.
+    /// Created by Rico
+    ///
+    /// - Parameter rawData: DataSnapshot from Firebase.
     init(_ rawData: DataSnapshot) {
         self.key = rawData.key
 
@@ -38,6 +64,10 @@ struct ClassData: CustomDebugStringConvertible {
                 "statistics = \(self.statistics.debugDescription)"
     }
 
+    /// Make object from raw data.
+    /// Created by Rico
+    ///
+    /// - Parameter data: [String : Any]
     init(_ data: [String : Any]) {
         self.key = ""
 
@@ -57,6 +87,17 @@ struct ClassData: CustomDebugStringConvertible {
                 "statistics = \(self.statistics.debugDescription)"
     }
 
+    
+    /// Make object manually
+    ///
+    /// - Parameters:
+    ///   - objectID
+    ///   - className
+    ///   - lecturer
+    ///   - quarter
+    ///   - enrolled
+    ///   - surveyed
+    ///   - statistics
     init(objectID: String, className: String, lecturer: String, quarter: String, enrolled: Int, surveyed: Int, statistics: [String : Any]) {
         self.key = objectID
         self.className = className
@@ -75,6 +116,10 @@ struct ClassData: CustomDebugStringConvertible {
                 "statistics = \(self.statistics.debugDescription)"
     }
 
+    
+    /// Make map from self
+    ///
+    /// - Returns: [String : Any]
     func getSelf() -> [String : Any] {
         return ["class": self.className,
                 "lecturer": self.lecturer,

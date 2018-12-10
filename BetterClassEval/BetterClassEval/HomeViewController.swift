@@ -16,11 +16,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
     
     var data: [ClassData] = []
     
+    
+    /// TableView protocol stubs
+    /// Created by Raymond
+    ///
+    /// - Parameters:
+    ///   - tableView: TableView
+    ///   - section: Section
+    /// - Returns: Number of sections
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(data.count)
         return data.count
     }
     
+    
+    /// TableView protocol stubs
+    /// Created by Raymond
+    ///
+    /// - Parameters:
+    ///   - tableView: TableView
+    ///   - indexPath: Index
+    /// - Returns: Cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = searchResultTableView.dequeueReusableCell(withIdentifier: "searchCell") as? ClassesCell else {
             return UITableViewCell()
@@ -29,7 +44,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
         cell.lblClassname.text = data[indexPath.row].className
         cell.lblLecturername.text = data[indexPath.row].quarter + " " + data[indexPath.row].lecturer
         cell.lblQuarter.text = ""
-//        cell.lblQuarter.text = data[indexPath.row].quarter
 
         return cell
     }
@@ -38,22 +52,27 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Registering SearchBar delegate
         self.searchBar.showsScopeBar = true
         self.searchBar.delegate = self
-        
         self.searchBar.placeholder = "Search Anything!"
         
+        // Registering TableView data source
         searchResultTableView.dataSource = self
     }
     
+    
+    /// Perform search
+    /// Created by Rico
+    ///
+    /// - Parameter searchBar: UISearchBar
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = self.searchBar.text else { return }
-        
-        
+
+        // Query data
         QueryFirebase().query(anything: query, completion: { results in
             self.data = []
             for result in results {
-//                NSLog(result.debugDescription)
                 self.data.append(result)
             }
             self.searchResultTableView.reloadData()
