@@ -9,6 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchResultTableView: UITableView!
@@ -16,6 +17,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
     var data: [ClassData] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(data.count)
         return data.count
     }
     
@@ -39,16 +41,23 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
         self.searchBar.delegate = self
         
         self.searchBar.placeholder = "Search Anthing!"
+        
+        searchResultTableView.dataSource = self
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = self.searchBar.text else { return }
         
+        
         QueryFirebase().query(anything: query, completion: { results in
+            self.data = []
             for result in results {
-                NSLog(result.debugDescription)
+//                NSLog(result.debugDescription)
+                self.data.append(result)
             }
+            self.searchResultTableView.reloadData()
         })
+        
     }
 
 }
