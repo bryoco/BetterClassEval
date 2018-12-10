@@ -16,23 +16,43 @@ public class FirebaseUser {
     let fbEmail: String?
     var userID: String?
 
-    public init(fbEmail: String?, fbPw: String?, completion: @escaping (() -> Void)) {
+    public init(fbEmail: String?, fbPw: String?, completion: @escaping ((String?) -> ())) {
         if fbEmail != nil && fbPw != nil {
             self.fbEmail = fbEmail
-            Auth.auth().createUser(withEmail: fbEmail!, password: fbPw!) {(authResult, error) in
-                guard let _ = authResult?.user else {return} ;
-//            createUsr(fbEmail!, fbPw!) {
-                self.userID = authResult!.user.uid
-                NSLog(self.userID!)
-                Auth.auth().signIn(withEmail: fbEmail!, password: fbPw!) { (user, error) in
-                    completion()}}
+            Auth.auth().createUser(withEmail: fbEmail!, password: fbPw!) { (authResult, error) in
+
+                // if user exists
+                if error != nil {
+                    NSLog("error at create \(error)")
+                    // Login
+                    Auth.auth().signIn(withEmail: fbEmail!, password: fbPw!) { (user, error) in
+                        if error != nil { NSLog("error at login new user \(error)") }
+                        completion(error!.localizedDescription)
+                    }
+                    // if doesn't exist
+                } else {
+                    guard let _ = authResult?.user else { return }
+                    self.userID = authResult!.user.uid
+                    Auth.auth().signIn(withEmail: fbEmail!, password: fbPw!) { (user, error) in
+                        // Wrong password
+                        if error != nil {
+                            NSLog("error at logging in existing user \(error)")
+                            completion(error!.localizedDescription)
+                        }
+
+//                        self.fbEmail = fbEmail
+                        completion(nil)
+                    }
+                }
+
+            }
         } else {
             self.fbEmail = fbEmail
-            completion()
+            completion(nil)
         }
     }
 
-    
+
     /// Create an user on Firebase.
     /// Created by Frank
     ///
@@ -47,7 +67,7 @@ public class FirebaseUser {
     }
 
 
-    
+
     /// Post user data to Algolio
     /// Created by Rico
     ///
@@ -55,8 +75,10 @@ public class FirebaseUser {
     ///   - data
     ///   - completion: Does nothing
     func postData (_ data: [String : Any], completion: @escaping (() -> Void)) {
-        let userID = self.userID!
 
+        print("data: \(data)")
+
+        let userID = self.userID!
         let client = Client(appID: "WLTP65SNR9", apiKey: "2130a3d1acaa370e6559052e072f1c44")
         let index = client.index(withName: "userEval")
 
@@ -64,17 +86,21 @@ public class FirebaseUser {
         var existingData: [[String : Any]] = []
         QueryFirebase().getUserSubmission(userID: userID, completion: { results in
 
+            // Update existing data with current one
             for r in results {
-                if r["class"] as! String == data["class"] as! String { return }
+                print(r)
+//                if r["class"] as! String == data["class"] as! String {
+//                    return
+//                }
                 existingData.append(r)
             }
 
             existingData.append(data)
 
             // Warp and send
-            let obj: [String : Any] = ["data": existingData]
+            let obj: [String: Any] = ["data": existingData]
+            print("obj: \(obj)")
             index.addObject(obj, withID: userID)
-            NSLog("upload completed!")
             completion()
         })
     }
