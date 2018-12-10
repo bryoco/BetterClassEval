@@ -51,14 +51,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0EB70C244D4308EC05E6D2B5 /* Pods-BetterClassEvalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.release.xcconfig"; sourceTree = "<group>"; };
+		036285C98F51DD86C6E8E19D /* Pods-BetterClassEvalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.release.xcconfig"; sourceTree = "<group>"; };
 		192E41DEA580112C849FC876 /* Pods_BetterClassEvalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B81A89E21B8C992004A2481 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1B81A8A421B8DBFE004A2481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
-		323C9D0CF88B5204F00AFAB6 /* Pods-BetterClassEvalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1ED973D4D0AC4F34DF8FEC80 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
+		2A35A3DF103F2F39CFD7ECC4 /* Pods-BetterClassEvalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		30838E18E3F82FDAED2A423A /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
 		3B8F55D7F3B681BE1A9637B5 /* Pods-BetterClassEvalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.debug.xcconfig"; sourceTree = "<group>"; };
-		577E5A7E425495921D802C96 /* Pods-BetterClassEvalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		602D114CF39294EAB75375DD /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
 		634BA07D173F35B84F54A386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		634BA0AC499C96C016CD682D /* BetterClassEvalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterClassEvalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,10 +76,9 @@
 		634BAED55D90B88148956FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		634BAEE7E8E8F55543666DA5 /* BetterClassEval.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterClassEval.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D6F20C6059E0AC68B95D7CA /* Pods-BetterClassEvalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		76EB1E88368A15861652B8A1 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
-		7CFBC3D2A617E36C0B4BC7BD /* Pods-BetterClassEval.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.debug.xcconfig"; sourceTree = "<group>"; };
+		845C6DEA242F9B01E417FBD8 /* Pods-BetterClassEval.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.debug.xcconfig"; sourceTree = "<group>"; };
 		85BEC698541BDA320F050614 /* Pods-BetterClassEvalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.release.xcconfig"; sourceTree = "<group>"; };
-		8B8E0938D16FD638542D8E00 /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
+		92CAF55B483A2E6C9D3727A6 /* Pods-BetterClassEvalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A418464321BDCAC700050BBF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A47836FF21BCF62A0023B6A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		A478370121BCF65D0023B6A4 /* ClassesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
@@ -202,12 +202,12 @@
 				D768FBD7F0BC1494D4E8AB59 /* Pods-BetterClassEvalTests.release.xcconfig */,
 				6D6F20C6059E0AC68B95D7CA /* Pods-BetterClassEvalUITests.debug.xcconfig */,
 				85BEC698541BDA320F050614 /* Pods-BetterClassEvalUITests.release.xcconfig */,
-				7CFBC3D2A617E36C0B4BC7BD /* Pods-BetterClassEval.debug.xcconfig */,
-				8B8E0938D16FD638542D8E00 /* Pods-BetterClassEval.release.xcconfig */,
-				323C9D0CF88B5204F00AFAB6 /* Pods-BetterClassEvalTests.debug.xcconfig */,
-				76EB1E88368A15861652B8A1 /* Pods-BetterClassEvalTests.release.xcconfig */,
-				577E5A7E425495921D802C96 /* Pods-BetterClassEvalUITests.debug.xcconfig */,
-				0EB70C244D4308EC05E6D2B5 /* Pods-BetterClassEvalUITests.release.xcconfig */,
+				845C6DEA242F9B01E417FBD8 /* Pods-BetterClassEval.debug.xcconfig */,
+				30838E18E3F82FDAED2A423A /* Pods-BetterClassEval.release.xcconfig */,
+				2A35A3DF103F2F39CFD7ECC4 /* Pods-BetterClassEvalTests.debug.xcconfig */,
+				1ED973D4D0AC4F34DF8FEC80 /* Pods-BetterClassEvalTests.release.xcconfig */,
+				92CAF55B483A2E6C9D3727A6 /* Pods-BetterClassEvalUITests.debug.xcconfig */,
+				036285C98F51DD86C6E8E19D /* Pods-BetterClassEvalUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
