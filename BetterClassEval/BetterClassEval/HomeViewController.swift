@@ -8,8 +8,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
 
+    var profSelected = ""
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchResultTableView: UITableView!
@@ -17,7 +18,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
     var data: [ClassData] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(data.count)
+        //print(data.count)
         return data.count
     }
     
@@ -43,6 +44,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
         self.searchBar.placeholder = "Search Anthing!"
         
         searchResultTableView.dataSource = self
+        searchResultTableView.delegate = self
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -58,6 +60,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
             self.searchResultTableView.reloadData()
         })
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //appData.quizController.reset(indexPath.row)
+        self.profSelected = data[indexPath.row].lecturer
+        EvalData.shared.professor = data[indexPath.row].lecturer
+        EvalData.shared.quarters =  data[indexPath.row].quarter
+        EvalData.shared.classTaught = data[indexPath.row].className
+        //EvalData.shared.categories = []
+        self.performSegue(withIdentifier: "toDetail", sender: self)
     }
 
 }

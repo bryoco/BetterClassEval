@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bNO-pN-IjD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bNO-pN-IjD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -114,6 +114,7 @@
                         <outlet property="searchBar" destination="ab6-6o-ZAh" id="Ga0-52-4nN"/>
                         <outlet property="searchDisplayController" destination="7TT-WE-zdt" id="rKt-Xt-YA1"/>
                         <outlet property="searchResultTableView" destination="Kk2-sb-J3R" id="qUb-wN-OpN"/>
+                        <segue destination="3Mb-CE-lwF" kind="show" identifier="toDetail" id="Ito-fW-CKq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yir-de-CGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,6 +128,14 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="784.79999999999995" y="-591.45427286356824"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="owN-Ok-fUx">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="detailStoryboard" storyboardName="Detail" id="3Mb-CE-lwF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0LH-ZR-ymh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1653" y="-550"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="bcS-Rr-v7A">
@@ -147,7 +156,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="home" width="32" height="32"/>
         <image name="w-logo" width="350" height="350"/>
     </resources>
 </document>

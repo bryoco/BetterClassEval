@@ -25,8 +25,11 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         NSLog("did load PostViewController")
+        print(currentData.professor)
+        
+        let classArray = currentData.classTaught.split(separator: " ")
 
-        lecturerName.text = "\(currentData.professor) \(currentData.classTaught)"
+        lecturerName.text = "\(currentData.professor) \(classArray[classArray.count - 3]) \(classArray[classArray.count - 2])"
         submitForm.updateValue(currentData.professor, forKey: "Name")
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

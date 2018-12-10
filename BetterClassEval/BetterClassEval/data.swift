@@ -13,5 +13,6 @@ class EvalData: NSObject {
     open var professor = "Joel Ross"
     open var quarters =  "WI18"
     open var classTaught = "INFO 330"
-    open var categories = ["Instructor\'s Contribution", "The Course as a Whole", "Instructor\'s Effectiveness", "Instructor\'s Interest", "Amount Learned", "Grading Techniques", "Course Content"]
+    open var categories = ["Instructor\'s effectiveness", "The course content", "Instructor\'s contribution", "The course as a whole"]
+    //open var categories = ["Instructor\'s Contribution", "The Course as a Whole", "Instructor\'s Effectiveness", "Instructor\'s Interest", "Amount Learned", "Grading Techniques", "Course Content"]
 }
