@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bNO-pN-IjD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bNO-pN-IjD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -131,14 +131,91 @@
                     </tabBar>
                     <connections>
                         <segue destination="8mR-Nd-kP6" kind="relationship" relationship="viewControllers" id="dRI-yC-b4W"/>
+                        <segue destination="I24-eT-duf" kind="relationship" relationship="viewControllers" id="SEn-aW-gPR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ap0-Jn-0PE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-148" y="96"/>
         </scene>
+        <!--Credits-->
+        <scene sceneID="odP-sP-SjC">
+            <objects>
+                <viewController id="I24-eT-duf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fTC-oZ-68n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o45-xM-H7A">
+                                <rect key="frame" x="157.5" y="38" width="60" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="dtq-zc-ihl">
+                                <rect key="frame" x="135" y="78.5" width="105" height="121"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rico Wang" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUl-AT-1h8">
+                                        <rect key="frame" x="12" y="0.0" width="81.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kyle Wistrand" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoC-yQ-rtk">
+                                        <rect key="frame" x="0.0" y="33.5" width="105" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frank Ge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iH-0l-Bon">
+                                        <rect key="frame" x="18" y="67" width="69" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raymond Lee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyp-20-nZ6">
+                                        <rect key="frame" x="0.5" y="100.5" width="104" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built using Firebase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLk-vk-bNX">
+                                <rect key="frame" x="113" y="249.5" width="149.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built using Algolia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFC-Aj-3ii">
+                                <rect key="frame" x="120" y="275" width="135.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hLk-vk-bNX" firstAttribute="centerX" secondItem="fTC-oZ-68n" secondAttribute="centerX" id="1Kp-kp-YnE"/>
+                            <constraint firstItem="dtq-zc-ihl" firstAttribute="top" secondItem="o45-xM-H7A" secondAttribute="bottom" constant="20" id="AFT-qA-mqF"/>
+                            <constraint firstItem="o45-xM-H7A" firstAttribute="top" secondItem="Hy2-zt-1i0" secondAttribute="top" constant="18" id="a4p-bB-ak4"/>
+                            <constraint firstItem="hLk-vk-bNX" firstAttribute="top" secondItem="dtq-zc-ihl" secondAttribute="bottom" constant="50" id="gio-3u-CyU"/>
+                            <constraint firstItem="o45-xM-H7A" firstAttribute="centerX" secondItem="fTC-oZ-68n" secondAttribute="centerX" id="ifp-ZT-sxF"/>
+                            <constraint firstItem="UFC-Aj-3ii" firstAttribute="top" secondItem="hLk-vk-bNX" secondAttribute="bottom" constant="5" id="tV3-fe-TeJ"/>
+                            <constraint firstItem="dtq-zc-ihl" firstAttribute="centerX" secondItem="fTC-oZ-68n" secondAttribute="centerX" id="tug-Kz-34V"/>
+                            <constraint firstItem="UFC-Aj-3ii" firstAttribute="centerX" secondItem="fTC-oZ-68n" secondAttribute="centerX" id="wAQ-Zi-Lz7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hy2-zt-1i0"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Credits" image="fullStar" selectedImage="fullStar" id="KLi-Jq-TRY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWe-2F-Fow" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="799.20000000000005" y="109.29535232383809"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="home" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="fullStar" width="30" height="30"/>
+        <image name="home" width="32" height="32"/>
     </resources>
 </document>
