@@ -288,8 +288,8 @@
                                                         <constraint firstAttribute="height" constant="64" id="lpY-qH-6F5"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQK-PA-zPP">
-                                                    <rect key="frame" x="87" y="36" width="201" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lecturer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQK-PA-zPP">
+                                                    <rect key="frame" x="87" y="30" width="201" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="9Iy-Eg-mcu"/>
                                                         <constraint firstAttribute="width" constant="201" id="G0Z-hY-bq5"/>
@@ -308,7 +308,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLm-ZV-kDd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLm-ZV-kDd">
                                                     <rect key="frame" x="87" y="11" width="201" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="FmU-Ci-snm"/>
@@ -316,6 +316,13 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quarter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yD-Jm-Hp9">
+                                                    <rect key="frame" x="87" y="45" width="44" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -338,8 +345,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="lblClassAbbrev" destination="fLm-ZV-kDd" id="Dba-ni-yxM"/>
-                                            <outlet property="lblClassFull" destination="JQK-PA-zPP" id="FRF-Jv-pXV"/>
+                                            <outlet property="lblClassname" destination="fLm-ZV-kDd" id="h98-Ej-D8z"/>
+                                            <outlet property="lblLecturername" destination="JQK-PA-zPP" id="gOO-aL-ykc"/>
+                                            <outlet property="lblQuarter" destination="0yD-Jm-Hp9" id="lsu-pW-nvP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

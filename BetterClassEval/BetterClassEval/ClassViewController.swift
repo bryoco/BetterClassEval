@@ -32,8 +32,8 @@ class ClassViewController: UIViewController, UITableViewDataSource {
         guard let cell = tblView.dequeueReusableCell(withIdentifier: "classCell") as? ClassesCell else {
             return UITableViewCell()
         }
-        cell.lblClassAbbrev.text = dummyClasses[indexPath.row].classAbbrev
-        cell.lblClassFull.text = dummyClasses[indexPath.row].classFullName
+//        cell.lblClassAbbrev.text = dummyClasses[indexPath.row].classAbbrev
+//        cell.lblClassFull.text = dummyClasses[indexPath.row].classFullName
         return cell
     }
     

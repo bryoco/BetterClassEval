@@ -9,6 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchResultTableView: UITableView!
     
@@ -23,8 +24,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
             return UITableViewCell()
         }
         
-        cell.lblClassFull.text! = "1"
-        cell.lblClassAbbrev.text! = "2"
+        cell.lblClassname.text = data[indexPath.row].className
+        cell.lblLecturername.text = data[indexPath.row].lecturer
+        cell.lblQuarter.text = data[indexPath.row].quarter
         
         return cell
     }
@@ -48,15 +50,5 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
             }
         })
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

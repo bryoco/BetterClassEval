@@ -10,8 +10,9 @@ import UIKit
 
 class ClassesCell: UITableViewCell {
     
-    @IBOutlet weak var lblClassAbbrev: UILabel!
-    @IBOutlet weak var lblClassFull: UILabel!
+    @IBOutlet weak var lblClassname: UILabel!
+    @IBOutlet weak var lblLecturername: UILabel!
+    @IBOutlet weak var lblQuarter: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
