@@ -110,14 +110,12 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                                    "quarter": self.currentData.quarters,
                                                    "class": self.currentData.classTaught]
 
-                    self.fbUser.postData(postData) {
-
+                    self.fbUser.postData(postData, completion: {
                         let uiAlert = UIAlertController(title: "Thank you for evaluating \(self.currentData.professor) for " +
                                 "\(self.currentData.classTaught)!", message: nil, preferredStyle: .alert)
                         uiAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                         self.present(uiAlert, animated: true, completion: nil)
-
-                    }
+                    })
                 })
             }
         }))
