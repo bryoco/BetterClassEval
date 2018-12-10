@@ -28,9 +28,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
         }
         
         cell.lblClassname.text = data[indexPath.row].className
-        cell.lblLecturername.text = data[indexPath.row].lecturer
-        cell.lblQuarter.text = data[indexPath.row].quarter
-        
+        cell.lblLecturername.text = data[indexPath.row].quarter + " " + data[indexPath.row].lecturer
+        cell.lblQuarter.text = ""
+//        cell.lblQuarter.text = data[indexPath.row].quarter
+
         return cell
     }
     
@@ -41,7 +42,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UISearchBarDe
         self.searchBar.showsScopeBar = true
         self.searchBar.delegate = self
         
-        self.searchBar.placeholder = "Search Anthing!"
+        self.searchBar.placeholder = "Search Anything!"
         
         searchResultTableView.dataSource = self
         searchResultTableView.delegate = self
