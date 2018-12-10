@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,7 +26,6 @@
 		A478370E21BCF65E0023B6A4 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370421BCF65D0023B6A4 /* PostViewController.swift */; };
 		A478371021BCF65E0023B6A4 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370621BCF65D0023B6A4 /* data.swift */; };
 		A478371321BCF65E0023B6A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370921BCF65E0023B6A4 /* AppDelegate.swift */; };
-		A478371421BCF65E0023B6A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478370A21BCF65E0023B6A4 /* ViewController.swift */; };
 		EE0CD77921BE57CB00A50418 /* StarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CD77821BE57CB00A50418 /* StarTableViewCell.swift */; };
 		EE657C7321BE018900A29D19 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE657C7221BE018900A29D19 /* Detail.storyboard */; };
 		EE657C7521BE019300A29D19 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE657C7421BE019300A29D19 /* DetailViewController.swift */; };
@@ -52,11 +51,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0EB70C244D4308EC05E6D2B5 /* Pods-BetterClassEvalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.release.xcconfig"; sourceTree = "<group>"; };
 		192E41DEA580112C849FC876 /* Pods_BetterClassEvalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BetterClassEvalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B81A89E21B8C992004A2481 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1B81A8A421B8DBFE004A2481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B81A8AA21BB8D29004A2481 /* ClassesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
+		323C9D0CF88B5204F00AFAB6 /* Pods-BetterClassEvalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B8F55D7F3B681BE1A9637B5 /* Pods-BetterClassEvalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		577E5A7E425495921D802C96 /* Pods-BetterClassEvalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		602D114CF39294EAB75375DD /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
 		634BA07D173F35B84F54A386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		634BA0AC499C96C016CD682D /* BetterClassEvalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterClassEvalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,9 +74,11 @@
 		634BAE4CCB0B9DA97B3282A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		634BAED55D90B88148956FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		634BAEE7E8E8F55543666DA5 /* BetterClassEval.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterClassEval.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		634BAF8106B0F798DE0EBF17 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		6D6F20C6059E0AC68B95D7CA /* Pods-BetterClassEvalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.debug.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		76EB1E88368A15861652B8A1 /* Pods-BetterClassEvalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEvalTests/Pods-BetterClassEvalTests.release.xcconfig"; sourceTree = "<group>"; };
+		7CFBC3D2A617E36C0B4BC7BD /* Pods-BetterClassEval.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.debug.xcconfig"; sourceTree = "<group>"; };
 		85BEC698541BDA320F050614 /* Pods-BetterClassEvalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEvalUITests.release.xcconfig"; path = "Target Support Files/Pods-BetterClassEvalUITests/Pods-BetterClassEvalUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8B8E0938D16FD638542D8E00 /* Pods-BetterClassEval.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterClassEval.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval.release.xcconfig"; sourceTree = "<group>"; };
 		A418464321BDCAC700050BBF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A47836FF21BCF62A0023B6A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		A478370121BCF65D0023B6A4 /* ClassesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
@@ -198,6 +202,12 @@
 				D768FBD7F0BC1494D4E8AB59 /* Pods-BetterClassEvalTests.release.xcconfig */,
 				6D6F20C6059E0AC68B95D7CA /* Pods-BetterClassEvalUITests.debug.xcconfig */,
 				85BEC698541BDA320F050614 /* Pods-BetterClassEvalUITests.release.xcconfig */,
+				7CFBC3D2A617E36C0B4BC7BD /* Pods-BetterClassEval.debug.xcconfig */,
+				8B8E0938D16FD638542D8E00 /* Pods-BetterClassEval.release.xcconfig */,
+				323C9D0CF88B5204F00AFAB6 /* Pods-BetterClassEvalTests.debug.xcconfig */,
+				76EB1E88368A15861652B8A1 /* Pods-BetterClassEvalTests.release.xcconfig */,
+				577E5A7E425495921D802C96 /* Pods-BetterClassEvalUITests.debug.xcconfig */,
+				0EB70C244D4308EC05E6D2B5 /* Pods-BetterClassEvalUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -301,11 +311,6 @@
 			attributes = {
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Group_5;
-				TargetAttributes = {
-					634BA9912564C8AEAD39DFFB = {
-						DevelopmentTeam = 9HJSMX5PY5;
-					};
-				};
 			};
 			buildConfigurationList = 634BAB3CE720CFD3EB4F4DB7 /* Build configuration list for PBXProject "BetterClassEval" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -387,7 +392,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -408,7 +413,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BetterClassEval/Pods-BetterClassEval-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		98792AD3395A4D14D4459208 /* [CP] Check Pods Manifest.lock */ = {
@@ -546,10 +551,14 @@
 /* Begin XCBuildConfiguration section */
 		634BA16E9E99FB7715D7F7B0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85BEC698541BDA320F050614 /* Pods-BetterClassEvalUITests.release.xcconfig */;
+			baseConfigurationReference = 0EB70C244D4308EC05E6D2B5 /* Pods-BetterClassEvalUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BetterClassEvalUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ricowang.BetterClassEvalUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -563,7 +572,11 @@
 			baseConfigurationReference = 6D6F20C6059E0AC68B95D7CA /* Pods-BetterClassEvalUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BetterClassEvalUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ricowang.BetterClassEvalUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -574,12 +587,15 @@
 		};
 		634BA85ECFA11B37827CB045 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 602D114CF39294EAB75375DD /* Pods-BetterClassEval.release.xcconfig */;
+			baseConfigurationReference = 8B8E0938D16FD638542D8E00 /* Pods-BetterClassEval.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9HJSMX5PY5;
+				DEVELOPMENT_TEAM = J82GKHS47H;
 				INFOPLIST_FILE = BetterClassEval/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ricowang.BetterClassEval;
 				PRODUCT_MODULE_NAME = BetterClassEval;
@@ -595,7 +611,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BetterClassEval.app/BetterClassEval";
 				INFOPLIST_FILE = BetterClassEvalTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ricowang.BetterClassEvalTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -606,11 +626,15 @@
 		};
 		634BA9F1A6449F36A5916F85 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D768FBD7F0BC1494D4E8AB59 /* Pods-BetterClassEvalTests.release.xcconfig */;
+			baseConfigurationReference = 76EB1E88368A15861652B8A1 /* Pods-BetterClassEvalTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BetterClassEval.app/BetterClassEval";
 				INFOPLIST_FILE = BetterClassEvalTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ricowang.BetterClassEvalTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -668,7 +692,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -678,9 +703,12 @@
 			baseConfigurationReference = BAAADBBFAC6C5D04EF97E501 /* Pods-BetterClassEval.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9HJSMX5PY5;
+				DEVELOPMENT_TEAM = J82GKHS47H;
 				INFOPLIST_FILE = BetterClassEval/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ricowang.BetterClassEval;
 				PRODUCT_MODULE_NAME = BetterClassEval;
 				PRODUCT_NAME = "$(TARGET_NAME)";
