@@ -590,7 +590,7 @@
 			baseConfigurationReference = 602D114CF39294EAB75375DD /* Pods-BetterClassEval.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J82GKHS47H;
+				DEVELOPMENT_TEAM = 9HJSMX5PY5;
 				INFOPLIST_FILE = BetterClassEval/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -703,7 +703,7 @@
 			baseConfigurationReference = BAAADBBFAC6C5D04EF97E501 /* Pods-BetterClassEval.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J82GKHS47H;
+				DEVELOPMENT_TEAM = 9HJSMX5PY5;
 				INFOPLIST_FILE = BetterClassEval/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

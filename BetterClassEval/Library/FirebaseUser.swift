@@ -26,9 +26,22 @@ public class FirebaseUser {
                     NSLog("error at create \(error)")
                     // Login
                     Auth.auth().signIn(withEmail: fbEmail!, password: fbPw!) { (user, error) in
-                        if error != nil { NSLog("error at login new user \(error)") }
-                        completion(error!.localizedDescription)
+                        if error != nil {
+                            NSLog("error at login new user \(error)")
+                            completion(error!.localizedDescription)
+                        } else {
+                            completion(nil)
+                        }
+                        
                     }
+                    
+//                    if error != nil {
+//                        NSLog("error at login new user \(error)")
+//                        completion(error!.localizedDescription)
+//                    } else {
+//                        completion(nil)
+//                    }
+                    
                     // if doesn't exist
                 } else {
                     guard let _ = authResult?.user else { return }
@@ -78,7 +91,8 @@ public class FirebaseUser {
 
         print("data: \(data)")
 
-        let userID = self.userID!
+        guard let userID = self.userID else {return}
+        
         let client = Client(appID: "WLTP65SNR9", apiKey: "2130a3d1acaa370e6559052e072f1c44")
         let index = client.index(withName: "userEval")
 
