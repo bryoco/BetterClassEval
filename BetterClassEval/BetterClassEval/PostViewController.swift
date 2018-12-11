@@ -13,6 +13,7 @@ import FirebaseCore
 
 class PostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var submitButton: UIButton!
     var currentData = EvalData.shared
     var submitForm: [String : Any] = [:]
     var fbUser: FirebaseUser = FirebaseUser(fbEmail: nil, fbPw: nil) {_ in return}
@@ -88,6 +89,8 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         })
 
         authenticationAlert.addAction(UIAlertAction(title:"OK", style: .default, handler: { alert -> Void in
+            
+            self.submitButton.isEnabled = false
 
             let userEmail: String = authenticationAlert.textFields![0].text!
             let userPw: String = authenticationAlert.textFields![1].text!
@@ -97,7 +100,9 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 let uiAlert = UIAlertController(title: "Invalid email", message: "You cannot submit an evaluation " +
                         "without a valid UW NetID", preferredStyle: .alert)
                 uiAlert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(uiAlert, animated: true)
+                self.present(uiAlert, animated: true, completion: {
+                    self.submitButton.isEnabled = true
+                })
 
             } else {
 
@@ -108,7 +113,9 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         // Handle errors
                         let uiAlert = UIAlertController(title: "Log in error!", message: error, preferredStyle: .alert)
                         uiAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(uiAlert, animated: true, completion: nil)
+                        self.present(uiAlert, animated: true, completion: {
+                            self.submitButton.isEnabled = true
+                        })
                     } else {
 
                         print("sign up/in complete")
@@ -124,6 +131,7 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         let uiAlert = UIAlertController(title: "Thank you for evaluating \(self.currentData.professor) for " +
                                 "\(self.currentData.classTaught)!", message: nil, preferredStyle: .alert)
                         uiAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        
                         self.present(uiAlert, animated: true, completion: nil)
                     }
                 })
